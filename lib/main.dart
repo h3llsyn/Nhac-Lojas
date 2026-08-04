@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nhac_lojas/pages/home_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,11 +10,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      home: HomePage(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color.fromARGB(255, 255, 231, 229),
       ),
     );
   }
