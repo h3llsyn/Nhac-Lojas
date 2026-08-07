@@ -14,6 +14,9 @@ class MainApp extends StatelessWidget {
       home: HomePage(),
       theme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(255, 255, 231, 229),
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Color.fromARGB(255, 93, 32, 28))
+        )
       ),
     );
   }
