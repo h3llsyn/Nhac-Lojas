@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/orders_card.dart';
 import 'package:nhac_lojas/components/resume_card.dart';
@@ -21,17 +22,16 @@ class HomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 12,
-                        ),
+                        width: 48,
+                        height: 48,
+                        padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 255, 242, 230),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Text(
-                          '🍔',
-                          style: TextStyle(fontSize: 24),
+                        child: Image.asset(
+                          'assets/images/nhac-logo.png',
+                          fit: BoxFit.contain,
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -137,19 +137,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Container(
                 width: double.infinity,
-                alignment: Alignment.topLeft,
-                height: 180,
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'FATURAMENTO',
                       style: TextStyle(
@@ -175,10 +173,41 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    SizedBox(height: 12),
+                    SizedBox(
+                      height: 60,
+                      child: LineChart(
+                        LineChartData(
+                          gridData: FlGridData(show: false),
+                          titlesData: FlTitlesData(show: false),
+                          borderData: FlBorderData(show: false),
+                          lineTouchData: LineTouchData(enabled: false),
+                          lineBarsData: [
+                            LineChartBarData(
+                              spots: [
+                                FlSpot(0, 1.0),
+                                FlSpot(1, 1.2),
+                                FlSpot(2, 1.1),
+                                FlSpot(3, 1.8),
+                                FlSpot(4, 1.5),
+                                FlSpot(5, 2.1),
+                                FlSpot(6, 1.8),
+                                FlSpot(7, 2.0),
+                              ],
+                              isCurved: false,
+                              color: Colors.redAccent,
+                              barWidth: 2.5,
+                              isStrokeCapRound: true,
+                              dotData: FlDotData(show: false),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
