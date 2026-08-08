@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ResumeCard extends StatelessWidget {
   final String numero;
   final String texto;
+  final Color corNumero;
 
-  const ResumeCard({super.key, required this.numero, required this.texto});
+  const ResumeCard({super.key, required this.numero, required this.texto, this.corNumero = const Color.fromARGB(255, 93, 32, 28)});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class ResumeCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
+              color: corNumero,
             ),
           ),
           Text(
