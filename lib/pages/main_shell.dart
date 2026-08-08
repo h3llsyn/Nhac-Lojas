@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/navbar.dart';
 import 'package:nhac_lojas/components/scroll_top_button.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
+import 'package:nhac_lojas/pages/order_page.dart';
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
@@ -24,7 +25,7 @@ class _MainShellState extends State<MainShell> {
 
   final List<Widget> _pages = const [
     HomePage(),
-    Center(child: Text('Pedidos')),
+    OrderPage(),
     Center(child: Text('Chat')),
     Center(child: Text('Perfil')),
   ];

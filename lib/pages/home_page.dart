@@ -73,12 +73,12 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     'RESUMO DE HOJE',
                     style: TextStyle(
@@ -296,7 +296,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   OrdersCard(
-                    codigoENome: '#1250 - Maria Silva',
+                    codigoENome: '#1250 · Maria Silva',
                     preco: 'R\$ 49,90',
                     horario: '12:30',
                     situacao: 'Em preparo',
@@ -307,7 +307,7 @@ class HomePage extends StatelessWidget {
                   Divider(color: const Color.fromARGB(50, 158, 158, 158),),
                   SizedBox(height: 8,),
                   OrdersCard(
-                    codigoENome: '#1249 - João Pedro',
+                    codigoENome: '#1249 · João Pedro',
                     preco: 'R\$ 62,50',
                     horario: '12:10',
                     situacao: 'A caminho',
