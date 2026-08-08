@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                       horizontal: 12,
                     ),
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 255, 242, 230),
+                      color: Colors.white,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
