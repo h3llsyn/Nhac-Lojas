@@ -81,9 +81,7 @@ class _MainShellState extends State<MainShell> {
                 child: FloatingNavBar(
                   items: _items,
                   selectedIndex: _selectedIndex,
-                  isCollapsed: _isScrolledDown,
                   onItemTap: _onNavTap,
-                  onCollapsedTap: _scrollToTop,
                 ),
               ),
             ],

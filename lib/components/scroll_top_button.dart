@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-/// Botão circular flutuante "voltar ao topo".
-///
-/// Não sabe nada sobre scroll — quem hospeda decide quando [visible] é true
-/// (normalmente ligado ao mesmo _isScrolledDown que colapsa a FloatingNavBar)
-/// e o que acontece no toque via [onTap] (ex: scrollController.animateTo(0)).
 class ScrollToTopButton extends StatelessWidget {
   final bool visible;
   final VoidCallback onTap;
-
-  /// Distância do fundo da tela quando VISÍVEL (acima da navbar colapsada).
   final double bottomOffsetVisible;
-
-  /// Distância do fundo da tela quando ESCONDIDO (perto da navbar expandida,
-  /// ainda ocupa espaço mas fica sem interação).
   final double bottomOffsetHidden;
 
   const ScrollToTopButton({
