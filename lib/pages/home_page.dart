@@ -8,318 +8,316 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 46, horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 48,
-                        height: 48,
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 242, 230),
-                          borderRadius: BorderRadius.circular(20),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 48,
+                      height: 48,
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 255, 242, 230),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Image.asset(
+                        'assets/images/nhac-logo.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        Text(
+                          'Nhac Burguer',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        child: Image.asset(
-                          'assets/images/nhac-logo.png',
-                          fit: BoxFit.contain,
+                        Text(
+                          '• Loja aberta',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 12,
+                  ),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.notifications_none_rounded,
+                    size: 24,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'RESUMO DE HOJE',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    'Ver mais >',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 4),
+            Row(
+              children: const [
+                Expanded(
+                  child: ResumeCard(
+                    numero: '34',
+                    texto: 'Pedidos',
+                  ),
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  child: ResumeCard(
+                    numero: '5',
+                    texto: 'Em preparo',
+                    corNumero: Colors.orange,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: const [
+                Expanded(
+                  child: ResumeCard(
+                    numero: '4',
+                    texto: 'A caminho',
+                    corNumero: Colors.redAccent,
+                  ),
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  child: ResumeCard(
+                    numero: '25',
+                    texto: 'Concluídos',
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'FATURAMENTO',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    'R\$ 1.284,90',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    '↑ +12,5% em relação a ontem',
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  SizedBox(
+                    height: 60,
+                    child: LineChart(
+                      LineChartData(
+                        gridData: FlGridData(show: false),
+                        titlesData: FlTitlesData(show: false),
+                        borderData: FlBorderData(show: false),
+                        lineTouchData: LineTouchData(enabled: false),
+                        lineBarsData: [
+                          LineChartBarData(
+                            spots: [
+                              FlSpot(0, 1.0),
+                              FlSpot(1, 1.2),
+                              FlSpot(2, 1.1),
+                              FlSpot(3, 1.8),
+                              FlSpot(4, 1.5),
+                              FlSpot(5, 2.1),
+                              FlSpot(6, 1.8),
+                              FlSpot(7, 2.0),
+                            ],
+                            isCurved: false,
+                            color: Colors.redAccent,
+                            barWidth: 2.5,
+                            isStrokeCapRound: true,
+                            dotData: FlDotData(show: false),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 16),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'AVALIAÇÃO DA LOJA',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Text(
+                        '4,8',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
                         children: const [
                           Text(
-                            'Nhac Burguer',
+                            '★★★★★',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                              color: Colors.orangeAccent,
+                              fontSize: 14,
                             ),
                           ),
                           Text(
-                            '• Loja aberta',
+                            '127 avaliações',
                             style: TextStyle(
+                              color: Colors.grey,
                               fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 12,
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'ÚLTIMOS PEDIDOS',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.notifications_none_rounded,
-                      size: 24,
+                  ),
+                  Text(
+                    'Ver todos >',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.redAccent,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'RESUMO DE HOJE',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      'Ver mais >',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.redAccent,
-                      ),
-                    ),
-                  ],
-                ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
               ),
-              const SizedBox(height: 4),
-              Row(
-                children: const [
-                  Expanded(
-                    child: ResumeCard(
-                      numero: '34',
-                      texto: 'Pedidos',
-                    ),
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  OrdersCard(
+                    codigoENome: '#1250 - Maria Silva',
+                    preco: 'R\$ 49,90',
+                    horario: '12:30',
+                    situacao: 'Em preparo',
+                    corSituacaoFundo: const Color.fromARGB(50, 33, 149, 243),
+                    corSituacao: Colors.blue
                   ),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: ResumeCard(
-                      numero: '5',
-                      texto: 'Em preparo',
-                      corNumero: Colors.orange,
-                    ),
+                  SizedBox(height: 8,),
+                  Divider(color: const Color.fromARGB(50, 158, 158, 158),),
+                  SizedBox(height: 8,),
+                  OrdersCard(
+                    codigoENome: '#1249 - João Pedro',
+                    preco: 'R\$ 62,50',
+                    horario: '12:10',
+                    situacao: 'A caminho',
+                    corSituacaoFundo: const Color.fromARGB(50, 255, 82, 82),
+                    corSituacao: Colors.redAccent
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
-              Row(
-                children: const [
-                  Expanded(
-                    child: ResumeCard(
-                      numero: '4',
-                      texto: 'A caminho',
-                      corNumero: Colors.redAccent,
-                    ),
-                  ),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: ResumeCard(
-                      numero: '25',
-                      texto: 'Concluídos',
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 16),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'FATURAMENTO',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      'R\$ 1.284,90',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      '↑ +12,5% em relação a ontem',
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 12),
-                    SizedBox(
-                      height: 60,
-                      child: LineChart(
-                        LineChartData(
-                          gridData: FlGridData(show: false),
-                          titlesData: FlTitlesData(show: false),
-                          borderData: FlBorderData(show: false),
-                          lineTouchData: LineTouchData(enabled: false),
-                          lineBarsData: [
-                            LineChartBarData(
-                              spots: [
-                                FlSpot(0, 1.0),
-                                FlSpot(1, 1.2),
-                                FlSpot(2, 1.1),
-                                FlSpot(3, 1.8),
-                                FlSpot(4, 1.5),
-                                FlSpot(5, 2.1),
-                                FlSpot(6, 1.8),
-                                FlSpot(7, 2.0),
-                              ],
-                              isCurved: false,
-                              color: Colors.redAccent,
-                              barWidth: 2.5,
-                              isStrokeCapRound: true,
-                              dotData: FlDotData(show: false),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 16),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                width: double.infinity,
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'AVALIAÇÃO DA LOJA',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        const Text(
-                          '4,8',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              '★★★★★',
-                              style: TextStyle(
-                                color: Colors.orangeAccent,
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text(
-                              '127 avaliações',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'ÚLTIMOS PEDIDOS',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Text(
-                      'Ver todos >',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.redAccent,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                width: double.infinity,
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    OrdersCard(
-                      codigoENome: '#1250 - Maria Silva',
-                      preco: 'R\$ 49,90',
-                      horario: '12:30',
-                      situacao: 'Em preparo',
-                      corSituacaoFundo: const Color.fromARGB(50, 33, 149, 243),
-                      corSituacao: Colors.blue
-                    ),
-                    SizedBox(height: 8,),
-                    Divider(color: const Color.fromARGB(50, 158, 158, 158),),
-                    SizedBox(height: 8,),
-                    OrdersCard(
-                      codigoENome: '#1249 - João Pedro',
-                      preco: 'R\$ 62,50',
-                      horario: '12:10',
-                      situacao: 'A caminho',
-                      corSituacaoFundo: const Color.fromARGB(50, 255, 82, 82),
-                      corSituacao: Colors.redAccent
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

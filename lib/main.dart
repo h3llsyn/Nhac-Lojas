@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nhac_lojas/pages/home_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nhac_lojas/pages/main_shell.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,14 +11,21 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-      theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(255, 255, 231, 229),
-        textTheme: TextTheme(
-          bodyMedium: TextStyle(color: Color.fromARGB(255, 93, 32, 28))
-        )
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          home: const MainShell(),
+          theme: ThemeData(
+            scaffoldBackgroundColor: Color.fromARGB(255, 255, 231, 229),
+            textTheme: TextTheme(
+              bodyMedium: TextStyle(color: Color.fromARGB(255, 93, 32, 28))
+            )
+          ),
+        );
+      },
     );
   }
 }
