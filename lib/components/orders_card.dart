@@ -8,14 +8,36 @@ class OrdersCard extends StatelessWidget {
   final double preco;
   final String horario;
   final String situacao;
-  final Color corSituacaoFundo;
-  final Color corSituacao;
-  final Color corCirculo;
+  Color corSituacaoFundo;
+  Color corSituacao;
+  Color corCirculo;
 
-  const OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, required this.corSituacaoFundo, required this.corSituacao, required this.corCirculo});
+  OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, this.corSituacaoFundo = Colors.transparent, this.corSituacao = Colors.transparent, this.corCirculo = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
+
+    if(situacao == 'Em preparo'){
+      corCirculo = Colors.blue;
+      corSituacao = Colors.blue;
+      corSituacaoFundo = const Color.fromARGB(50, 33, 149, 243);
+    }
+    else if(situacao == 'A caminho'){
+      corCirculo = Colors.redAccent;
+      corSituacao = Colors.redAccent;
+      corSituacaoFundo = const Color.fromARGB(50, 255, 82, 82);
+    }
+    else if(situacao == 'Entregue'){
+      corCirculo = Colors.green;
+      corSituacao = Colors.green;
+      corSituacaoFundo = const Color.fromARGB(50, 76, 175, 79);
+    }
+    else if(situacao == 'Novo'){
+      corCirculo = Colors.orange;
+      corSituacao = Colors.orange;
+      corSituacaoFundo = const Color.fromARGB(50, 255, 153, 0);
+    }
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -36,24 +58,14 @@ class OrdersCard extends StatelessWidget {
                   fontSize: 14,
                 ),
               ),
-              if (quantidadeItens == 1)
-                Text(
-                  '$quantidadeItens item · R\$ $preco',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              else
-                Text(
-                  '$quantidadeItens itens · R\$ $preco',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
+              Text(
+                '$quantidadeItens ${quantidadeItens == 1 ? 'item' : 'itens'} · R\$ ${preco.toStringAsFixed(2)}',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
                 ),
+              )
             ],
           ),
         ),
