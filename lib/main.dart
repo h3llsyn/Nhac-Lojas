@@ -19,6 +19,7 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           home: const MainShell(),
           theme: ThemeData(
+            fontFamily: 'Roboto',
             scaffoldBackgroundColor: Color.fromARGB(255, 255, 231, 229),
             textTheme: TextTheme(
               bodyMedium: TextStyle(color: Color.fromARGB(255, 93, 32, 28))
