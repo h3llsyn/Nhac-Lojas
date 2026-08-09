@@ -10,28 +10,15 @@ class OrdersCard extends StatelessWidget {
   final String situacao;
   final Color corSituacaoFundo;
   final Color corSituacao;
-  final bool isHome;
-  Color corCirculo;
+  final Color corCirculo;
 
-  OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, required this.corSituacaoFundo, required this.corSituacao, required this.isHome, this.corCirculo = Colors.transparent});
+  const OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, required this.corSituacaoFundo, required this.corSituacao, required this.corCirculo});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        isHome ?
-        Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 255, 242, 230),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Text(
-            '🍔',
-            style: TextStyle(fontSize: 20),
-          ),
-        ) :
         Icon(
           Icons.circle,
           size: 14,
@@ -49,14 +36,24 @@ class OrdersCard extends StatelessWidget {
                   fontSize: 14,
                 ),
               ),
-              Text(
-                '$quantidadeItens itens · R\$ $preco',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
+              if (quantidadeItens == 1)
+                Text(
+                  '$quantidadeItens item · R\$ $preco',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              else
+                Text(
+                  '$quantidadeItens itens · R\$ $preco',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
             ],
           ),
         ),
