@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 
 class OrdersCard extends StatelessWidget {
 
-  final String codigoENome;
-  final String preco;
+  final int codigo;
+  final String nome;
+  final int quantidadeItens;
+  final double preco;
   final String horario;
   final String situacao;
   final Color corSituacaoFundo;
   final Color corSituacao;
+  final bool isHome;
+  Color corCirculo;
 
-  const OrdersCard({super.key, required this.codigoENome, required this.preco, required this.horario, required this.situacao, required this.corSituacaoFundo, required this.corSituacao});
+  OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, required this.corSituacaoFundo, required this.corSituacao, required this.isHome, this.corCirculo = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        isHome ?
         Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -26,6 +31,11 @@ class OrdersCard extends StatelessWidget {
             '🍔',
             style: TextStyle(fontSize: 20),
           ),
+        ) :
+        Icon(
+          Icons.circle,
+          size: 14,
+          color: corCirculo,
         ),
         SizedBox(width: 12),
         Expanded(
@@ -33,14 +43,14 @@ class OrdersCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                codigoENome,
+                '#$codigo · $nome',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
               ),
               Text(
-                preco,
+                '$quantidadeItens itens · R\$ $preco',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 12,

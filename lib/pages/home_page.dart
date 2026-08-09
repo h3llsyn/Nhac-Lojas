@@ -98,9 +98,9 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             Row(
-              children: const [
+              children: [
                 Expanded(
                   child: ResumeCard(
                     numero: '34',
@@ -117,9 +117,9 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Row(
-              children: const [
+              children: [
                 Expanded(
                   child: ResumeCard(
                     numero: '4',
@@ -296,23 +296,29 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   OrdersCard(
-                    codigoENome: '#1250 · Maria Silva',
-                    preco: 'R\$ 49,90',
+                    codigo: 1250,
+                    nome: 'Maria Silva',
+                    quantidadeItens: 2,
+                    preco: 49.90,
                     horario: '12:30',
                     situacao: 'Em preparo',
                     corSituacaoFundo: const Color.fromARGB(50, 33, 149, 243),
-                    corSituacao: Colors.blue
+                    corSituacao: Colors.blue,
+                    isHome: true,
                   ),
                   SizedBox(height: 8,),
                   Divider(color: const Color.fromARGB(50, 158, 158, 158),),
                   SizedBox(height: 8,),
                   OrdersCard(
-                    codigoENome: '#1249 · João Pedro',
-                    preco: 'R\$ 62,50',
+                    codigo: 1249,
+                    nome: 'João Pedro',
+                    quantidadeItens: 3,
+                    preco: 62.50,
                     horario: '12:10',
                     situacao: 'A caminho',
                     corSituacaoFundo: const Color.fromARGB(50, 255, 82, 82),
-                    corSituacao: Colors.redAccent
+                    corSituacao: Colors.redAccent,
+                    isHome: true,
                   ),
                 ],
               ),
