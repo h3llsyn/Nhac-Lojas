@@ -41,7 +41,7 @@ class OrderPage extends StatelessWidget {
                   ),
                   SizedBox(width: 8,),
                   FilterTag(
-                    filtro: 'Novos',
+                    filtro: 'Confirmar',
                     quantidade: 1,
                     isSelected: false,
                   ),
@@ -107,7 +107,7 @@ class OrderPage extends StatelessWidget {
                 quantidadeItens: 2,
                 preco: 33.00,
                 horario: '11:45',
-                situacao: 'Novo',
+                situacao: 'Confirmar',
               ),
             ),
             SizedBox(height: 12,),

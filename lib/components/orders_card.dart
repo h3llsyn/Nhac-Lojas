@@ -32,7 +32,7 @@ class OrdersCard extends StatelessWidget {
       corSituacao = Colors.green;
       corSituacaoFundo = const Color.fromARGB(50, 76, 175, 79);
     }
-    else if(situacao == 'Novo'){
+    else if(situacao == 'Confirmar'){
       corCirculo = Colors.orange;
       corSituacao = Colors.orange;
       corSituacaoFundo = const Color.fromARGB(50, 255, 153, 0);
