@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/orders_card.dart';
 import 'package:nhac_lojas/components/resume_card.dart';
 
@@ -57,19 +58,8 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 12,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.notifications_none_rounded,
-                    size: 24,
-                  ),
+                IconContainer(
+                  icon: Icons.notifications_none_rounded
                 ),
               ],
             ),

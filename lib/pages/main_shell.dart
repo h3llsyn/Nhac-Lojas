@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/navbar.dart';
 import 'package:nhac_lojas/components/scroll_top_button.dart';
+import 'package:nhac_lojas/pages/chat_page.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
 import 'package:nhac_lojas/pages/order_page.dart';
 
@@ -26,7 +27,7 @@ class _MainShellState extends State<MainShell> {
   final List<Widget> _pages = const [
     HomePage(),
     OrderPage(),
-    Center(child: Text('Chat')),
+    ChatPage(),
     Center(child: Text('Perfil')),
   ];
 
@@ -72,7 +73,7 @@ class _MainShellState extends State<MainShell> {
                 children: _pages,
               ),
               ScrollToTopButton(
-                visible: _isScrolledDown && _selectedIndex == 0,
+                visible: _isScrolledDown,
                 onTap: _scrollToTop,
               ),
               Positioned(
