@@ -18,6 +18,7 @@ class MainApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           home: const MainShell(),
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: 'Roboto',
             scaffoldBackgroundColor: Color.fromARGB(255, 255, 231, 229),
