@@ -59,7 +59,7 @@ class OrdersCard extends StatelessWidget {
                 ),
               ),
               Text(
-                '$quantidadeItens ${quantidadeItens == 1 ? 'item' : 'itens'} · R\$ ${preco.toStringAsFixed(2)}',
+                '$quantidadeItens ${quantidadeItens == 1 ? 'item' : 'itens'} · R\$ ${preco.toStringAsFixed(2).replaceAll('.', ',')}',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 12,
