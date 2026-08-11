@@ -9,7 +9,6 @@ import 'package:nhac_lojas/pages/order_page.dart';
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
   routes: [
-    // ShellRoute garante que o MainShell (NavBar) fique fixo por baixo das abas
     ShellRoute(
       builder: (context, state, child) {
         return MainShell(child: child);

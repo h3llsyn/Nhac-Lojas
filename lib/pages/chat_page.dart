@@ -16,7 +16,6 @@ class ChatPage extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Chats',
@@ -25,16 +24,13 @@ class ChatPage extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),
                 ),
-                Row(
-                  children: [
-                    IconContainer(
-                      icon: Icons.search
-                    ),
-                    SizedBox(width: 8,),
-                    IconContainer(
-                      icon: Icons.more_horiz
-                    ),
-                  ],
+                Spacer(),
+                IconContainer(
+                  icon: Icons.search
+                ),
+                SizedBox(width: 8,),
+                IconContainer(
+                  icon: Icons.more_horiz
                 ),
               ],
             ),

@@ -15,7 +15,9 @@ class MainShell extends StatefulWidget {
 class _MainShellState extends State<MainShell> {
   int _selectedIndex = 0;
   bool _isScrolledDown = false;
-  ScrollController? _activeScrollController;
+  
+  // Instância única para controlar o scroll das telas filhas com primary: true
+  final ScrollController _scrollController = ScrollController();
 
   final _items = const [
     NavBarItem(icon: Icons.house_outlined, label: 'Início'),
@@ -25,9 +27,14 @@ class _MainShellState extends State<MainShell> {
   ];
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   void didUpdateWidget(covariant MainShell oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Sempre que o widget filho mudar (ex: abriu detalhamento de pedido), reseta o botão
     if (oldWidget.child != widget.child) {
       setState(() {
         _isScrolledDown = false;
@@ -58,8 +65,8 @@ class _MainShellState extends State<MainShell> {
   }
 
   void _scrollToTop() {
-    if (_activeScrollController != null && _activeScrollController!.hasClients) {
-      _activeScrollController!.animateTo(
+    if (_scrollController.hasClients) {
+      _scrollController.animateTo(
         0,
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeOutCubic,
@@ -71,48 +78,46 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: NotificationListener<ScrollNotification>(
-        onNotification: (notification) {
-          if (notification.metrics.axis == Axis.vertical) {
-            // Guarda a referência do controller da scroll view ativa
-            if (notification.context != null) {
-              final controller = PrimaryScrollController.of(notification.context!);
-              _activeScrollController = controller;
-            }
+      // Fornece o _scrollController de forma segura para todas as telas internas
+      body: PrimaryScrollController(
+        controller: _scrollController,
+        child: NotificationListener<ScrollNotification>(
+          onNotification: (notification) {
+            if (notification.metrics.axis == Axis.vertical) {
+              // Garante que o botão fique oculto caso a tela não precise de scroll
+              if (notification.metrics.maxScrollExtent < 150) {
+                if (_isScrolledDown) setState(() => _isScrolledDown = false);
+                return false;
+              }
 
-            // Se a tela não possui scroll suficiente (> 150px), garante que o botão fique oculto
-            if (notification.metrics.maxScrollExtent < 150) {
-              if (_isScrolledDown) setState(() => _isScrolledDown = false);
-              return false;
+              // Alterna a visibilidade com base na distância percorrida
+              if (notification.metrics.pixels > 150 && !_isScrolledDown) {
+                setState(() => _isScrolledDown = true);
+              } else if (notification.metrics.pixels <= 150 && _isScrolledDown) {
+                setState(() => _isScrolledDown = false);
+              }
             }
-
-            // Atualiza visibilidade do botão de voltar ao topo com base na posição
-            if (notification.metrics.pixels > 150 && !_isScrolledDown) {
-              setState(() => _isScrolledDown = true);
-            } else if (notification.metrics.pixels <= 150 && _isScrolledDown) {
-              setState(() => _isScrolledDown = false);
-            }
-          }
-          return false;
-        },
-        child: Stack(
-          children: [
-            widget.child,
-            ScrollToTopButton(
-              visible: _isScrolledDown,
-              onTap: _scrollToTop,
-            ),
-            Positioned(
-              left: 24,
-              right: 24,
-              bottom: 20,
-              child: FloatingNavBar(
-                items: _items,
-                selectedIndex: _selectedIndex,
-                onItemTap: _onNavTap,
+            return false;
+          },
+          child: Stack(
+            children: [
+              widget.child,
+              ScrollToTopButton(
+                visible: _isScrolledDown,
+                onTap: _scrollToTop,
               ),
-            ),
-          ],
+              Positioned(
+                left: 24,
+                right: 24,
+                bottom: 20,
+                child: FloatingNavBar(
+                  items: _items,
+                  selectedIndex: _selectedIndex,
+                  onItemTap: _onNavTap,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
