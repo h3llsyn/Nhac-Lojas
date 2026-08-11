@@ -65,7 +65,7 @@ class ChatPage extends StatelessWidget {
                 mensagem: 'Olá, poderia enviar mais molho, por favor?',
                 horario: '12:35',
                 status: StatusMensagem.naoLida,
-                quantidadeMensagens: 2
+                quantidadeMensagens: 2,
               ),
             ),
             SizedBox(height: 12,),
@@ -96,7 +96,7 @@ class ChatPage extends StatelessWidget {
                 nome: 'Lucas Martins',
                 mensagem: 'Pode deixar na portaria',
                 horario: 'Ontem',
-                status: StatusMensagem.visualizada
+                status: StatusMensagem.visualizada,
               ),
             ),
           ],

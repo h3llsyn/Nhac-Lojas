@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-// Enum para controlar os 3 estados da mensagem
 enum StatusMensagem {
-  naoLida,       // Exibe a bolhinha com quantidade de mensagens
-  enviada,       // Exibe o ícone de check
-  visualizada,   // Não exibe nada (você já leu a mensagem dele)
+  naoLida, //bolinha com número
+  enviada, //check
+  visualizada, //nada
 }
 
 class ChatsCard extends StatelessWidget {

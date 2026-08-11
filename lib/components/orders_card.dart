@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OrdersCard extends StatelessWidget {
 
@@ -12,7 +13,7 @@ class OrdersCard extends StatelessWidget {
   Color corSituacao;
   Color corCirculo;
 
-  OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, this.corSituacaoFundo = Colors.transparent, this.corSituacao = Colors.transparent, this.corCirculo = Colors.transparent});
+  OrdersCard({super.key, required this.codigo, required this.nome, required this.quantidadeItens, required this.preco, required this.horario, required this.situacao, this.corSituacaoFundo = Colors.transparent, this.corSituacao = Colors.transparent, this.corCirculo = Colors.transparent,});
 
   @override
   Widget build(BuildContext context) {
@@ -38,70 +39,75 @@ class OrdersCard extends StatelessWidget {
       corSituacaoFundo = const Color.fromARGB(50, 255, 153, 0);
     }
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(
-          Icons.circle,
-          size: 14,
-          color: corCirculo,
-        ),
-        SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return InkWell(
+      onTap: () {
+        context.push('/order-details');
+      },
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.circle,
+            size: 14,
+            color: corCirculo,
+          ),
+          SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '#$codigo · $nome',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                Text(
+                  '$quantidadeItens ${quantidadeItens == 1 ? 'item' : 'itens'} · R\$ ${preco.toStringAsFixed(2).replaceAll('.', ',')}',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '#$codigo · $nome',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
-              ),
-              Text(
-                '$quantidadeItens ${quantidadeItens == 1 ? 'item' : 'itens'} · R\$ ${preco.toStringAsFixed(2).replaceAll('.', ',')}',
+                horario,
                 style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 12,
                   fontWeight: FontWeight.w500,
+                  fontSize: 12,
                 ),
-              )
+              ),
+              SizedBox(height: 4),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 4,
+                  horizontal: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: corSituacaoFundo,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  situacao,
+                  style: TextStyle(
+                    color: corSituacao,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ],
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
-              horario,
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w500,
-                fontSize: 12,
-              ),
-            ),
-            SizedBox(height: 4),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 4,
-                horizontal: 10,
-              ),
-              decoration: BoxDecoration(
-                color: corSituacaoFundo,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Text(
-                situacao,
-                style: TextStyle(
-                  color: corSituacao,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
