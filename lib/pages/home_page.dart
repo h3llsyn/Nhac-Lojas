@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:nhac_lojas/components/container_card.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/orders_card.dart';
 import 'package:nhac_lojas/components/resume_card.dart';
@@ -278,14 +279,8 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              child: Column(
+            ContainerCard(
+              children: Column(
                 children: [
                   OrdersCard(
                     codigo: 1250,
@@ -295,9 +290,9 @@ class HomePage extends StatelessWidget {
                     horario: '12:30',
                     situacao: 'Em preparo',
                   ),
-                  SizedBox(height: 8,),
-                  Divider(color: const Color.fromARGB(50, 158, 158, 158),),
-                  SizedBox(height: 8,),
+                  const SizedBox(height: 8),
+                  const Divider(color: Color.fromARGB(50, 158, 158, 158)),
+                  const SizedBox(height: 8),
                   OrdersCard(
                     codigo: 1249,
                     nome: 'João Pedro',

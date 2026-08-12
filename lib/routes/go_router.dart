@@ -17,7 +17,7 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/',
           //MUDAR PRA HOME AAAAAAAAAAAAAAAAAAA
-          builder: (context, state) => const OrderDetails(),
+          builder: (context, state) => const HomePage(),
         ),
         GoRoute(
           path: '/orders',
