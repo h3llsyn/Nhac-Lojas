@@ -3,7 +3,6 @@ import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/orders_card.dart';
 
-
 class OrderDetails extends StatelessWidget {
   const OrderDetails({super.key});
 
@@ -17,22 +16,22 @@ class OrderDetails extends StatelessWidget {
           children: [
             Row(
               children: [
-                BackArrow(),
-                SizedBox(width: 12,),
-                Text(
+                const BackArrow(),
+                const SizedBox(width: 12),
+                const Text(
                   'Pedido #1250',
                   style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Spacer(),
-                IconContainer(
+                const Spacer(),
+                const IconContainer(
                   icon: Icons.print_rounded,
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 4,
@@ -42,7 +41,7 @@ class OrderDetails extends StatelessWidget {
                 color: const Color.fromARGB(50, 33, 149, 243),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Text(
+              child: const Text(
                 'Em preparo',
                 style: TextStyle(
                   color: Colors.blue,
@@ -51,8 +50,8 @@ class OrderDetails extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 12,),
-            Text(
+            const SizedBox(height: 12),
+            const Text(
               'INFORMAÇÕES DO CLIENTE',
               style: TextStyle(
                 fontSize: 14,
@@ -60,7 +59,7 @@ class OrderDetails extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
-            SizedBox(height: 12,),
+            const SizedBox(height: 12),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -70,23 +69,99 @@ class OrderDetails extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  Container(
-                    width: 48,
-                    height: 48,
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 242, 230),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.person),
-                        SizedBox(width: 24,),
-                        Text(
-                          'Maria Silva'
-                        )
-                      ]
-                    ),
+                  Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 242, 230),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.person,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      const Text(
+                        'Maria Silva',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8,),
+                  Divider(color: const Color.fromARGB(50, 158, 158, 158),),
+                  SizedBox(height: 8,),
+                  Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 242, 230),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.call,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      const Text(
+                        '(11) 98765-4321',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8,),
+                  Divider(color: const Color.fromARGB(50, 158, 158, 158),),
+                  SizedBox(height: 8,),
+                  Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 242, 230),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.place,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Rua das Flores, 123',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const Text(
+                            'Apt 45 - Centro',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -17,7 +17,6 @@ class _MainShellState extends State<MainShell> {
   int _selectedIndex = 0;
   bool _isScrolledDown = false;
   
-  // Instância única para controlar o scroll das telas filhas com primary: true
   final ScrollController _scrollController = ScrollController();
 
   final _items = const [
