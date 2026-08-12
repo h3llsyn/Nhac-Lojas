@@ -96,6 +96,12 @@ class OrderDetails extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
+            const SizedBox(height: 14),
+            ContainerOrderDetails(
+              informacao: 'X-Burguer',
+              complemento: '1x · Sem cebola · Bacon',
+              preco: 28.90,
+            ),
           ],
         ),
       ),

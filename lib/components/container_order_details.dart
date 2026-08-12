@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class ContainerOrderDetails extends StatelessWidget {
 
-  final IconData icon;
+  final IconData? icon;
   final String informacao;
   final String? complemento;
+  final double? preco;
 
-  const ContainerOrderDetails({required this.icon, required this.informacao, this.complemento, super.key});
+  const ContainerOrderDetails({this.icon, required this.informacao, this.complemento, this.preco, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,11 @@ class ContainerOrderDetails extends StatelessWidget {
               ),
             ],
           ],
+        ),
+        Expanded(
+          child: Text(
+            'R\$preco'
+          ),
         ),
       ],
     );
