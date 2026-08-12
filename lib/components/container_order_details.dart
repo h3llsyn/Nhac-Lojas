@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class ContainerOrderDetails extends StatelessWidget {
   final IconData? icon;
   final String informacao;
+  final int? quantidade;
   final String? complemento;
   final double? preco;
 
   const ContainerOrderDetails({
     this.icon,
     required this.informacao,
+    this.quantidade,
     this.complemento,
     this.preco,
     super.key,
@@ -26,9 +28,7 @@ class ContainerOrderDetails extends StatelessWidget {
               color: const Color.fromARGB(255, 255, 242, 230),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Center(
-              child: Icon(icon, color: const Color(0xFFFF8C00)),
-            ),
+            child: Center(child: Icon(icon)),
           ),
           const SizedBox(width: 14),
         ],
@@ -43,27 +43,36 @@ class ContainerOrderDetails extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              if (complemento != null) ...[
-                const SizedBox(height: 2),
-                Text(
-                  complemento!,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey,
+              Row(
+                children: [
+                  Text(
+                    '${quantidade}x',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
-              ],
+                  if (complemento != null) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    ' · $complemento',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  ],
+                ],
+              ),
             ],
           ),
         ),
         if (preco != null)
           Text(
             'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
       ],
     );

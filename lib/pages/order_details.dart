@@ -97,10 +97,33 @@ class OrderDetails extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 14),
-            ContainerOrderDetails(
-              informacao: 'X-Burguer',
-              complemento: '1x · Sem cebola',
-              preco: 28.90,
+            ContainerCard(
+              children: Column(
+                children: [
+                  ContainerOrderDetails(
+                    informacao: 'X-Burguer',
+                    quantidade: 1,
+                    complemento:'Sem cebola',
+                    preco: 28.90,
+                  ),
+                  SizedBox(height: 8,),
+                  Divider(color: const Color.fromARGB(50, 158, 158, 158),),
+                  SizedBox(height: 8,),
+                  ContainerOrderDetails(
+                    informacao: 'Batata Frita Média',
+                    quantidade: 1,
+                    preco: 12.00,
+                  ),
+                  SizedBox(height: 8,),
+                  Divider(color: const Color.fromARGB(50, 158, 158, 158),),
+                  SizedBox(height: 8,),
+                  ContainerOrderDetails(
+                    informacao: 'Coca-Cola 350ml',
+                    quantidade: 1,
+                    preco: 5.00,
+                  ),
+                ],
+              )
             ),
           ],
         ),
