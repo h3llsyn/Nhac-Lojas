@@ -99,7 +99,7 @@ class OrderDetails extends StatelessWidget {
             const SizedBox(height: 14),
             ContainerOrderDetails(
               informacao: 'X-Burguer',
-              complemento: '1x · Sem cebola · Bacon',
+              complemento: '1x · Sem cebola',
               preco: 28.90,
             ),
           ],
