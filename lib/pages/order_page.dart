@@ -3,6 +3,7 @@ import 'package:nhac_lojas/components/container_card.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/orders_card.dart';
+import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({super.key});
@@ -10,6 +11,7 @@ class OrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: ScrollShellController.of(context),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
         child: Column(

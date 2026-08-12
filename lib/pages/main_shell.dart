@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/navbar.dart';
 import 'package:nhac_lojas/components/scroll_top_button.dart';
+import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
 class MainShell extends StatefulWidget {
   final Widget child;
@@ -78,8 +79,10 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      // Fornece o _scrollController de forma segura para todas as telas internas
-      body: PrimaryScrollController(
+      // Fornece o _scrollController de forma explícita para todas as telas
+      // internas (não usa mais o PrimaryScrollController nativo do Flutter,
+      // que não estava conectando de forma confiável neste projeto).
+      body: ScrollShellController(
         controller: _scrollController,
         child: NotificationListener<ScrollNotification>(
           onNotification: (notification) {

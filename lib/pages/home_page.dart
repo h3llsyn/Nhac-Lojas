@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/orders_card.dart';
 import 'package:nhac_lojas/components/resume_card.dart';
+import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      controller: PrimaryScrollController.of(context),
+      controller: ScrollShellController.of(context),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
         child: Column(
