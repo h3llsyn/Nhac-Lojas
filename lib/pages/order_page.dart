@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nhac_lojas/components/container_card.dart';
+import 'package:nhac_lojas/components/container_card_design.dart';
+import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
-import 'package:nhac_lojas/components/orders_card.dart';
 import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
 class OrderPage extends StatelessWidget {
@@ -69,10 +69,10 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24,),
-            ContainerCard(
-              children: OrdersCard(
+            ContainerCardDesign(
+              children: ContainerNhac(
                 codigo: 1250,
-                nome: 'Maria Silva',
+                informacao: 'Maria Silva',
                 quantidadeItens: 2,
                 preco: 49.90,
                 horario: '12:30',
@@ -80,10 +80,10 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: OrdersCard(
+            ContainerCardDesign(
+              children: ContainerNhac(
                 codigo: 1249,
-                nome: 'João Pedro',
+                informacao: 'João Pedro',
                 quantidadeItens: 3,
                 preco: 62.50,
                 horario: '12:10',
@@ -91,10 +91,10 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: OrdersCard(
+            ContainerCardDesign(
+              children: ContainerNhac(
                 codigo: 1248,
-                nome: 'Ana Clara',
+                informacao: 'Ana Clara',
                 quantidadeItens: 1,
                 preco: 25.00,
                 horario: '12:00',
@@ -102,10 +102,10 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: OrdersCard(
+            ContainerCardDesign(
+              children: ContainerNhac(
                 codigo: 1247,
-                nome: 'Lucas Martins',
+                informacao: 'Lucas Martins',
                 quantidadeItens: 2,
                 preco: 33.00,
                 horario: '11:45',
@@ -113,10 +113,10 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: OrdersCard(
+            ContainerCardDesign(
+              children: ContainerNhac(
                 codigo: 1246,
-                nome: 'Fernanda Lima',
+                informacao: 'Fernanda Lima',
                 quantidadeItens: 1,
                 preco: 18.90,
                 horario: '11:30',

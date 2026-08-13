@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
-import 'package:nhac_lojas/components/container_card.dart';
-import 'package:nhac_lojas/components/container_order_details.dart';
+import 'package:nhac_lojas/components/container_card_design.dart';
+import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
-import 'package:nhac_lojas/components/orders_card.dart';
 
 class OrderDetails extends StatelessWidget {
   const OrderDetails({super.key});
@@ -62,24 +61,24 @@ class OrderDetails extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            ContainerCard(
+            ContainerCardDesign(
               children: Column(
                 children: [
-                  ContainerOrderDetails(
+                  ContainerNhac(
                     icon: Icons.person,
                     informacao: 'Maria Silva'
                   ),
                   SizedBox(height: 8,),
                   Divider(color: const Color.fromARGB(50, 158, 158, 158),),
                   SizedBox(height: 8,),
-                  ContainerOrderDetails(
+                  ContainerNhac(
                     icon: Icons.call,
                     informacao: '(11) 98765-4321'
                   ),
                   SizedBox(height: 8,),
                   Divider(color: const Color.fromARGB(50, 158, 158, 158),),
                   SizedBox(height: 8,),
-                  ContainerOrderDetails(
+                  ContainerNhac(
                     icon: Icons.place,
                     informacao: 'Rua das Flores, 123',
                     complemento: 'Apt 45 - Centro',
@@ -97,7 +96,7 @@ class OrderDetails extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 14),
-            ContainerOrderDetails(
+            ContainerNhac(
               informacao: 'X-Burguer',
               complemento: '1x · Sem cebola',
               preco: 28.90,

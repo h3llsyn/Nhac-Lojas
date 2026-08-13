@@ -1,9 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:nhac_lojas/components/container_card.dart';
+import 'package:nhac_lojas/components/container_card_design.dart';
+import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
-import 'package:nhac_lojas/components/orders_card.dart';
-import 'package:nhac_lojas/components/resume_card.dart';
 import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -95,18 +94,24 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ResumeCard(
-                    numero: '34',
-                    texto: 'Pedidos',
+                  child: ContainerCardDesign(
+                    children: ContainerNhac(
+                      informacao: '34',
+                      fontSize: 20,
+                      complemento: 'Pedidos'
+                    ),
                   ),
                 ),
                 SizedBox(width: 8),
                 Expanded(
-                  child: ResumeCard(
-                    numero: '5',
-                    texto: 'Em preparo',
-                    corNumero: Colors.orange,
-                  ),
+                  child: ContainerCardDesign(
+                    children: ContainerNhac(
+                      informacao: '5',
+                      fontSize: 20,
+                      complemento: 'Em preparo',
+                      corIcone: Colors.orange,
+                    ),
+                  ), 
                 ),
               ],
             ),
@@ -114,17 +119,23 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ResumeCard(
-                    numero: '4',
-                    texto: 'A caminho',
-                    corNumero: Colors.redAccent,
+                  child: ContainerCardDesign(
+                    children: ContainerNhac(
+                      informacao: '4',
+                      fontSize: 20,
+                      complemento: 'A caminho',
+                      corIcone: Colors.redAccent,
+                    ),
                   ),
                 ),
                 SizedBox(width: 8),
                 Expanded(
-                  child: ResumeCard(
-                    numero: '25',
-                    texto: 'Concluídos',
+                  child: ContainerCardDesign(
+                    children: ContainerNhac(
+                      informacao: '25',
+                      fontSize: 20,
+                      complemento: 'Concluídos',
+                    ),
                   ),
                 ),
               ],
@@ -279,12 +290,12 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            ContainerCard(
+            ContainerCardDesign(
               children: Column(
                 children: [
-                  OrdersCard(
+                  ContainerNhac(
                     codigo: 1250,
-                    nome: 'Maria Silva',
+                    informacao: 'Maria Silva',
                     quantidadeItens: 2,
                     preco: 49.90,
                     horario: '12:30',
@@ -293,9 +304,9 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 8),
                   const Divider(color: Color.fromARGB(50, 158, 158, 158)),
                   const SizedBox(height: 8),
-                  OrdersCard(
+                  ContainerNhac(
                     codigo: 1249,
-                    nome: 'João Pedro',
+                    informacao: 'João Pedro',
                     quantidadeItens: 3,
                     preco: 62.50,
                     horario: '12:10',

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ContainerCard extends StatelessWidget {
+class ContainerCardDesign extends StatelessWidget {
   final Widget children;
 
-  const ContainerCard({required this.children, super.key});
+  const ContainerCardDesign({required this.children, super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nhac_lojas/components/chats_card.dart';
-import 'package:nhac_lojas/components/container_card.dart';
+import 'package:nhac_lojas/components/container_card_design.dart';
+import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
-import 'package:nhac_lojas/components/orders_card.dart';
 import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
 class ChatPage extends StatelessWidget {
@@ -28,7 +27,7 @@ class ChatPage extends StatelessWidget {
                 ),
                 Spacer(),
                 IconContainer(
-                  icon: Icons.search
+                  icon: Icons.search,
                 ),
                 SizedBox(width: 8,),
                 IconContainer(
@@ -56,45 +55,49 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24,),
-            ContainerCard(
-              children: ChatsCard(
-                letras: 'MS',
-                nome: 'Maria Silva',
-                mensagem: 'Olá, poderia enviar mais molho, por favor?',
+            ContainerCardDesign(
+              children: ContainerNhac(
+                letrasIcon: 'MS',
+                informacao: 'Maria Silva',
+                complemento: 'Olá, poderia enviar mais molho, por favor?',
                 horario: '12:35',
-                status: StatusMensagem.naoLida,
+                statusMensagem: StatusMensagem.naoLida,
+                formatoIcone: BoxShape.circle,
                 quantidadeMensagens: 2,
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: ChatsCard(
-                letras: 'JP',
-                nome: 'João Pedro',
-                mensagem: 'Obrigado!',
+            ContainerCardDesign(
+              children: ContainerNhac(
+                letrasIcon: 'JP',
+                informacao: 'João Pedro',
+                complemento: 'Obrigado!',
                 horario: '11:50',
-                status: StatusMensagem.enviada,
+                formatoIcone: BoxShape.circle,
+                statusMensagem: StatusMensagem.enviada,
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: ChatsCard(
-                letras: 'AC',
-                nome: 'Ana Clara',
-                mensagem: 'Qual o tempo médio de entrega?',
+            ContainerCardDesign(
+              children: ContainerNhac(
+                letrasIcon: 'AC',
+                informacao: 'Ana Clara',
+                complemento: 'Qual o tempo médio de entrega?',
                 horario: 'Ontem',
-                status: StatusMensagem.naoLida,
+                formatoIcone: BoxShape.circle,
+                statusMensagem: StatusMensagem.naoLida,
                 quantidadeMensagens: 1,
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCard(
-              children: ChatsCard(
-                letras: 'LM',
-                nome: 'Lucas Martins',
-                mensagem: 'Pode deixar na portaria',
+            ContainerCardDesign(
+              children: ContainerNhac(
+                letrasIcon: 'LM',
+                informacao: 'Lucas Martins',
+                complemento: 'Pode deixar na portaria',
                 horario: 'Ontem',
-                status: StatusMensagem.visualizada,
+                formatoIcone: BoxShape.circle,
+                statusMensagem: StatusMensagem.visualizada,
               ),
             ),
           ],
