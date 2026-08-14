@@ -167,9 +167,7 @@ class OrderDetailsPage extends StatelessWidget {
               const SizedBox(height: 16),
               ButtonNhac(
                 texto: 'Atualizar status',
-                onPressed: () {
-                  
-                },
+                onPressed: (){},
               )
             ],
           ),

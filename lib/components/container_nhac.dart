@@ -26,6 +26,7 @@ class ContainerNhac extends StatelessWidget {
   final int? quantidadeMensagens;
   final Color? corIcone;
   final Color? corFundoIcone;
+  final Color? corComplemento;
   final BoxShape formatoIcone;
   final VoidCallback? onTap;
   final bool precoEmDestaque;
@@ -51,6 +52,7 @@ class ContainerNhac extends StatelessWidget {
     this.quantidadeMensagens,
     this.corIcone,
     this.corFundoIcone = const Color.fromARGB(255, 255, 242, 230),
+    this.corComplemento,
     this.formatoIcone = BoxShape.rectangle,
     this.onTap,
     this.precoEmDestaque = false,
@@ -173,7 +175,7 @@ class ContainerNhac extends StatelessWidget {
                   style: TextStyle(
                     fontSize: fontSizeComplemento ?? 12,
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey,
+                    color: corComplemento ?? Colors.grey,
                   ),
                 ),
               ],

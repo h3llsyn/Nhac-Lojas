@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
@@ -64,6 +65,7 @@ class ChatPage extends StatelessWidget {
                 statusMensagem: StatusMensagem.naoLida,
                 formatoIcone: BoxShape.circle,
                 quantidadeMensagens: 2,
+                onTap: () => context.push('/chat-open'),
               ),
             ),
             SizedBox(height: 12,),
@@ -75,6 +77,7 @@ class ChatPage extends StatelessWidget {
                 horario: '11:50',
                 formatoIcone: BoxShape.circle,
                 statusMensagem: StatusMensagem.enviada,
+                onTap: () => context.push('/chat-open'),
               ),
             ),
             SizedBox(height: 12,),
@@ -87,6 +90,7 @@ class ChatPage extends StatelessWidget {
                 formatoIcone: BoxShape.circle,
                 statusMensagem: StatusMensagem.naoLida,
                 quantidadeMensagens: 1,
+                onTap: () => context.push('/chat-open'),
               ),
             ),
             SizedBox(height: 12,),
@@ -98,6 +102,7 @@ class ChatPage extends StatelessWidget {
                 horario: 'Ontem',
                 formatoIcone: BoxShape.circle,
                 statusMensagem: StatusMensagem.visualizada,
+                onTap: () => context.push('/chat-open'),
               ),
             ),
           ],
