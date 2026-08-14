@@ -37,7 +37,7 @@ class ChatOpen extends StatelessWidget {
                   color: Colors.grey,
                 )
               ),
-              SizedBox(height: 28,),
+              SizedBox(height: 16,),
               ContainerCardDesign(
                 children: ContainerNhac(
                   icon: Icons.receipt,

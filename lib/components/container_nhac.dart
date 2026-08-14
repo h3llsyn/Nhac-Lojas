@@ -27,6 +27,7 @@ class ContainerNhac extends StatelessWidget {
   final Color? corIcone;
   final Color? corFundoIcone;
   final Color? corComplemento;
+  final Color? corTitulo;
   final BoxShape formatoIcone;
   final VoidCallback? onTap;
   final bool precoEmDestaque;
@@ -53,6 +54,7 @@ class ContainerNhac extends StatelessWidget {
     this.corIcone,
     this.corFundoIcone = const Color.fromARGB(255, 255, 242, 230),
     this.corComplemento,
+    this.corTitulo,
     this.formatoIcone = BoxShape.rectangle,
     this.onTap,
     this.precoEmDestaque = false,
@@ -94,7 +96,7 @@ class ContainerNhac extends StatelessWidget {
         ? '#$codigo · $informacao'
         : (informacao ?? '');
 
-    // Formatação do subtítulo/complemento incluindo a quantidade ex: "2x" ou "2x · R$ 25,00"
+    // Formatação do subtítulo/complemento incluindo a quantidade (ex: "2x" ou "2x · R$ 25,00")
     String? subTituloExibicao = complemento;
     if (quantidadeItens != null) {
       final String textoItens = '${quantidadeItens}x';
@@ -163,7 +165,7 @@ class ContainerNhac extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: fontSize,
-                    color: corIcone,
+                    color: corTitulo ?? Colors.black87,
                   ),
                 ),
               if (subTituloExibicao != null) ...[
@@ -208,7 +210,7 @@ class ContainerNhac extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: fontSizePreco ?? 14,
-                    color: corIcone,
+                    color: corIcone ?? Colors.black87,
                   ),
                 ),
               if (horario != null || preco != null) const SizedBox(height: 4),
