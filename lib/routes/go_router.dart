@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
 import 'package:nhac_lojas/pages/main_shell.dart';
-import 'package:nhac_lojas/pages/order_details.dart';
+import 'package:nhac_lojas/pages/order_details_page.dart';
 import 'package:nhac_lojas/pages/order_page.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -33,11 +33,11 @@ final GoRouter appRouter = GoRouter(
             body: Center(child: Text('Perfil')),
           ),
         ),
-        GoRoute(
-          path: '/order-details',
-          builder: (context, state) => const OrderDetails(),
-        ),
       ],
+    ),
+    GoRoute(
+      path: '/order-details',
+      builder: (context, state) => const OrderDetailsPage(),
     ),
   ],
 );

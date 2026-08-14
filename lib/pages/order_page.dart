@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
@@ -77,6 +78,7 @@ class OrderPage extends StatelessWidget {
                 preco: 49.90,
                 horario: '12:30',
                 situacao: 'Em preparo',
+                onTap: () => context.push('/order-details'),
               ),
             ),
             SizedBox(height: 12,),
@@ -88,6 +90,7 @@ class OrderPage extends StatelessWidget {
                 preco: 62.50,
                 horario: '12:10',
                 situacao: 'A caminho',
+                onTap: () => context.push('/order-details'),
               ),
             ),
             SizedBox(height: 12,),
@@ -99,6 +102,7 @@ class OrderPage extends StatelessWidget {
                 preco: 25.00,
                 horario: '12:00',
                 situacao: 'Entregue',
+                onTap: () => context.push('/order-details'),
               ),
             ),
             SizedBox(height: 12,),
@@ -110,6 +114,7 @@ class OrderPage extends StatelessWidget {
                 preco: 33.00,
                 horario: '11:45',
                 situacao: 'Confirmar',
+                onTap: () => context.push('/order-details'),
               ),
             ),
             SizedBox(height: 12,),
@@ -121,6 +126,7 @@ class OrderPage extends StatelessWidget {
                 preco: 18.90,
                 horario: '11:30',
                 situacao: 'Entregue',
+                onTap: () => context.push('/order-details'),
               ),
             ),
           ],

@@ -13,7 +13,7 @@ class BackArrow extends StatelessWidget {
         if (GoRouter.of(context).canPop()) {
           GoRouter.of(context).pop();
         } else {
-          GoRouter.of(context).go('/home-page');
+          GoRouter.of(context).go('/');
         }
       },
       child: SizedBox(

@@ -20,12 +20,15 @@ class ContainerNhac extends StatelessWidget {
   final Color? corSituacaoFundo;
   final Color? corCirculo;
   final double? fontSize;
+  final double? fontSizeComplemento;
+  final double? fontSizePreco;
   final StatusMensagem? statusMensagem;
   final int? quantidadeMensagens;
   final Color? corIcone;
   final Color? corFundoIcone;
   final BoxShape formatoIcone;
   final VoidCallback? onTap;
+  final bool precoEmDestaque;
 
   const ContainerNhac({
     super.key,
@@ -42,12 +45,15 @@ class ContainerNhac extends StatelessWidget {
     this.corSituacaoFundo,
     this.corCirculo,
     this.fontSize,
+    this.fontSizeComplemento,
+    this.fontSizePreco,
     this.statusMensagem,
     this.quantidadeMensagens,
-    this.corIcone = Colors.black,
+    this.corIcone,
     this.corFundoIcone = const Color.fromARGB(255, 255, 242, 230),
     this.formatoIcone = BoxShape.rectangle,
     this.onTap,
+    this.precoEmDestaque = false,
   });
 
   @override
@@ -86,18 +92,21 @@ class ContainerNhac extends StatelessWidget {
         ? '#$codigo · $informacao'
         : (informacao ?? '');
 
-    // Formatação do subtítulo/complemento incluindo a quantidade de itens
+    // Formatação do subtítulo/complemento incluindo a quantidade ex: "2x" ou "2x · R$ 25,00"
     String? subTituloExibicao = complemento;
-    if (subTituloExibicao == null && quantidadeItens != null) {
-      final String textoItens =
-          '$quantidadeItens ${quantidadeItens == 1 ? "item" : "itens"}';
-      if (preco != null) {
-        final String precoFormatado =
-            'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}';
-        subTituloExibicao = '$textoItens · $precoFormatado';
-      } else {
-        subTituloExibicao = textoItens;
-      }
+    if (quantidadeItens != null) {
+      final String textoItens = '${quantidadeItens}x';
+      final String? precoFormatado = (preco != null && !precoEmDestaque)
+          ? 'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}'
+          : null;
+
+      subTituloExibicao = [
+        textoItens,
+        if (precoFormatado != null) precoFormatado,
+        if (complemento != null) complemento,
+      ].join(' · ');
+    } else if (subTituloExibicao == null) {
+      subTituloExibicao = complemento;
     }
 
     Widget content = Row(
@@ -147,22 +156,22 @@ class ContainerNhac extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               if (tituloExibicao.isNotEmpty)
-              Text(
-                tituloExibicao,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: fontSize,
-                  color: corIcone,
+                Text(
+                  tituloExibicao,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: fontSize,
+                    color: corIcone,
+                  ),
                 ),
-              ),
               if (subTituloExibicao != null) ...[
                 const SizedBox(height: 2),
                 Text(
                   subTituloExibicao,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 12,
+                  style: TextStyle(
+                    fontSize: fontSizeComplemento ?? 12,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
@@ -173,7 +182,7 @@ class ContainerNhac extends StatelessWidget {
         ),
 
         if (horario != null ||
-            (preco != null && quantidadeItens == null) ||
+            (preco != null && (precoEmDestaque || quantidadeItens == null)) ||
             situacao != null ||
             statusMensagem != null)
           Column(
@@ -191,12 +200,12 @@ class ContainerNhac extends StatelessWidget {
                 ),
               if (preco != null &&
                   situacao == null &&
-                  quantidadeItens == null)
+                  (precoEmDestaque || quantidadeItens == null))
                 Text(
                   'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                    fontSize: fontSizePreco ?? 14,
                     color: corIcone,
                   ),
                 ),

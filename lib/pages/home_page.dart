@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
@@ -98,7 +99,7 @@ class HomePage extends StatelessWidget {
                     children: ContainerNhac(
                       informacao: '34',
                       fontSize: 20,
-                      complemento: 'Pedidos'
+                      complemento: 'Pedidos',
                     ),
                   ),
                 ),
@@ -300,6 +301,7 @@ class HomePage extends StatelessWidget {
                     preco: 49.90,
                     horario: '12:30',
                     situacao: 'Em preparo',
+                    onTap: () => context.push('/order-details'),
                   ),
                   const SizedBox(height: 8),
                   const Divider(color: Color.fromARGB(50, 158, 158, 158)),
@@ -311,6 +313,7 @@ class HomePage extends StatelessWidget {
                     preco: 62.50,
                     horario: '12:10',
                     situacao: 'A caminho',
+                    onTap: () => context.push('/order-details'),
                   ),
                 ],
               ),
