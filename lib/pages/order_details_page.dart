@@ -132,7 +132,6 @@ class OrderDetailsPage extends StatelessWidget {
                     ContainerNhac(
                       complemento: 'Taxa de entrega',
                       preco: 4.90,
-                      fontSizePreco: 16,
                       precoEmDestaque: true,
                     ),
                     SizedBox(height: 6,),

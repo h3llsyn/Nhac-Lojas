@@ -49,6 +49,7 @@ class ChatOpen extends StatelessWidget {
                   complemento: 'Em preparo',
                 )
               ),
+              SizedBox(height: 16,),
             ],
           ),
         ),

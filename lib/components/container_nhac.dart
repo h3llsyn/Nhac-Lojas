@@ -144,9 +144,7 @@ class ContainerNhac extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
-                        color: corIcone == const Color(0xFFFF8C00)
-                            ? Colors.black
-                            : corIcone,
+                        color: corIcone ?? Color.fromARGB(255, 93, 32, 28),
                       ),
                     ),
             ),
@@ -165,7 +163,7 @@ class ContainerNhac extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: fontSize,
-                    color: corTitulo ?? Colors.black87,
+                    color: corTitulo ?? Color.fromARGB(255, 93, 32, 28),
                   ),
                 ),
               if (subTituloExibicao != null) ...[
@@ -210,7 +208,6 @@ class ContainerNhac extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: fontSizePreco ?? 14,
-                    color: corIcone ?? Colors.black87,
                   ),
                 ),
               if (horario != null || preco != null) const SizedBox(height: 4),
