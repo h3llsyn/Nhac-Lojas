@@ -268,8 +268,8 @@ class ContainerNhac extends StatelessWidget {
         );
       case StatusMensagem.enviada:
         return const Icon(
-          Icons.check_rounded,
-          color: Colors.green,
+          Icons.done_all_rounded,
+          color: Colors.redAccent,
           size: 18,
         );
       case StatusMensagem.visualizada:
