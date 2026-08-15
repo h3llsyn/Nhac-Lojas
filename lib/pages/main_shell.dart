@@ -109,13 +109,17 @@ class _MainShellState extends State<MainShell> {
                 onTap: _scrollToTop,
               ),
               Positioned(
-                left: 24,
                 right: 24,
                 bottom: 20,
                 child: FloatingNavBar(
                   items: _items,
                   selectedIndex: _selectedIndex,
                   onItemTap: _onNavTap,
+                  // Quando desce a tela, encolhe pra um círculo com o
+                  // ícone da aba atual, deslizando pra direita (mesma
+                  // margem direita de sempre) — igual o Nhac normal.
+                  isCollapsed: _isScrolledDown,
+                  onCollapsedTap: _scrollToTop,
                 ),
               ),
             ],

@@ -25,6 +25,7 @@ class FilterTag extends StatelessWidget {
               color: isSelected ? Colors.white : Colors.grey
             ),
           ),
+          if(quantidade != null)
           Text(
             ' · $quantidade',
             style: TextStyle(

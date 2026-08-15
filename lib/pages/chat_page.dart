@@ -28,7 +28,7 @@ class ChatPage extends StatelessWidget {
                 ),
                 Spacer(),
                 IconContainer(
-                  icon: Icons.search,
+                  icon: Icons.search_rounded,
                 ),
                 SizedBox(width: 8,),
                 IconContainer(

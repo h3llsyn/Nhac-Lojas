@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/ballon_chat.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
+import 'package:nhac_lojas/components/icon_container.dart';
 
 class ChatOpen extends StatelessWidget {
   const ChatOpen({super.key});
@@ -27,6 +29,9 @@ class ChatOpen extends StatelessWidget {
                       complemento: 'Online',
                       corComplemento: Colors.green,
                     ),
+                  ),
+                  IconContainer(
+                    icon: Icons.more_horiz
                   ),
                 ],
               ),    
@@ -103,6 +108,50 @@ class ChatOpen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(height: 12,),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16.w,
+                        vertical: 12.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50.r),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF5D201C).withValues(alpha: 0.05),
+                            blurRadius: 10.r,
+                            offset: const Offset(0.0, 4.0),
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        'Digite uma mensagem...',
+                        style: TextStyle(
+                          color: Colors.grey.shade400,
+                          fontSize: 16.sp
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 55.w,
+                    height: 55.h,
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.send_rounded,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

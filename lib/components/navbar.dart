@@ -38,6 +38,7 @@ class FloatingNavBar extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOutCubic,
+        width: isCollapsed ? 75.w : (MediaQuery.of(context).size.width - 48.w),
         height: 75.h,
         decoration: BoxDecoration(
           color: Colors.white,
