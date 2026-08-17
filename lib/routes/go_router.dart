@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/pages/auth/email_loja.dart';
 import 'package:nhac_lojas/pages/bem-vindo.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
@@ -40,6 +41,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/bem-vindo',
       builder: (context, state) => const BemVindo(),
+    ),
+    GoRoute(
+      path: '/email',
+      builder: (context, state) => const EmailLoja(),
     ),
     GoRoute(
       path: '/order-details',
