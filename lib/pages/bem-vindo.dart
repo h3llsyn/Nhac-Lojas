@@ -11,7 +11,7 @@ class BemVindo extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -24,7 +24,7 @@ class BemVindo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 406.h,
+                    height: 366.h,
                     child: Center(
                       child: Image.asset(
                         'assets/images/lanche-bem-vindo.png',
@@ -51,7 +51,7 @@ class BemVindo extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 46.h),
                   SizedBox(
                     width: double.infinity,
                     height: 49.h,
@@ -60,7 +60,7 @@ class BemVindo extends StatelessWidget {
                       onTap: () => context.push('/home'),
                     ),
                   ),
-                  SizedBox(height: 16.h,),
+                  SizedBox(height: 16.h),
                   SizedBox(
                     width: double.infinity,
                     height: 49.h,
@@ -69,6 +69,20 @@ class BemVindo extends StatelessWidget {
                       isSecundario: true,
                       onTap: () => context.push('/home'),
                     ),
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Precisa de ajuda? ',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Text(
+                        'Fale conosco',
+                        style: TextStyle(color: Colors.redAccent),
+                      ),
+                    ],
                   ),
                 ],
               ),
