@@ -98,7 +98,7 @@ class OrderDetailsPage extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: 12),
               ContainerCardDesign(
                 children: Column(
                   children: [
@@ -168,7 +168,7 @@ class OrderDetailsPage extends StatelessWidget {
               ButtonNhac(
                 texto: 'Atualizar status',
                 onTap: () => context.push('/update-status'),
-              )
+              ),
             ],
           ),
         ),

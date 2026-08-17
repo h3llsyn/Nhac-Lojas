@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
+import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
+import 'package:nhac_lojas/components/order_status.dart';
 
 class UpdateOrderStatus extends StatelessWidget {
   const UpdateOrderStatus({super.key});
@@ -41,7 +44,7 @@ class UpdateOrderStatus extends StatelessWidget {
                   exibirCirculoSituacao: false,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
               const Text(
                 'ANDAMENTO DO PEDIDO',
                 style: TextStyle(
@@ -50,10 +53,23 @@ class UpdateOrderStatus extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
+              const SizedBox(height: 12),
+              OrderStatus(
+                statusAtual: StatusPedido.emPreparo,
+                horarios: const {
+                  StatusPedido.recebido: '12:30',
+                  StatusPedido.emPreparo: '12:32',
+                },
+              ),
+              Spacer(),
+              ButtonNhac(
+                texto: 'Salvar status',
+                onTap: () => context.pop('/order-details')
+              ),
             ],
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 }
