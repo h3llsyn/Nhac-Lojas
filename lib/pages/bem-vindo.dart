@@ -15,10 +15,21 @@ class BemVindo extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: 132.w,
-                height: 49.h,
-                child: Image.asset('assets/images/nhac-logo.png'),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 132.w,
+                    height: 49.h,
+                    child: Image.asset('assets/images/nhac-logo.png'),
+                  ),
+                  Text(
+                    'Lojas',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFFFE645C),
+                    ),
+                  ),
+                ],
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
