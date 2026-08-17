@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonNhac extends StatelessWidget {
   final String texto;
-  final VoidCallback? onPressed;
+  final VoidCallback? onTap;
   final Widget? icone;
   final bool isSecundario;
 
   const ButtonNhac({
     super.key,
     required this.texto,
-    this.onPressed,
+    this.onTap,
     this.icone,
     this.isSecundario = false,
   });
@@ -25,7 +25,7 @@ class ButtonNhac extends StatelessWidget {
       width: double.infinity,
       height: 49.h,
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
           backgroundColor: isSecundario ? Colors.transparent : corPrimaria,
           foregroundColor: isSecundario ? corEscura : corTextoClaro,

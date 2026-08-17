@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
@@ -166,7 +167,7 @@ class OrderDetailsPage extends StatelessWidget {
               const SizedBox(height: 16),
               ButtonNhac(
                 texto: 'Atualizar status',
-                onPressed: (){},
+                onTap: () => context.push('/update-status'),
               )
             ],
           ),

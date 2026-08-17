@@ -6,6 +6,7 @@ import 'package:nhac_lojas/pages/home_page.dart';
 import 'package:nhac_lojas/pages/main_shell.dart';
 import 'package:nhac_lojas/pages/order_details_page.dart';
 import 'package:nhac_lojas/pages/order_page.dart';
+import 'package:nhac_lojas/pages/update_order_status.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -39,6 +40,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/order-details',
       builder: (context, state) => const OrderDetailsPage(),
+    ),
+    GoRoute(
+      path: '/update-status',
+      builder: (context, state) => const UpdateOrderStatus(),
     ),
     GoRoute(
       path: '/chat-open',

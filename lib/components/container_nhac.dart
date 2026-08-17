@@ -16,6 +16,7 @@ class ContainerNhac extends StatelessWidget {
   final double? preco;
   final int? codigo;
   final String? situacao;
+  final bool exibirCirculoSituacao; // <--- NOVO
   final Color? corSituacao;
   final Color? corSituacaoFundo;
   final Color? corCirculo;
@@ -43,6 +44,7 @@ class ContainerNhac extends StatelessWidget {
     this.preco,
     this.codigo,
     this.situacao,
+    this.exibirCirculoSituacao = true, // <--- PADRÃO TRUE
     this.corSituacao,
     this.corSituacaoFundo,
     this.corCirculo,
@@ -96,7 +98,7 @@ class ContainerNhac extends StatelessWidget {
         ? '#$codigo · $informacao'
         : (informacao ?? '');
 
-    // Formatação do subtítulo/complemento incluindo a quantidade (ex: "2x" ou "2x · R$ 25,00")
+    // Formatação do subtítulo/complemento incluindo a quantidade
     String? subTituloExibicao = complemento;
     if (quantidadeItens != null) {
       final String textoItens = '${quantidadeItens}x';
@@ -116,7 +118,8 @@ class ContainerNhac extends StatelessWidget {
     Widget content = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (situacao != null) ...[
+        // SÓ EXIBE A BOLINHA SE A SITUAÇÃO EXISTIR E A FLAG FOR TRUE
+        if (situacao != null && exibirCirculoSituacao) ...[
           Icon(
             Icons.circle,
             size: 14,
@@ -144,7 +147,7 @@ class ContainerNhac extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
-                        color: corIcone ?? Color.fromARGB(255, 93, 32, 28),
+                        color: corIcone ?? const Color.fromARGB(255, 93, 32, 28),
                       ),
                     ),
             ),
@@ -160,10 +163,12 @@ class ContainerNhac extends StatelessWidget {
               if (tituloExibicao.isNotEmpty)
                 Text(
                   tituloExibicao,
+                  maxLines: 1, // <--- EVITA QUEBRA DE LINHA
+                  overflow: TextOverflow.ellipsis, // <--- ADICIONA "..."
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: fontSize,
-                    color: corTitulo ?? Color.fromARGB(255, 93, 32, 28),
+                    color: corTitulo ?? const Color.fromARGB(255, 93, 32, 28),
                   ),
                 ),
               if (subTituloExibicao != null) ...[
