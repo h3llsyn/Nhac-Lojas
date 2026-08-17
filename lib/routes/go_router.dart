@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/pages/bem-vindo.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
@@ -9,7 +10,7 @@ import 'package:nhac_lojas/pages/order_page.dart';
 import 'package:nhac_lojas/pages/update_order_status.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/bem-vindo',
   routes: [
     ShellRoute(
       builder: (context, state, child) {
@@ -17,8 +18,7 @@ final GoRouter appRouter = GoRouter(
       },
       routes: [
         GoRoute(
-          path: '/',
-          //MUDAR PRA HOME AAAAAAAAAAAAAAAAAAA
+          path: '/home',
           builder: (context, state) => const HomePage(),
         ),
         GoRoute(
@@ -36,6 +36,10 @@ final GoRouter appRouter = GoRouter(
           ),
         ),
       ],
+    ),
+    GoRoute(
+      path: '/bem-vindo',
+      builder: (context, state) => const BemVindo(),
     ),
     GoRoute(
       path: '/order-details',

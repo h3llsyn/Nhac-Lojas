@@ -64,7 +64,7 @@ class UpdateOrderStatus extends StatelessWidget {
               Spacer(),
               ButtonNhac(
                 texto: 'Salvar status',
-                onTap: () => context.pop('/order-details')
+                onTap: () => context.pop('/order-details'),
               ),
             ],
           ),

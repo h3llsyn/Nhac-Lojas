@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/components/button_nhac.dart';
+
+class BemVindo extends StatelessWidget {
+  const BemVindo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 132.w,
+                height: 49.h,
+                child: Image.asset('assets/images/nhac-logo.png'),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 406.h,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/lanche-bem-vindo.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'Bem-vindo ao Nhac Lojas!',
+                    style: TextStyle(
+                      fontSize: 28.sp,
+                      color: const Color(0xFF5D201C),
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 12.h),
+                  Text(
+                    'Faça login para acessar sua loja\nou cadastre uma nova',
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: const Color(0x995D201C),
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 32.h),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 49.h,
+                    child: ButtonNhac(
+                      texto: 'Cadastrar minha loja',
+                      onTap: () => context.push('/home'),
+                    ),
+                  ),
+                  SizedBox(height: 16.h,),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 49.h,
+                    child: ButtonNhac(
+                      texto: 'Já tenho uma conta · Entrar',
+                      isSecundario: true,
+                      onTap: () => context.push('/home'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
