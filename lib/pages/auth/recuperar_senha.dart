@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
+import 'package:nhac_lojas/components/button_nhac.dart';
+import 'package:nhac_lojas/components/nhac_input_field.dart';
 
 class RecuperarSenha extends StatelessWidget {
   const RecuperarSenha({super.key});
@@ -39,13 +42,35 @@ class RecuperarSenha extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 24,),
+              const SizedBox(height: 24),
               Text(
                 'Esqueceu sua senha?',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Digite seu e-mail ou telefone que\nenviaremos um link para redefini-lá.',
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold
+                  color: Colors.grey,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 ),
+              ),
+              const SizedBox(height: 24),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'E-mail ou telefone',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 4),
+              NhacInputField(hintText: 'Email'),
+              Spacer(),
+              ButtonNhac(
+                texto: 'Enviar link',
+                onTap: () => context.go('/home'),
               ),
             ],
           ),
