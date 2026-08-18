@@ -137,7 +137,7 @@ class _CriarContaState extends State<CriarConta> {
               Spacer(),
               ButtonNhac(
                 texto: 'Continuar',
-                onTap: () => context.go('/cadastrar-dados'),
+                onTap: () => context.go('/dados-basicos'),
               ),
             ],
           ),

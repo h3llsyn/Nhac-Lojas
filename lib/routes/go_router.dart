@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/criar_conta.dart';
+import 'package:nhac_lojas/pages/auth/cadastro/dados_basicos.dart';
 import 'package:nhac_lojas/pages/auth/email_loja.dart';
 import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
@@ -70,6 +71,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/criar-conta',
       builder: (context, state) => const CriarConta(),
+    ),
+    GoRoute(
+      path: '/dados-basicos',
+      builder: (context, state) => const DadosBasicos(),
     ),
     GoRoute(
       path: '/order-details',
