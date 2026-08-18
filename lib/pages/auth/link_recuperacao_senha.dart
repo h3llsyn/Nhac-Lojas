@@ -1,11 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
-import 'package:nhac_lojas/components/container_nhac.dart';
-import 'package:nhac_lojas/components/nhac_input_field.dart';
 
 class LinkRecuperacaoSenha extends StatelessWidget {
   const LinkRecuperacaoSenha({super.key});

@@ -68,7 +68,7 @@ class BemVindo extends StatelessWidget {
                     height: 49.h,
                     child: ButtonNhac(
                       texto: 'Cadastrar minha loja',
-                      onTap: () => context.push('/home'),
+                      onTap: () => context.push('/criar-conta'),
                     ),
                   ),
                   SizedBox(height: 16.h),

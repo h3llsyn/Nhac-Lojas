@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
-import 'package:nhac_lojas/components/nhac_input_field.dart';
 
 class TipoDeConta extends StatelessWidget {
   const TipoDeConta({super.key});
@@ -68,6 +66,6 @@ class TipoDeConta extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
   }
 }
