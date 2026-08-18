@@ -160,7 +160,7 @@ class OrderDetailsPage extends StatelessWidget {
               const SizedBox(height: 14),
               ContainerCardDesign(
                 children: ContainerNhac(
-                  icon: Icons.credit_card,
+                  icon: Icons.credit_card_rounded,
                   informacao: 'Online · Cartão de crédito',
                 ),
               ),
