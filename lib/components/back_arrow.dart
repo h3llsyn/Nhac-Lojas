@@ -4,16 +4,19 @@ import 'package:go_router/go_router.dart';
 
 class BackArrow extends StatelessWidget {
   final Color? cor;
-  const BackArrow({super.key, this.cor});
+  final String? targetRoute;
+  const BackArrow({super.key, this.cor, this.targetRoute});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (GoRouter.of(context).canPop()) {
+        if (targetRoute != null) {
+          GoRouter.of(context).go(targetRoute!);
+        } else if (GoRouter.of(context).canPop()) {
           GoRouter.of(context).pop();
         } else {
-          GoRouter.of(context).go('/');
+          GoRouter.of(context).go('/email');
         }
       },
       child: SizedBox(

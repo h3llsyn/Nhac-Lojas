@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/pages/auth/email_loja.dart';
 import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
+import 'package:nhac_lojas/pages/auth/nova_senha.dart';
 import 'package:nhac_lojas/pages/auth/recuperar_senha.dart';
 import 'package:nhac_lojas/pages/bem-vindo.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
@@ -55,6 +56,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/link-recuperacao',
       builder: (context, state) => const LinkRecuperacaoSenha(),
+    ),
+    GoRoute(
+      path: '/nova-senha',
+      builder: (context, state) => const NovaSenha(),
     ),
     GoRoute(
       path: '/order-details',

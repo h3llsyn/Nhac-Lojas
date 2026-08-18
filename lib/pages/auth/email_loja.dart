@@ -26,7 +26,7 @@ class _EmailLojaState extends State<EmailLoja> {
             children: [
               Row(
                 children: [
-                  BackArrow(),
+                  BackArrow(targetRoute: '/bem-vindo',),
                   const SizedBox(width: 12),
                   const Text(
                     'Entrar',
@@ -41,7 +41,7 @@ class _EmailLojaState extends State<EmailLoja> {
               ),
               const SizedBox(height: 8),
               Text(
-                'Digite seus dados para entrar',
+                'Digite seus dados para entrar.',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -145,7 +145,6 @@ class _EmailLojaState extends State<EmailLoja> {
                 onTap: () => context.go('/home'),
               ),
               Spacer(),
-              const SizedBox(height: 24,),
               ButtonNhac(
                 texto: 'Continuar',
                 onTap: () => context.go('/home'),

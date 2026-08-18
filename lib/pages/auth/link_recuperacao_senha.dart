@@ -82,7 +82,7 @@ class LinkRecuperacaoSenha extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: '. Clique no link\Npara criar uma nova senha',
+                      text: '. Clique no link\npara criar uma nova senha',
                     ),
                   ],
                 ),
