@@ -91,7 +91,10 @@ class BemVindo extends StatelessWidget {
                       ),
                       Text(
                         'Fale conosco',
-                        style: TextStyle(color: Colors.redAccent),
+                        style: TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ],
                   ),

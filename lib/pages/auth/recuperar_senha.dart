@@ -70,7 +70,7 @@ class RecuperarSenha extends StatelessWidget {
               Spacer(),
               ButtonNhac(
                 texto: 'Enviar link',
-                onTap: () => context.go('/home'),
+                onTap: () => context.push('/link-recuperacao'),
               ),
             ],
           ),
