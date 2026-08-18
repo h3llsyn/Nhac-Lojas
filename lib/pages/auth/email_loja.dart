@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
+import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 
 class EmailLoja extends StatefulWidget {
@@ -80,6 +82,69 @@ class _EmailLojaState extends State<EmailLoja> {
                     });
                   },
                 ),
+              ),
+              SizedBox(
+                height: 35.0,
+                width: double.infinity,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Recuperação de senha estará disponível em breve.')),
+                      );
+                    },
+                    child: const Text(
+                      'Esqueceu sua senha?',
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: Color(0xFFFF6961),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 12,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Expanded(
+                    child: Divider(
+                      indent: 30,
+                      endIndent: 10,
+                    ),
+                  ),
+                  const Text(
+                    "Ou",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 99, 99, 99),
+                    ),
+                  ),
+                  const Expanded(
+                    child: Divider(
+                      indent: 10,
+                      endIndent: 30,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24,),
+              ButtonNhac(
+                texto: 'Continuar com o Google',
+                isSecundario: true,
+                icone: SvgPicture.asset(
+                  'assets/images/google-logo.svg',
+                  height: 24.0,
+                  width: 24.0,
+                ),
+                onTap: () => context.pop('home'),
+              ),
+              Spacer(),
+              const SizedBox(height: 24,),
+              ButtonNhac(
+                texto: 'Continuar',
+                onTap: () => context.pop('/home'),
               ),
             ],
           ),
