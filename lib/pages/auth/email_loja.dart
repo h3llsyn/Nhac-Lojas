@@ -94,13 +94,17 @@ class _EmailLojaState extends State<EmailLoja> {
                         const SnackBar(content: Text('Recuperação de senha estará disponível em breve.')),
                       );
                     },
-                    child: const Text(
-                      'Esqueceu sua senha?',
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        color: Color(0xFFFF6961),
-                        fontWeight: FontWeight.w600,
+                    child: TextButton(
+                      child: Text('Esqueceu sua senha?',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          color: Color(0xFFFF6961),
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
+                      onPressed: (){
+                        context.push('/recuperar-senha');
+                      },
                     ),
                   ),
                 ),
@@ -138,13 +142,13 @@ class _EmailLojaState extends State<EmailLoja> {
                   height: 24.0,
                   width: 24.0,
                 ),
-                onTap: () => context.pop('home'),
+                onTap: () => context.go('/home'),
               ),
               Spacer(),
               const SizedBox(height: 24,),
               ButtonNhac(
                 texto: 'Continuar',
-                onTap: () => context.pop('/home'),
+                onTap: () => context.go('/home'),
               ),
             ],
           ),
