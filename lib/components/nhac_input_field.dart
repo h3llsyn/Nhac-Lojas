@@ -21,6 +21,8 @@ class NhacInputField extends StatelessWidget {
   final bool enabled;
   final String obscuringCharacter;
   final TextStyle? style;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
   const NhacInputField({
     super.key,
@@ -42,6 +44,8 @@ class NhacInputField extends StatelessWidget {
     this.enabled = true,
     this.obscuringCharacter = '•',
     this.style,
+    this.readOnly = false,
+    this.onTap,
   });
 
   @override
@@ -81,6 +85,8 @@ class NhacInputField extends StatelessWidget {
       autofocus: autofocus,
       enabled: enabled,
       cursorColor: cursorColor,
+      readOnly: readOnly,
+      onTap: onTap,
       style: style ??
           TextStyle(
             color: primaryColor,
