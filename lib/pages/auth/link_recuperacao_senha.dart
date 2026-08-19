@@ -113,7 +113,7 @@ class LinkRecuperacaoSenha extends StatelessWidget {
               Spacer(),
               ButtonNhac(
                 texto: 'Voltar para o login',
-                onTap: () => context.go('/email'),
+                onTap: () => context.go('/login'),
               ),
             ],
           ),

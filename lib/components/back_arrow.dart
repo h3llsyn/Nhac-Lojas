@@ -16,7 +16,7 @@ class BackArrow extends StatelessWidget {
         } else if (GoRouter.of(context).canPop()) {
           GoRouter.of(context).pop();
         } else {
-          GoRouter.of(context).go('/email');
+          GoRouter.of(context).go('/login');
         }
       },
       child: SizedBox(

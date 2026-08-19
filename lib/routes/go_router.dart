@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/criar_conta.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/dados_basicos.dart';
-import 'package:nhac_lojas/pages/auth/email_loja.dart';
+import 'package:nhac_lojas/pages/auth/login_loja.dart';
 import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
 import 'package:nhac_lojas/pages/auth/recuperar_senha.dart';
@@ -53,8 +53,8 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const TipoDeConta(),
     ),
     GoRoute(
-      path: '/email',
-      builder: (context, state) => const EmailLoja(),
+      path: '/login',
+      builder: (context, state) => const LoginLoja(),
     ),
     GoRoute(
       path: '/recuperar-senha',

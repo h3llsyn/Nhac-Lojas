@@ -28,7 +28,7 @@ class _NovaSenhaState extends State<NovaSenha> {
             children: [
               Row(
                 children: [
-                  BackArrow(targetRoute: '/email',),
+                  BackArrow(targetRoute: '/login',),
                   const SizedBox(width: 12),
                   const Text(
                     'Nova senha',
@@ -109,7 +109,7 @@ class _NovaSenhaState extends State<NovaSenha> {
               Spacer(),
               ButtonNhac(
                 texto: 'Salvar nova senha',
-                onTap: () => context.go('/email'),
+                onTap: () => context.go('/login'),
               ),
             ],
           ),

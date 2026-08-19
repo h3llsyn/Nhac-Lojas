@@ -60,7 +60,7 @@ class TipoDeConta extends StatelessWidget {
               Spacer(),
               ButtonNhac(
                 texto: 'Continuar',
-                onTap: () => context.go('/email'),
+                onTap: () => context.go('/login'),
               ),
             ],
           ),

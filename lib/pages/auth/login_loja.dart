@@ -5,14 +5,14 @@ import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 
-class EmailLoja extends StatefulWidget {
-  const EmailLoja({super.key});
+class LoginLoja extends StatefulWidget {
+  const LoginLoja({super.key});
 
   @override
-  State<EmailLoja> createState() => _EmailLojaState();
+  State<LoginLoja> createState() => _LoginLojaState();
 }
 
-class _EmailLojaState extends State<EmailLoja> {
+class _LoginLojaState extends State<LoginLoja> {
   bool _senhaVisivel = false;
 
   @override
