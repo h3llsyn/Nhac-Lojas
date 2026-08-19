@@ -6,6 +6,7 @@ import 'package:nhac_lojas/pages/auth/cadastro/dados_entrega_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/endereco_loja_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/formas_pagamento_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/horario_funcionamento_page.dart';
+import 'package:nhac_lojas/pages/auth/cadastro/loja_cadastrada_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/revisar_dados_page.dart';
 import 'package:nhac_lojas/pages/auth/login_loja.dart';
 import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
@@ -100,6 +101,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/revisar-dados',
       builder: (context, state) => const RevisarDadosPage(),
+    ),
+    GoRoute(
+      path: '/loja-cadastrada',
+      builder: (context, state) => const LojaCadastradaPage(),
     ),
     GoRoute(
       path: '/order-details',
