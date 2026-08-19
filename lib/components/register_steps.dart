@@ -1,29 +1,19 @@
 import 'package:flutter/material.dart';
 
-enum PassoCadastrar {
-  dados,
-  endereco,
-  entrega,
-  horarios,
-  pagamento,
-  revisar,
-}
+enum PassoCadastrar { dados, endereco, entrega, horarios, pagamento, revisar }
 
 class RegisterSteps extends StatelessWidget {
   final PassoCadastrar passoAtual;
 
-  const RegisterSteps({
-    super.key,
-    required this.passoAtual,
-  });
+  const RegisterSteps({super.key, required this.passoAtual});
 
   static const List<_StepData> _etapasPadrao = [
-    _StepData(status: PassoCadastrar.dados, titulo: 'Dados'),
-    _StepData(status: PassoCadastrar.endereco, titulo: 'Endereço'),
-    _StepData(status: PassoCadastrar.entrega, titulo: 'Entrega'),
-    _StepData(status: PassoCadastrar.horarios, titulo: 'Horários'),
-    _StepData(status: PassoCadastrar.pagamento, titulo: 'Pagamento'),
-    _StepData(status: PassoCadastrar.revisar, titulo: 'Revisar'),
+    _StepData(status: PassoCadastrar.dados, titulo: 'Dados', icon: Icons.badge),
+    _StepData(status: PassoCadastrar.endereco, titulo: 'Endereço', icon: Icons.place),
+    _StepData(status: PassoCadastrar.entrega, titulo: 'Entrega', icon: Icons.local_shipping_outlined),
+    _StepData(status: PassoCadastrar.horarios, titulo: 'Horários', icon: Icons.access_time),
+    _StepData(status: PassoCadastrar.pagamento, titulo: 'Pagamento', icon: Icons.credit_card),
+    _StepData(status: PassoCadastrar.revisar, titulo: 'Revisar', icon: Icons.check_box_outlined),
   ];
 
   @override
@@ -56,10 +46,11 @@ class RegisterSteps extends StatelessWidget {
                               : const Color(0xFFE0E0E0)),
                     ),
                   ),
-                  // Circulo/Ícone central
+                  // Círculo/Ícone central (passando a prop icon aqui)
                   _buildStatusIcon(
                     isCompleted: isCompleted,
                     isCurrent: isCurrent,
+                    icon: etapa.icon, // <--- PASSEI O ÍCONE AQUI
                   ),
                   // Linha conectora da direita
                   Expanded(
@@ -99,6 +90,7 @@ class RegisterSteps extends StatelessWidget {
   Widget _buildStatusIcon({
     required bool isCompleted,
     required bool isCurrent,
+    required IconData icon, // <--- NOVO PARÂMETRO
   }) {
     if (isCompleted) {
       return Container(
@@ -112,31 +104,24 @@ class RegisterSteps extends StatelessWidget {
       );
     } else if (isCurrent) {
       return Container(
-        width: 28,
-        height: 28,
+        width: 36,
+        height: 36,
         decoration: const BoxDecoration(
-          color: Color(0xFFFF6961),
+          color: Colors.redAccent,
           shape: BoxShape.circle,
         ),
-        child: Center(
-          child: Container(
-            width: 6,
-            height: 6,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-          ),
-        ),
+        child: Icon(icon, size: 18, color: Colors.white),
       );
     } else {
       return Container(
         width: 28,
         height: 28,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
+          border: Border.all(color: const Color(0xFFE0E0E0), width: 1.5),
         ),
+        child: Icon(icon, size: 14, color: const Color(0xFF9E9E9E)),
       );
     }
   }
@@ -145,9 +130,11 @@ class RegisterSteps extends StatelessWidget {
 class _StepData {
   final PassoCadastrar status;
   final String titulo;
+  final IconData icon;
 
   const _StepData({
     required this.status,
     required this.titulo,
+    required this.icon,
   });
 }

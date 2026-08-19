@@ -144,7 +144,7 @@ class EnderecoLojaPage extends StatelessWidget {
                 const SizedBox(height: 24),
                 ButtonNhac(
                   texto: 'Continuar',
-                  onTap: () => context.push('/home'),
+                  onTap: () => context.push('/dados-entrega'),
                 ),
               ],
             ),

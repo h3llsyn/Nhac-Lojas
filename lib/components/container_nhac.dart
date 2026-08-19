@@ -16,7 +16,7 @@ class ContainerNhac extends StatelessWidget {
   final double? preco;
   final int? codigo;
   final String? situacao;
-  final bool exibirCirculoSituacao; // <--- NOVO
+  final bool exibirCirculoSituacao;
   final Color? corSituacao;
   final Color? corSituacaoFundo;
   final Color? corCirculo;
@@ -33,6 +33,11 @@ class ContainerNhac extends StatelessWidget {
   final VoidCallback? onTap;
   final bool precoEmDestaque;
 
+  // --- NOVAS PROPRIEDADES PARA SELEÇÃO ---
+  final bool selecionado;
+  final bool exibirRadio;
+  final Color? corBorda;
+
   const ContainerNhac({
     super.key,
     this.icon,
@@ -44,7 +49,7 @@ class ContainerNhac extends StatelessWidget {
     this.preco,
     this.codigo,
     this.situacao,
-    this.exibirCirculoSituacao = true, // <--- PADRÃO TRUE
+    this.exibirCirculoSituacao = true,
     this.corSituacao,
     this.corSituacaoFundo,
     this.corCirculo,
@@ -60,6 +65,11 @@ class ContainerNhac extends StatelessWidget {
     this.formatoIcone = BoxShape.rectangle,
     this.onTap,
     this.precoEmDestaque = false,
+    
+    // Novas opções padrão
+    this.selecionado = false,
+    this.exibirRadio = false,
+    this.corBorda,
   });
 
   @override
@@ -93,12 +103,10 @@ class ContainerNhac extends StatelessWidget {
       }
     }
 
-    // Título formatado com código
     final String tituloExibicao = (codigo != null && informacao != null)
         ? '#$codigo · $informacao'
         : (informacao ?? '');
 
-    // Formatação do subtítulo/complemento incluindo a quantidade
     String? subTituloExibicao = complemento;
     if (quantidadeItens != null) {
       final String textoItens = '${quantidadeItens}x';
@@ -115,10 +123,12 @@ class ContainerNhac extends StatelessWidget {
       subTituloExibicao = complemento;
     }
 
+    // Define as cores do Radio / Borda
+    final Color corDestaque = corBorda ?? Colors.redAccent;
+
     Widget content = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // SÓ EXIBE A BOLINHA SE A SITUAÇÃO EXISTIR E A FLAG FOR TRUE
         if (situacao != null && exibirCirculoSituacao) ...[
           Icon(
             Icons.circle,
@@ -136,12 +146,12 @@ class ContainerNhac extends StatelessWidget {
               color: corFundoIcone,
               shape: formatoIcone,
               borderRadius: formatoIcone == BoxShape.rectangle
-                  ? BorderRadius.circular(20)
+                  ? BorderRadius.circular(16)
                   : null,
             ),
             child: Center(
               child: icon != null
-                  ? Icon(icon, color: corIcone)
+                  ? Icon(icon, color: corIcone ?? corDestaque)
                   : Text(
                       letrasIcon!,
                       style: TextStyle(
@@ -163,11 +173,11 @@ class ContainerNhac extends StatelessWidget {
               if (tituloExibicao.isNotEmpty)
                 Text(
                   tituloExibicao,
-                  maxLines: 1, // <--- EVITA QUEBRA DE LINHA
-                  overflow: TextOverflow.ellipsis, // <--- ADICIONA "..."
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: fontSize,
+                    fontSize: fontSize ?? 16,
                     color: corTitulo ?? const Color.fromARGB(255, 93, 32, 28),
                   ),
                 ),
@@ -175,12 +185,12 @@ class ContainerNhac extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   subTituloExibicao,
-                  maxLines: 1,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: fontSizeComplemento ?? 12,
-                    fontWeight: FontWeight.w500,
-                    color: corComplemento ?? Colors.grey,
+                    fontSize: fontSizeComplemento ?? 13,
+                    fontWeight: FontWeight.w400,
+                    color: corComplemento ?? Colors.grey[600],
                   ),
                 ),
               ],
@@ -188,6 +198,7 @@ class ContainerNhac extends StatelessWidget {
           ),
         ),
 
+        // MENSAGENS / SINAIS DE STATUS
         if (horario != null ||
             (preco != null && (precoEmDestaque || quantidadeItens == null)) ||
             situacao != null ||
@@ -240,17 +251,48 @@ class ContainerNhac extends StatelessWidget {
               if (statusMensagem != null) _buildStatusChat(),
             ],
           ),
+
+        // --- RADIO SELEÇÃO ---
+        if (exibirRadio) ...[
+          const SizedBox(width: 12),
+          Icon(
+            selecionado
+                ? Icons.radio_button_checked_rounded
+                : Icons.radio_button_off_rounded,
+            color: selecionado ? corDestaque : Colors.grey[300],
+            size: 24,
+          ),
+        ],
       ],
     );
 
-    if (onTap != null) {
-      return InkWell(
-        onTap: onTap,
-        child: content,
-      );
-    }
-
-    return content;
+    // --- ENVOLTÓRIO COM BORDA E FUNDO CUSTOMIZÁVEIS ---
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      decoration: BoxDecoration(
+        color: selecionado
+            ? corDestaque.withOpacity(0.04)
+            : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: selecionado
+              ? corDestaque.withOpacity(0.5)
+              : Colors.grey.shade200,
+          width: selecionado ? 1.5 : 1,
+        ),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: content,
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildStatusChat() {
