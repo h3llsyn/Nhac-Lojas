@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 
-class ItemHorarioFuncionamento extends StatefulWidget {
-  final String diaSemana;
-  final String horario;
+class ItemFormaPagamento extends StatefulWidget {
+  final IconData icon;
+  final String metodo;
   final bool ativoInicial;
 
-  const ItemHorarioFuncionamento({
-    super.key,
-    required this.diaSemana,
-    required this.horario,
+  const ItemFormaPagamento({
+    required this.icon,
+    required this.metodo,
     this.ativoInicial = true,
+    super.key,
   });
 
   @override
-  State<ItemHorarioFuncionamento> createState() =>
-      _ItemHorarioFuncionamentoState();
+  State<ItemFormaPagamento> createState() => _ItemFormaPagamentoState();
 }
 
-class _ItemHorarioFuncionamentoState extends State<ItemHorarioFuncionamento> {
+class _ItemFormaPagamentoState extends State<ItemFormaPagamento> {
   late bool ativo;
 
   @override
@@ -33,30 +32,19 @@ class _ItemHorarioFuncionamentoState extends State<ItemHorarioFuncionamento> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Dia na esquerda
-          SizedBox(
-            width: 50,
-            child: Text(
-              widget.diaSemana,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Color(0xFF3D1308),
-              ),
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 255, 213, 213),
+              borderRadius: BorderRadius.circular(20),
             ),
+            child: Icon(widget.icon, size: 20),
           ),
-
-          // Horário fixo no meio
           Text(
-            widget.horario,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: ativo ? const Color(0xFF3D1308) : Colors.grey,
-            ),
+            widget.metodo,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-
-          // Switch de liga/desliga na direita
           Transform.scale(
             scale: 0.85,
             child: Switch(
