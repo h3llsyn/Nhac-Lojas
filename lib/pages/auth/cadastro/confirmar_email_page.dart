@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_card_design.dart';
 
-class LinkRecuperacaoSenha extends StatelessWidget {
-  const LinkRecuperacaoSenha({super.key});
+class ConfirmarEmailPage extends StatelessWidget {
+  const ConfirmarEmailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class LinkRecuperacaoSenha extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                'Link enviado!',
+                'Confirme seu e-mail!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 4),
@@ -70,7 +70,7 @@ class LinkRecuperacaoSenha extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                   children: [
-                    TextSpan(text: 'Enviamos um link de redefinição para\n'),
+                    TextSpan(text: 'Enviamos um link de confirmação para\n'),
                     TextSpan(
                       text: 'seu@email.com',
                       style: TextStyle(
@@ -79,7 +79,7 @@ class LinkRecuperacaoSenha extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: '. Clique no link\npara criar uma nova senha',
+                      text: '. Clique no link para\nativar sua conta e começar a vender',
                     ),
                   ],
                 ),
@@ -97,13 +97,11 @@ class LinkRecuperacaoSenha extends StatelessWidget {
                     children: [
                       TextSpan(text: 'Não recebeu o e-mail? Verifique sua caixa de spam ou '),
                       TextSpan(
-                        text: 'reenvie o link.',
+                        text: 'reenvie o email.',
                         style: TextStyle(
                           color: Colors.redAccent,
                           fontWeight: FontWeight.bold
                         ),
-                        recognizer: TapGestureRecognizer()
-                        ..onTap =() => context.go('/nova-senha')
                       ),
                     ],
                   ),
@@ -112,8 +110,8 @@ class LinkRecuperacaoSenha extends StatelessWidget {
               ),
               Spacer(),
               ButtonNhac(
-                texto: 'Voltar para o login',
-                onTap: () => context.go('/login'),
+                texto: 'Já confirmei, continuar',
+                onTap: () => context.go('/dados-basicos'),
               ),
             ],
           ),

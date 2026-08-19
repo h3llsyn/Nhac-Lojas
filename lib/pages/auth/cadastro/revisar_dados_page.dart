@@ -312,7 +312,7 @@ class RevisarDadosPage extends StatelessWidget {
 
                 ButtonNhac(
                   texto: 'Finalizar cadastro',
-                  onTap: () => context.push('/loja-cadastrada'),
+                  onTap: () => context.go('/loja-cadastrada'),
                 ),
               ],
             ),

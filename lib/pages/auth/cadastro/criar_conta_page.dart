@@ -137,7 +137,7 @@ class _CriarContaPageState extends State<CriarContaPage> {
               Spacer(),
               ButtonNhac(
                 texto: 'Continuar',
-                onTap: () => context.push('/dados-basicos'),
+                onTap: () => context.push('/confirmar-email'),
               ),
             ],
           ),
