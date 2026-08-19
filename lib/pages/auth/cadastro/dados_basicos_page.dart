@@ -274,7 +274,7 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
                 SizedBox(height: 24,),
                 ButtonNhac(
                   texto: 'Continuar',
-                  onTap: () => context.go('/endereco-loja'),
+                  onTap: () => context.push('/endereco-loja'),
                 ),
               ],
             ),

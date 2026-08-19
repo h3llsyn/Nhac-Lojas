@@ -19,10 +19,10 @@ class EnderecoLojaPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: [
+                  children: const [
                     BackArrow(),
-                    const SizedBox(width: 12),
-                    const Text(
+                    SizedBox(width: 12),
+                    Text(
                       'Cadastrar loja',
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -66,25 +66,85 @@ class EnderecoLojaPage extends StatelessWidget {
                 const NhacInputField(hintText: 'Nome da rua'),
                 const SizedBox(height: 16),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Número',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Número',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 4),
+                          NhacInputField(hintText: '123'),
+                        ],
+                      ),
                     ),
                     const SizedBox(width: 12),
-                    const NhacInputField(hintText: '123'),
-                    const Text(
-                      'Complemento',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Complemento',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 4),
+                          NhacInputField(hintText: 'Opcional'),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 4),
-                    const NhacInputField(hintText: 'Opcional'),
                   ],
                 ),
-                SizedBox(height: 24,),
+                const SizedBox(height: 16),
+                const Text(
+                  'Bairro',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 4),
+                const NhacInputField(hintText: 'Nome do bairro'),
+                const SizedBox(height: 16),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Cidade',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 4),
+                          NhacInputField(hintText: 'Nome da cidade'),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'UF',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 4),
+                          NhacInputField(hintText: 'UF'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
                 ButtonNhac(
                   texto: 'Continuar',
-                  onTap: () => context.go('/home'),
+                  onTap: () => context.push('/home'),
                 ),
               ],
             ),

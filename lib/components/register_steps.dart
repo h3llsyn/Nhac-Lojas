@@ -105,7 +105,7 @@ class RegisterSteps extends StatelessWidget {
         width: 28,
         height: 28,
         decoration: const BoxDecoration(
-          color: Color(0xFF2EA970),
+          color: Colors.redAccent,
           shape: BoxShape.circle,
         ),
         child: const Icon(Icons.check, size: 16, color: Colors.white),
