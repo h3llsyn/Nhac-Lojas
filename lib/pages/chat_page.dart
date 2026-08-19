@@ -50,7 +50,6 @@ class ChatPage extends StatelessWidget {
                   FilterTag(
                     filtro: 'Pendentes',
                     quantidade: 2,
-                    isSelected: false
                   ),
                 ],
               ),

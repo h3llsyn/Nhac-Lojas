@@ -94,17 +94,14 @@ class ChatOpen extends StatelessWidget {
                   children: const [
                     FilterTag(
                       filtro: 'Combinado',
-                      isSelected: false,
                     ),
                     SizedBox(width: 8),
                     FilterTag(
                       filtro: 'Pedido a caminho',
-                      isSelected: false,
                     ),
                     SizedBox(width: 8),
                     FilterTag(
                       filtro: 'Vou verificar',
-                      isSelected: false,
                     ),
                   ],
                 ),

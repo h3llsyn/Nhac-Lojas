@@ -46,25 +46,21 @@ class OrderPage extends StatelessWidget {
                   FilterTag(
                     filtro: 'Confirmar',
                     quantidade: 1,
-                    isSelected: false,
                   ),
                   SizedBox(width: 8,),
                   FilterTag(
                     filtro: 'Em preparo',
                     quantidade: 1,
-                    isSelected: false,
                   ),
                   SizedBox(width: 8,),
                   FilterTag(
                     filtro: 'A caminho',
                     quantidade: 1,
-                    isSelected: false,
                   ),
                   SizedBox(width: 8,),
                   FilterTag(
                     filtro: 'Entregue',
                     quantidade: 2,
-                    isSelected: false,
                   ),
                 ],
               ),
