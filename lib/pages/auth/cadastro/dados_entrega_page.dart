@@ -93,7 +93,7 @@ class _DadosEntregaPageState extends State<DadosEntregaPage> {
               Spacer(),
               ButtonNhac(
                 texto: 'Continuar',
-                onTap: () => context.push('/home'),
+                onTap: () => context.push('/horario-funcionamento'),
               ),
             ],
           ),

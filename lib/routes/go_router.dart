@@ -4,6 +4,7 @@ import 'package:nhac_lojas/pages/auth/cadastro/criar_conta_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/dados_basicos_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/dados_entrega_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/endereco_loja_page.dart';
+import 'package:nhac_lojas/pages/auth/cadastro/horario_funcionamento_page.dart';
 import 'package:nhac_lojas/pages/auth/login_loja.dart';
 import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
@@ -85,6 +86,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/dados-entrega',
       builder: (context, state) => const DadosEntregaPage(),
+    ),
+    GoRoute(
+      path: '/horario-funcionamento',
+      builder: (context, state) => const HorarioFuncionamentoPage(),
     ),
     GoRoute(
       path: '/order-details',
