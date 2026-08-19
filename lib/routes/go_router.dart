@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nhac_lojas/pages/auth/cadastro/criar_conta.dart';
-import 'package:nhac_lojas/pages/auth/cadastro/dados_basicos.dart';
+import 'package:nhac_lojas/pages/auth/cadastro/criar_conta_page.dart';
+import 'package:nhac_lojas/pages/auth/cadastro/dados_basicos_page.dart';
+import 'package:nhac_lojas/pages/auth/cadastro/endereco_loja_page.dart';
 import 'package:nhac_lojas/pages/auth/login_loja.dart';
 import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
@@ -70,11 +71,15 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/criar-conta',
-      builder: (context, state) => const CriarConta(),
+      builder: (context, state) => const CriarContaPage(),
     ),
     GoRoute(
       path: '/dados-basicos',
-      builder: (context, state) => const DadosBasicos(),
+      builder: (context, state) => const DadosBasicosPage(),
+    ),
+    GoRoute(
+      path: '/endereco-loja',
+      builder: (context, state) => const EnderecoLojaPage(),
     ),
     GoRoute(
       path: '/order-details',

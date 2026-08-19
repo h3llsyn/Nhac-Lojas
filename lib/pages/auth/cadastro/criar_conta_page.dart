@@ -5,14 +5,14 @@ import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 
-class CriarConta extends StatefulWidget {
-  const CriarConta({super.key});
+class CriarContaPage extends StatefulWidget {
+  const CriarContaPage({super.key});
 
   @override
-  State<CriarConta> createState() => _CriarContaState();
+  State<CriarContaPage> createState() => _CriarContaPageState();
 }
 
-class _CriarContaState extends State<CriarConta> {
+class _CriarContaPageState extends State<CriarContaPage> {
 
   bool _senhaVisivel = false;
   bool _confirmarSenhaVisivel = false;

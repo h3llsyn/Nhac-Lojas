@@ -5,14 +5,14 @@ import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 import 'package:nhac_lojas/components/register_steps.dart';
 
-class DadosBasicos extends StatefulWidget {
-  const DadosBasicos({super.key});
+class DadosBasicosPage extends StatefulWidget {
+  const DadosBasicosPage({super.key});
 
   @override
-  State<DadosBasicos> createState() => _DadosBasicosState();
+  State<DadosBasicosPage> createState() => _DadosBasicosState();
 }
 
-class _DadosBasicosState extends State<DadosBasicos> {
+class _DadosBasicosState extends State<DadosBasicosPage> {
   final TextEditingController tipoEstabelecimentoController = TextEditingController();
   final TextEditingController tipoCulinariaController = TextEditingController();
 
@@ -27,7 +27,7 @@ class _DadosBasicosState extends State<DadosBasicos> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView( // Posicionado corretamente dentro do Scaffold
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
             child: Column(
@@ -274,7 +274,7 @@ class _DadosBasicosState extends State<DadosBasicos> {
                 SizedBox(height: 24,),
                 ButtonNhac(
                   texto: 'Continuar',
-                  onTap: () => context.go('/home'),
+                  onTap: () => context.go('/endereco-loja'),
                 ),
               ],
             ),
