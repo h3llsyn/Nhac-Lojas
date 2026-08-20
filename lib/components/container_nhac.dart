@@ -36,7 +36,6 @@ class ContainerNhac extends StatelessWidget {
   // --- NOVAS PROPRIEDADES PARA SELEÇÃO ---
   final bool selecionado;
   final bool exibirRadio;
-  final Color? corBorda;
 
   const ContainerNhac({
     super.key,
@@ -69,7 +68,6 @@ class ContainerNhac extends StatelessWidget {
     // Novas opções padrão
     this.selecionado = false,
     this.exibirRadio = false,
-    this.corBorda,
   });
 
   @override
@@ -124,7 +122,7 @@ class ContainerNhac extends StatelessWidget {
     }
 
     // Define as cores do Radio / Borda
-    final Color corDestaque = corBorda ?? Colors.redAccent;
+    final Color corDestaque = Colors.redAccent;
 
     Widget content = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -267,32 +265,22 @@ class ContainerNhac extends StatelessWidget {
     );
 
     // --- ENVOLTÓRIO COM BORDA E FUNDO CUSTOMIZÁVEIS ---
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      decoration: BoxDecoration(
-        color: selecionado
-            ? corDestaque.withOpacity(0.04)
-            : Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: selecionado
-              ? corDestaque.withOpacity(0.5)
-              : Colors.grey.shade200,
-          width: selecionado ? 1.5 : 1,
-        ),
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            child: content,
-          ),
-        ),
-      ),
-    );
+    // return AnimatedContainer(
+    //   duration: const Duration(milliseconds: 200),
+    //   decoration: BoxDecoration(
+    //      color: selecionado
+    //          ? corDestaque.withOpacity(0.04)
+    //          : Colors.white,
+    //    ),
+    //   child: Material(
+    //     color: Colors.transparent,
+    //     child: InkWell(
+    //       onTap: onTap,
+    //       child: content,
+    //     ),
+    //   ),
+    // );
+    return content;
   }
 
   Widget _buildStatusChat() {

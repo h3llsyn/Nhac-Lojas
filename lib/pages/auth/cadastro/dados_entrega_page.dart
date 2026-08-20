@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
+import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 import 'package:nhac_lojas/components/register_steps.dart';
@@ -55,26 +56,30 @@ class _DadosEntregaPageState extends State<DadosEntregaPage> {
                 ),
               ),
               const SizedBox(height: 18),
-              ContainerNhac(
-                icon: Icons.local_shipping_outlined,
-                informacao: 'Entrega própria',
-                complemento: 'Minha equipe faz as entregas',
-                exibirRadio: true,
-                selecionado: opcaoSelecionada == 0,
-                onTap: () {
-                  setState(() => opcaoSelecionada = 0);
-                },
+              ContainerCardDesign(
+                children: ContainerNhac(
+                  icon: Icons.local_shipping_outlined,
+                  informacao: 'Entrega própria',
+                  complemento: 'Minha equipe faz as entregas',
+                  exibirRadio: true,
+                  selecionado: opcaoSelecionada == 0,
+                  onTap: () {
+                    setState(() => opcaoSelecionada = 0);
+                  },
+                ),
               ),
               const SizedBox(height: 16),
-              ContainerNhac(
-                icon: Icons.storefront_outlined,
-                informacao: 'Retirada no local',
-                complemento: 'Cliente retira na loja',
-                exibirRadio: true,
-                selecionado: opcaoSelecionada == 1,
-                onTap: () {
-                  setState(() => opcaoSelecionada = 1);
-                },
+              ContainerCardDesign(
+                children: ContainerNhac(
+                  icon: Icons.storefront_outlined,
+                  informacao: 'Retirada no local',
+                  complemento: 'Cliente retira na loja',
+                  exibirRadio: true,
+                  selecionado: opcaoSelecionada == 1,
+                  onTap: () {
+                    setState(() => opcaoSelecionada = 1);
+                  },
+                ),
               ),
               const SizedBox(height: 16),
               const Text(

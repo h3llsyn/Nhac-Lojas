@@ -82,18 +82,18 @@ class LojaCadastradaPage extends StatelessWidget {
                 onTap: () => context.go('/home'),
                 isSecundario: true,
               ),
-              SizedBox(height: 8),
-              Text(
-                'Você pode adicionar mais produtos depois em',
-                style: TextStyle(color: Colors.grey),
-              ),
-              Text(
-                'Mais opções',
-                style: TextStyle(
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.bold
-                ),
-              ),
+              // SizedBox(height: 8),
+              // Text(
+              //   'Você pode adicionar mais produtos depois em',
+              //   style: TextStyle(color: Colors.grey),
+              // ),
+              // Text(
+              //   'Mais opções',
+              //   style: TextStyle(
+              //     color: Colors.redAccent,
+              //     fontWeight: FontWeight.bold
+              //   ),
+              // ),
             ],
           ),
         ),

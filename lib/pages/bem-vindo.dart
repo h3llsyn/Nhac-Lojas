@@ -78,7 +78,7 @@ class BemVindo extends StatelessWidget {
                     child: ButtonNhac(
                       texto: 'Já tenho uma conta · Entrar',
                       isSecundario: true,
-                      onTap: () => context.push('/tipo-conta'),
+                      onTap: () => context.push('/login'),
                     ),
                   ),
                   SizedBox(height: 8),
