@@ -36,7 +36,7 @@ class _ItemFormaPagamentoState extends State<ItemFormaPagamento> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 255, 213, 213),
+              color: const Color.fromARGB(255, 255, 242, 230),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Icon(widget.icon, size: 20),

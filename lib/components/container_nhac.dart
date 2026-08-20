@@ -183,7 +183,7 @@ class ContainerNhac extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   subTituloExibicao,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: fontSizeComplemento ?? 13,
@@ -280,6 +280,14 @@ class ContainerNhac extends StatelessWidget {
     //     ),
     //   ),
     // );
+
+    if (onTap != null) {
+      return InkWell(
+        onTap: onTap,
+        child: content,
+      );
+    }
+
     return content;
   }
 

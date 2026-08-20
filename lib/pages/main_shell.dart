@@ -23,7 +23,7 @@ class _MainShellState extends State<MainShell> {
     NavBarItem(icon: Icons.house_outlined, label: 'Início'),
     NavBarItem(icon: Icons.receipt_long_outlined, label: 'Pedidos'),
     NavBarItem(icon: Icons.chat_outlined, label: 'Chat'),
-    NavBarItem(icon: Icons.person_outline, label: 'Perfil'),
+    NavBarItem(icon: Icons.menu, label: 'Mais'),
   ];
 
   @override
@@ -59,7 +59,7 @@ class _MainShellState extends State<MainShell> {
         context.go('/chat');
         break;
       case 3:
-        context.go('/profile');
+        context.go('/mais');
         break;
     }
   }

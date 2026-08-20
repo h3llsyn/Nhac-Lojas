@@ -18,6 +18,7 @@ import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
 import 'package:nhac_lojas/pages/main_shell.dart';
+import 'package:nhac_lojas/pages/more_page.dart';
 import 'package:nhac_lojas/pages/order_details_page.dart';
 import 'package:nhac_lojas/pages/order_page.dart';
 import 'package:nhac_lojas/pages/update_order_status.dart';
@@ -43,10 +44,8 @@ final GoRouter appRouter = GoRouter(
           builder: (context, state) => const ChatPage(),
         ),
         GoRoute(
-          path: '/profile',
-          builder: (context, state) => const Scaffold(
-            body: Center(child: Text('Perfil')),
-          ),
+          path: '/mais',
+          builder: (context, state) => const MorePage(),
         ),
       ],
     ),
