@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/item_mais.dart';
 import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
@@ -30,7 +31,8 @@ class MorePage extends StatelessWidget {
             ItemMais(
               icon: Icons.store_outlined,
               titulo: 'Informações da loja',
-              subtitulo: 'Endereço, categoria e mais'
+              subtitulo: 'Endereço, categoria e mais',
+              onTap: () => context.push('/informacao-loja'),
             ),
             Divider(),
             ItemMais(

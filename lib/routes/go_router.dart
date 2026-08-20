@@ -14,6 +14,7 @@ import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
 import 'package:nhac_lojas/pages/auth/recuperar_senha.dart';
 import 'package:nhac_lojas/pages/bem-vindo.dart';
+import 'package:nhac_lojas/pages/informacao_loja.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
@@ -116,6 +117,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/chat-open',
       builder: (context, state) => const ChatOpen(),
+    ),
+    GoRoute(
+      path: '/informacao-loja',
+      builder: (context, state) => const InformacaoLoja(),
     ),
   ],
 );

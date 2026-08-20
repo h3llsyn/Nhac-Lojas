@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class ItemMais extends StatelessWidget {
   final IconData icon;
   final String titulo;
-  final String subtitulo;
+  final String? subtitulo;
   final VoidCallback? onTap;
 
   const ItemMais({
     required this.icon,
     required this.titulo,
-    required this.subtitulo,
+    this.subtitulo,
     this.onTap,
     super.key,
   });
@@ -45,13 +45,14 @@ class ItemMais extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    subtitulo,
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 12,
+                  if (subtitulo != null && subtitulo!.isNotEmpty)
+                    Text(
+                      subtitulo!,
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
                 ],
               ),
               const Spacer(),
