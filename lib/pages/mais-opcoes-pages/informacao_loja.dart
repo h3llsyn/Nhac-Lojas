@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
-import 'package:nhac_lojas/components/item_mais.dart';
+import 'package:nhac_lojas/components/container_nhac.dart';
 
 class InformacaoLoja extends StatelessWidget {
   const InformacaoLoja({super.key});
@@ -63,9 +63,33 @@ class InformacaoLoja extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: ItemMais(
-                  icon: Icons.store_outlined,
-                  titulo: 'Nome, categoria e descrição'
+                child: Column(
+                  children: [
+                    ContainerNhac(
+                      icon: Icons.store_outlined,
+                      informacao: 'Nome, categoria e descrição',
+                      fontSize: 14,
+                      exibirSeta: true,
+                    ),
+                    SizedBox(height: 8,),
+                    Divider(),
+                    SizedBox(height: 8,),
+                    ContainerNhac(
+                      icon: Icons.store_outlined,
+                      informacao: 'Nome, categoria e descrição',
+                      fontSize: 14,
+                      exibirSeta: true,
+                    ),
+                    SizedBox(height: 8,),
+                    Divider(),
+                    SizedBox(height: 8,),
+                    ContainerNhac(
+                      icon: Icons.store_outlined,
+                      informacao: 'Nome, categoria e descrição',
+                      fontSize: 14,
+                      exibirSeta: true,
+                    ),
+                  ],
                 ),
               ),
             ],

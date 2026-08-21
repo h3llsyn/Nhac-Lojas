@@ -32,10 +32,9 @@ class ContainerNhac extends StatelessWidget {
   final BoxShape formatoIcone;
   final VoidCallback? onTap;
   final bool precoEmDestaque;
-
-  // --- NOVAS PROPRIEDADES PARA SELEÇÃO ---
   final bool selecionado;
   final bool exibirRadio;
+  final bool exibirSeta;
 
   const ContainerNhac({
     super.key,
@@ -68,6 +67,7 @@ class ContainerNhac extends StatelessWidget {
     // Novas opções padrão
     this.selecionado = false,
     this.exibirRadio = false,
+    this.exibirSeta = false,
   });
 
   @override
@@ -259,6 +259,15 @@ class ContainerNhac extends StatelessWidget {
                 : Icons.radio_button_off_rounded,
             color: selecionado ? corDestaque : Colors.grey[300],
             size: 24,
+          ),
+        ],
+
+        if (exibirSeta) ...[
+          const SizedBox(width: 8),
+          const Icon(
+            Icons.arrow_forward_ios_outlined,
+            color: Colors.grey,
+            size: 12,
           ),
         ],
       ],
