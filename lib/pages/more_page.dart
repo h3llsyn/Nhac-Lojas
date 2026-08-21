@@ -46,7 +46,7 @@ class MorePage extends StatelessWidget {
                 informacao: 'Cardápio',
                 complemento: 'Gerencie seus produtos',
                 exibirSeta: true,
-                onTap: () => context.push('/cardapio'),
+                onTap: () => context.push('/cardapio-vazio'),
               ),
             ),
             Divider(),

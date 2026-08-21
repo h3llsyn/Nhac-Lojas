@@ -14,7 +14,7 @@ import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
 import 'package:nhac_lojas/pages/auth/recuperar_senha.dart';
 import 'package:nhac_lojas/pages/bem-vindo.dart';
-import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_page.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_vazio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/informacao_loja.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
@@ -124,8 +124,8 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const InformacaoLoja(),
     ),
     GoRoute(
-      path: '/cardapio',
-      builder: (context, state) => const CardapioPage(),
+      path: '/cardapio-vazio',
+      builder: (context, state) => const CardapioVazioPage(),
     ),
   ],
 );

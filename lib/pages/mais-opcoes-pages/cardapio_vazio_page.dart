@@ -4,14 +4,14 @@ import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 
-class CardapioPage extends StatelessWidget {
-  const CardapioPage({super.key});
+class CardapioVazioPage extends StatelessWidget {
+  const CardapioVazioPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding( 
+        child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
           child: Column(
             children: [
@@ -21,18 +21,11 @@ class CardapioPage extends StatelessWidget {
                   SizedBox(width: 16),
                   Text(
                     'Cardápio',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  Spacer(),
-                  IconContainer(
-                    icon: Icons.add,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-              SizedBox(height: 24,),
+              SizedBox(height: 24),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +39,7 @@ class CardapioPage extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
-                        Icons.store_outlined,
+                        Icons.flatware_outlined,
                         size: 60,
                         color: Colors.redAccent,
                       ),
@@ -55,13 +48,17 @@ class CardapioPage extends StatelessWidget {
                     Text(
                       'Seu cardápio está vazio',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Adicione produtos com fotos, preços e descrição para seus clientes verem na loja.',
+                      'Adicione produtos com fotos, preços\ne descrição para seus clientes\nverem na loja.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                        color: Colors.grey,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
