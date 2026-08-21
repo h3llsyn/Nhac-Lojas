@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
-import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/item_mais.dart';
 
 class InformacaoLoja extends StatelessWidget {
@@ -58,10 +56,16 @@ class InformacaoLoja extends StatelessWidget {
                   ],
                 ),
               ),
-              ContainerCardDesign(
-                children: ItemMais(
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ItemMais(
                   icon: Icons.store_outlined,
-                  titulo: 'Nome, categoria e descriçaõ'
+                  titulo: 'Nome, categoria e descrição'
                 ),
               ),
             ],

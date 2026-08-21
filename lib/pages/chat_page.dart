@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
@@ -55,8 +54,14 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 letrasIcon: 'MS',
                 informacao: 'Maria Silva',
                 complemento: 'Olá, poderia enviar mais molho, por favor?',
@@ -68,8 +73,14 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 letrasIcon: 'JP',
                 informacao: 'João Pedro',
                 complemento: 'Obrigado!',
@@ -80,8 +91,14 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 letrasIcon: 'AC',
                 informacao: 'Ana Clara',
                 complemento: 'Qual o tempo médio de entrega?',
@@ -93,8 +110,14 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 letrasIcon: 'LM',
                 informacao: 'Lucas Martins',
                 complemento: 'Pode deixar na portaria',

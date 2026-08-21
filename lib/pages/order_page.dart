@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
@@ -66,8 +65,14 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 codigo: 1250,
                 informacao: 'Maria Silva',
                 quantidadeItens: 2,
@@ -78,8 +83,14 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 codigo: 1249,
                 informacao: 'João Pedro',
                 quantidadeItens: 3,
@@ -90,8 +101,14 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 codigo: 1248,
                 informacao: 'Ana Clara',
                 quantidadeItens: 1,
@@ -102,8 +119,14 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 codigo: 1247,
                 informacao: 'Lucas Martins',
                 quantidadeItens: 2,
@@ -114,8 +137,14 @@ class OrderPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12,),
-            ContainerCardDesign(
-              children: ContainerNhac(
+            Container(
+              width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ContainerNhac(
                 codigo: 1246,
                 informacao: 'Fernanda Lima',
                 quantidadeItens: 1,

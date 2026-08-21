@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 
@@ -64,8 +63,14 @@ class OrderDetailsPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              ContainerCardDesign(
-                children: Column(
+              Container(
+                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
                   children: [
                     ContainerNhac(
                       icon: Icons.person,
@@ -99,8 +104,14 @@ class OrderDetailsPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              ContainerCardDesign(
-                children: Column(
+              Container(
+                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
                   children: [
                     ContainerNhac(
                       informacao: 'X-Burguer',
@@ -158,8 +169,14 @@ class OrderDetailsPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 14),
-              ContainerCardDesign(
-                children: ContainerNhac(
+              Container(
+                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ContainerNhac(
                   icon: Icons.credit_card_rounded,
                   informacao: 'Online · Cartão de crédito',
                 ),

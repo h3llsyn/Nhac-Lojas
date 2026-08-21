@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/ballon_chat.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
@@ -49,8 +48,14 @@ class ChatOpen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      ContainerCardDesign(
-                        children: const ContainerNhac(
+                      Container(
+                        width: double.infinity,
+                                                padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const ContainerNhac(
                           icon: Icons.receipt,
                           corIcone: Colors.redAccent,
                           informacao: 'Pedido',

@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 
 class LinkRecuperacaoSenha extends StatelessWidget {
   const LinkRecuperacaoSenha({super.key});
@@ -86,8 +85,14 @@ class LinkRecuperacaoSenha extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              ContainerCardDesign(
-                children: Text.rich(
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text.rich(
                   TextSpan(
                     style: TextStyle(
                       color: Colors.grey,

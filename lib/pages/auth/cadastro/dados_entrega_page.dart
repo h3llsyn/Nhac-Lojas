@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 import 'package:nhac_lojas/components/register_steps.dart';
@@ -56,8 +55,14 @@ class _DadosEntregaPageState extends State<DadosEntregaPage> {
                 ),
               ),
               const SizedBox(height: 18),
-              ContainerCardDesign(
-                children: ContainerNhac(
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ContainerNhac(
                   icon: Icons.local_shipping_outlined,
                   informacao: 'Entrega própria',
                   complemento: 'Minha equipe faz as entregas',
@@ -69,8 +74,14 @@ class _DadosEntregaPageState extends State<DadosEntregaPage> {
                 ),
               ),
               const SizedBox(height: 16),
-              ContainerCardDesign(
-                children: ContainerNhac(
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ContainerNhac(
                   icon: Icons.storefront_outlined,
                   informacao: 'Retirada no local',
                   complemento: 'Cliente retira na loja',

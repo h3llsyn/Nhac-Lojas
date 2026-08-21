@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 
 class ContainerCardRevisao extends StatelessWidget {
   final String title;
@@ -15,8 +14,18 @@ class ContainerCardRevisao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContainerCardDesign(
-      children: Column(
+    // Esse componente tem o próprio visual embutido (fundo branco, cantos
+    // arredondados, padding) — não depende mais de nenhum outro componente
+    // de "card" por baixo.
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(

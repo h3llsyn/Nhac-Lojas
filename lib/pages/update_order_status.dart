@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/order_status.dart';
 
@@ -32,8 +31,14 @@ class UpdateOrderStatus extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 24),
-              ContainerCardDesign(
-                children: ContainerNhac(
+              Container(
+                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ContainerNhac(
                   icon: Icons.receipt,
                   corIcone: Colors.redAccent,
                   informacao: 'Maria Silva',

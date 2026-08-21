@@ -1,7 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nhac_lojas/components/container_card_design.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
@@ -95,8 +94,14 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ContainerCardDesign(
-                    children: ContainerNhac(
+                  child: Container(
+                    width: double.infinity,
+                                        padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ContainerNhac(
                       informacao: '34',
                       fontSize: 20,
                       complemento: 'Pedidos',
@@ -105,8 +110,14 @@ class HomePage extends StatelessWidget {
                 ),
                 SizedBox(width: 8),
                 Expanded(
-                  child: ContainerCardDesign(
-                    children: ContainerNhac(
+                  child: Container(
+                    width: double.infinity,
+                                        padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ContainerNhac(
                       informacao: '5',
                       fontSize: 20,
                       complemento: 'Em preparo',
@@ -120,8 +131,14 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ContainerCardDesign(
-                    children: ContainerNhac(
+                  child: Container(
+                    width: double.infinity,
+                                        padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ContainerNhac(
                       informacao: '4',
                       fontSize: 20,
                       complemento: 'A caminho',
@@ -131,8 +148,14 @@ class HomePage extends StatelessWidget {
                 ),
                 SizedBox(width: 8),
                 Expanded(
-                  child: ContainerCardDesign(
-                    children: ContainerNhac(
+                  child: Container(
+                    width: double.infinity,
+                                        padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ContainerNhac(
                       informacao: '25',
                       fontSize: 20,
                       complemento: 'Concluídos',
@@ -291,8 +314,14 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            ContainerCardDesign(
-              children: Column(
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
                 children: [
                   ContainerNhac(
                     codigo: 1250,
@@ -303,9 +332,7 @@ class HomePage extends StatelessWidget {
                     situacao: 'Em preparo',
                     onTap: () => context.push('/order-details'),
                   ),
-                  const SizedBox(height: 8),
                   const Divider(color: Color.fromARGB(50, 158, 158, 158)),
-                  const SizedBox(height: 8),
                   ContainerNhac(
                     codigo: 1249,
                     informacao: 'João Pedro',
