@@ -1,9 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 
-class InformacaoLoja extends StatelessWidget {
+class InformacaoLoja extends StatefulWidget {
   const InformacaoLoja({super.key});
+
+  @override
+  State<InformacaoLoja> createState() => _InformacaoLojaState();
+}
+
+class _InformacaoLojaState extends State<InformacaoLoja> {
+  final ImagePicker picker = ImagePicker();
+  File? fotoPerfil;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +30,23 @@ class InformacaoLoja extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    Container(
-                      width: 76,
-                      height: 76,
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 242, 230),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Image.asset(
-                        'assets/images/nhac-logo.png',
-                        fit: BoxFit.contain,
+                    CircleAvatar(
+                      radius: 64,
+                      backgroundColor: Color.fromARGB(255, 255, 242, 230), // Opcional: cor de fundo caso a imagem tenha transparência
+                      child: ClipOval(
+                        child: SizedBox(
+                          width: 84, // Defina aqui o tamanho exato que a imagem deve ter dentro do círculo
+                          height: 84,
+                          child: fotoPerfil != null
+                              ? Image.file(
+                                  fotoPerfil!,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset(
+                                  'assets/images/nhac-logo.png',
+                                  fit: BoxFit.contain, // Ajusta o logo do Nhac perfeitamente sem distorcer
+                                ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -56,6 +73,7 @@ class InformacaoLoja extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 12,),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
@@ -71,18 +89,18 @@ class InformacaoLoja extends StatelessWidget {
                       fontSize: 14,
                       exibirSeta: true,
                     ),
-                    SizedBox(height: 8,),
+                    SizedBox(height: 8),
                     Divider(),
-                    SizedBox(height: 8,),
+                    SizedBox(height: 8),
                     ContainerNhac(
                       icon: Icons.store_outlined,
                       informacao: 'Nome, categoria e descrição',
                       fontSize: 14,
                       exibirSeta: true,
                     ),
-                    SizedBox(height: 8,),
+                    SizedBox(height: 8),
                     Divider(),
-                    SizedBox(height: 8,),
+                    SizedBox(height: 8),
                     ContainerNhac(
                       icon: Icons.store_outlined,
                       informacao: 'Nome, categoria e descrição',

@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                                        padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                                        padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
@@ -133,7 +133,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                                        padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
@@ -150,7 +150,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                                        padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),

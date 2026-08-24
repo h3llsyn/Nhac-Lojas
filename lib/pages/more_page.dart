@@ -28,6 +28,37 @@ class MorePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 24),
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: Text(
+            //     'SEU NEGÓCIO',
+            //     style: TextStyle(
+            //       fontSize: 14,
+            //       fontWeight: FontWeight.bold,
+            //       color: Colors.grey,
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(height: 4),
+            //   Container(
+            //     width: double.infinity,
+            //     padding: const EdgeInsets.all(16),
+            //     decoration: BoxDecoration(
+            //       color: Colors.white,
+            //       borderRadius: BorderRadius.circular(20),
+            //     ),
+            //     child: Column(
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       children: [
+            //         ContainerNhac(
+            //           informacao: 'Cardápio',
+            //           fontSize: 20,
+            //           complemento: 'Gerencie seus produtos',
+            //           exibirSeta: true,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
               child: ContainerNhac(
