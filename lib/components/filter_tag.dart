@@ -6,6 +6,8 @@ class FilterTag extends StatelessWidget {
   final bool isSelected;
   final Color? backgroundColor;
   final Color? textColor;
+  final Color? selectedBackgroundColor;
+  final Color? selectedTextColor;
 
   const FilterTag({
     required this.filtro,
@@ -13,18 +15,24 @@ class FilterTag extends StatelessWidget {
     this.isSelected = false,
     this.backgroundColor,
     this.textColor,
+    this.selectedBackgroundColor,
+    this.selectedTextColor,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Define a cor de fundo com base nos parâmetros customizados ou no estado selecionado
-    final effectiveBgColor = backgroundColor ??
-        (isSelected ? const Color.fromARGB(255, 93, 32, 28) : Colors.white);
+    final primaryAppColor = Theme.of(context).colorScheme.primary;
 
-    // Define a cor do texto
-    final effectiveTextColor = textColor ??
-        (isSelected ? Colors.white : Colors.grey);
+    // 1. COR DE FUNDO CORRIGIDA: Se estiver selecionado, usa a cor de seleção. Se não, usa o backgroundColor ou branco.
+    final effectiveBgColor = isSelected
+        ? (selectedBackgroundColor ?? primaryAppColor)
+        : (backgroundColor ?? Colors.white);
+
+    // 2. COR DE TEXTO CORRIGIDA: Se estiver selecionado, usa o texto de seleção. Se não, usa o textColor ou a cor primária do app.
+    final effectiveTextColor = isSelected
+        ? (selectedTextColor ?? Colors.white)
+        : (textColor ?? primaryAppColor);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -33,7 +41,7 @@ class FilterTag extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min, // Garante que a tag ocupe apenas o espaço necessário no Wrap
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             filtro,

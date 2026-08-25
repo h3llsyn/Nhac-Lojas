@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
@@ -100,6 +101,7 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                       informacao: 'Nome, categoria e descrição',
                       fontSize: 14,
                       exibirSeta: true,
+                      onTap: () => context.push('/editar-info-loja'),
                     ),
                     SizedBox(height: 8),
                     Divider(),

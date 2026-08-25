@@ -23,6 +23,8 @@ class NhacInputField extends StatelessWidget {
   final TextStyle? style;
   final bool readOnly;
   final VoidCallback? onTap;
+  final int? maxLines; // Permite definir o número máximo de linhas
+  final int? minLines; // Permite definir o número mínimo de linhas
 
   const NhacInputField({
     super.key,
@@ -46,6 +48,8 @@ class NhacInputField extends StatelessWidget {
     this.style,
     this.readOnly = false,
     this.onTap,
+    this.maxLines = 1, // Por padrão continua sendo linha única
+    this.minLines,
   });
 
   @override
@@ -87,6 +91,8 @@ class NhacInputField extends StatelessWidget {
       cursorColor: cursorColor,
       readOnly: readOnly,
       onTap: onTap,
+      maxLines: maxLines,
+      minLines: minLines,
       style: style ??
           TextStyle(
             color: primaryColor,
