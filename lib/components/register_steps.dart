@@ -9,8 +9,8 @@ class RegisterSteps extends StatelessWidget {
 
   static const List<_StepData> _etapasPadrao = [
     _StepData(status: PassoCadastrar.dados, titulo: 'Dados', icon: Icons.badge),
-    _StepData(status: PassoCadastrar.endereco, titulo: 'Endereço', icon: Icons.place),
-    _StepData(status: PassoCadastrar.entrega, titulo: 'Entrega', icon: Icons.local_shipping_outlined),
+    _StepData(status: PassoCadastrar.endereco, titulo: 'Endereço', icon: Icons.location_on_outlined),
+    _StepData(status: PassoCadastrar.entrega, titulo: 'Entrega', icon: Icons.motorcycle_outlined),
     _StepData(status: PassoCadastrar.horarios, titulo: 'Horários', icon: Icons.access_time),
     _StepData(status: PassoCadastrar.pagamento, titulo: 'Pagamento', icon: Icons.credit_card),
     _StepData(status: PassoCadastrar.revisar, titulo: 'Revisar', icon: Icons.check_box_outlined),
