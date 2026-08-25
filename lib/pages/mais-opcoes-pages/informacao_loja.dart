@@ -25,7 +25,19 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BackArrow(),
+              Row(
+                children: [
+                  BackArrow(),
+                  const SizedBox(width: 12),
+                  Text(
+                  'Informações da loja',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+                ],
+              ),
               SizedBox(height: 32),
               Center(
                 child: Column(
@@ -61,19 +73,19 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                       'Cozinha · Hamburgueria',
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
-                    SizedBox(height: 4),
-                    Text(
-                      'Alterar foto',
-                      style: TextStyle(
-                        color: Colors.redAccent,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    // SizedBox(height: 4),
+                    // Text(
+                    //   'Alterar foto',
+                    //   style: TextStyle(
+                    //     color: Colors.redAccent,
+                    //     fontSize: 12,
+                    //     fontWeight: FontWeight.bold,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
-              SizedBox(height: 12,),
+              SizedBox(height: 16,),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
@@ -93,8 +105,8 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     Divider(),
                     SizedBox(height: 8),
                     ContainerNhac(
-                      icon: Icons.store_outlined,
-                      informacao: 'Nome, categoria e descrição',
+                      icon: Icons.motorcycle_outlined,
+                      informacao: 'Taxas de entrega',
                       fontSize: 14,
                       exibirSeta: true,
                     ),
@@ -102,14 +114,51 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     Divider(),
                     SizedBox(height: 8),
                     ContainerNhac(
-                      icon: Icons.store_outlined,
-                      informacao: 'Nome, categoria e descrição',
+                      icon: Icons.credit_card_outlined,
+                      informacao: 'Formas de pagamento',
+                      fontSize: 14,
+                      exibirSeta: true,
+                    ),
+                    SizedBox(height: 8,),
+                    Divider(),
+                    SizedBox(height: 8,),
+                    ContainerNhac(
+                      icon: Icons.location_on_outlined,
+                      informacao: 'Endereço da loja',
+                      fontSize: 14,
+                      exibirSeta: true,
+                    ),
+                    SizedBox(height: 8,),
+                    Divider(),
+                    SizedBox(height: 8,),
+                    ContainerNhac(
+                      icon: Icons.settings_outlined,
+                      informacao: 'Configurações da conta',
                       fontSize: 14,
                       exibirSeta: true,
                     ),
                   ],
                 ),
               ),
+              SizedBox(height: 16,),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    ContainerNhac(
+                      icon: Icons.logout_outlined,
+                      informacao: 'Sair da conta',
+                      fontSize: 14,
+                      exibirSeta: true,
+                    ),
+                  ],
+                )
+              )
             ],
           ),
         ),

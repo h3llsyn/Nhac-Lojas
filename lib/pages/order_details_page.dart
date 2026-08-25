@@ -87,7 +87,7 @@ class OrderDetailsPage extends StatelessWidget {
                     Divider(color: const Color.fromARGB(50, 158, 158, 158),),
                     SizedBox(height: 8,),
                     ContainerNhac(
-                      icon: Icons.place,
+                      icon: Icons.location_on_outlined,
                       informacao: 'Rua das Flores, 123',
                       complemento: 'Apt 45 - Centro',
                     ),
