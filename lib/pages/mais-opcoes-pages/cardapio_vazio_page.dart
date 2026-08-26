@@ -65,7 +65,7 @@ class CardapioVazioPage extends StatelessWidget {
                     SizedBox(height: 24),
                     ButtonNhac(
                       texto: 'Adicionar produto',
-                      onTap: () => context.go('/cadastrar-produtos'),
+                      onTap: () => context.push('/cadastrar-produtos'),
                     ),
                   ],
                 ),
