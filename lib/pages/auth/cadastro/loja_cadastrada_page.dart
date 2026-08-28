@@ -74,7 +74,7 @@ class LojaCadastradaPage extends StatelessWidget {
               Spacer(),
               ButtonNhac(
                 texto: 'Cadastrar produtos agora',
-                onTap: () => context.go('/cadastrar-produtos'),
+                onTap: () => context.push('/cadastrar-produtos'),
               ),
               SizedBox(height: 16.h),
               ButtonNhac(

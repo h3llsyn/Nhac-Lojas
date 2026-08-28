@@ -211,7 +211,7 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                     //   child: 
                       ButtonNhac(
                         texto: 'Salvar produto',
-                        onTap: () => context.pop('/cardapio-cheio'),
+                        onTap: () => context.go('/cardapio-cheio'),
                       ),
                     //),
                   //],
