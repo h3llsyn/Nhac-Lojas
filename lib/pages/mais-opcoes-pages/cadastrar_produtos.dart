@@ -183,38 +183,39 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                   ),
                 ),
                 SizedBox(height: 24),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        height: 49.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(32),
-                          border: Border.all(
-                            color: Colors.redAccent.withOpacity(0.4), // Bordinha vermelha suave
-                            width: 1.2,
-                          ),
-                        ),
-                        child: Center(
-                          child: Icon(
-                            Icons.delete_outline_rounded,
-                            color: Colors.redAccent,
-                            size: 24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 12), // Um pequeno espaçamento entre a lixeira e o botão salvar
-                    Expanded(
-                      flex: 4,
-                      child: ButtonNhac(
+                // Row(
+                //   children: [
+                //     Expanded(
+                //       flex: 1,
+                //       child: Container(
+                //         height: 49.h,
+                //         decoration: BoxDecoration(
+                //           borderRadius: BorderRadius.circular(32),
+                //           border: Border.all(
+                //             color: Colors.redAccent.withOpacity(0.4), // Bordinha vermelha suave
+                //             width: 1.2,
+                //           ),
+                //         ),
+                //         child: Center(
+                //           child: Icon(
+                //             Icons.delete_outline_rounded,
+                //             color: Colors.redAccent,
+                //             size: 24,
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     SizedBox(width: 12),
+                    // Expanded(
+                    //   flex: 4,
+                    //   child: 
+                      ButtonNhac(
                         texto: 'Salvar produto',
                         onTap: () => context.pop('/cardapio-cheio'),
                       ),
-                    ),
-                  ],
-                ),
+                    //),
+                  //],
+                //),
               ],
             ),
           ),
