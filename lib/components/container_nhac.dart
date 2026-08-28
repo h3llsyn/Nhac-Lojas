@@ -35,6 +35,9 @@ class ContainerNhac extends StatelessWidget {
   final bool selecionado;
   final bool exibirRadio;
   final bool exibirSeta;
+  final bool exibirSwitch;
+  final bool ativoInicial;
+  final ValueChanged<bool>? onSwitchChanged;
 
   const ContainerNhac({
     super.key,
@@ -63,11 +66,14 @@ class ContainerNhac extends StatelessWidget {
     this.formatoIcone = BoxShape.rectangle,
     this.onTap,
     this.precoEmDestaque = false,
-    
-    // Novas opções padrão
     this.selecionado = false,
     this.exibirRadio = false,
     this.exibirSeta = false,
+    
+    // Valores padrão do Switch
+    this.exibirSwitch = false,
+    this.ativoInicial = false,
+    this.onSwitchChanged,
   });
 
   @override
@@ -121,7 +127,7 @@ class ContainerNhac extends StatelessWidget {
       subTituloExibicao = complemento;
     }
 
-    // Define as cores do Radio / Borda
+    // Define as cores do Radio / Borda / Switch
     final Color corDestaque = Colors.redAccent;
 
     Widget content = Row(
@@ -262,6 +268,24 @@ class ContainerNhac extends StatelessWidget {
           ),
         ],
 
+        // --- SWITCH (NOVO) ---
+        // --- SWITCH ---
+        // --- SWITCH ---
+        if (exibirSwitch) ...[
+          const SizedBox(width: 8),
+          Transform.scale(
+            scale: 0.85,
+            child: Switch(
+              value: ativoInicial,
+              activeColor: Colors.white,
+              activeTrackColor: const Color(0xFFFF6961),
+              inactiveThumbColor: Colors.white,
+              inactiveTrackColor: Colors.grey.shade300,
+              trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+              onChanged: onSwitchChanged,
+            ),
+          ),
+        ],
         if (exibirSeta) ...[
           const SizedBox(width: 8),
           const Icon(
@@ -272,23 +296,6 @@ class ContainerNhac extends StatelessWidget {
         ],
       ],
     );
-
-    // --- ENVOLTÓRIO COM BORDA E FUNDO CUSTOMIZÁVEIS ---
-    // return AnimatedContainer(
-    //   duration: const Duration(milliseconds: 200),
-    //   decoration: BoxDecoration(
-    //      color: selecionado
-    //          ? corDestaque.withOpacity(0.04)
-    //          : Colors.white,
-    //    ),
-    //   child: Material(
-    //     color: Colors.transparent,
-    //     child: InkWell(
-    //       onTap: onTap,
-    //       child: content,
-    //     ),
-    //   ),
-    // );
 
     if (onTap != null) {
       return InkWell(
