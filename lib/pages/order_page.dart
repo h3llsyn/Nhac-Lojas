@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
@@ -13,7 +14,7 @@ class OrderPage extends StatelessWidget {
     return SingleChildScrollView(
       controller: ScrollShellController.of(context),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
+        padding: EdgeInsets.fromLTRB(20.w, 46.h, 20.w, 110.h),
         child: Column(
           children: [
             Row(
@@ -22,55 +23,55 @@ class OrderPage extends StatelessWidget {
                 Text(
                   'Pedidos',
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                IconContainer(
-                  icon: Icons.notifications_none_rounded
+                const IconContainer(
+                  icon: Icons.notifications_none_rounded,
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            SizedBox(height: 24.h),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  FilterTag(
+                  const FilterTag(
                     filtro: 'Todos',
                     quantidade: 5,
                     isSelected: true,
                   ),
-                  SizedBox(width: 8,),
-                  FilterTag(
+                  SizedBox(width: 8.w),
+                  const FilterTag(
                     filtro: 'Confirmar',
                     quantidade: 1,
                   ),
-                  SizedBox(width: 8,),
-                  FilterTag(
+                  SizedBox(width: 8.w),
+                  const FilterTag(
                     filtro: 'Em preparo',
                     quantidade: 1,
                   ),
-                  SizedBox(width: 8,),
-                  FilterTag(
+                  SizedBox(width: 8.w),
+                  const FilterTag(
                     filtro: 'A caminho',
                     quantidade: 1,
                   ),
-                  SizedBox(width: 8,),
-                  FilterTag(
+                  SizedBox(width: 8.w),
+                  const FilterTag(
                     filtro: 'Entregue',
                     quantidade: 2,
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 24,),
+            SizedBox(height: 24.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 codigo: 1250,
@@ -82,13 +83,13 @@ class OrderPage extends StatelessWidget {
                 onTap: () => context.push('/order-details'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 codigo: 1249,
@@ -100,13 +101,13 @@ class OrderPage extends StatelessWidget {
                 onTap: () => context.push('/order-details'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 codigo: 1248,
@@ -118,13 +119,13 @@ class OrderPage extends StatelessWidget {
                 onTap: () => context.push('/order-details'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 codigo: 1247,
@@ -136,13 +137,13 @@ class OrderPage extends StatelessWidget {
                 onTap: () => context.push('/order-details'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 codigo: 1246,

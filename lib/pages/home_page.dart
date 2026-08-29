@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
     return SingleChildScrollView(
       controller: ScrollShellController.of(context),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
+        padding: EdgeInsets.fromLTRB(20.w, 46.h, 20.w, 110.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -24,34 +25,34 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 48,
-                      height: 48,
-                      padding: EdgeInsets.all(8),
+                      width: 48.w,
+                      height: 48.w,
+                      padding: EdgeInsets.all(8.r),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 255, 242, 230),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                       ),
                       child: Image.asset(
                         'assets/images/nhac-logo.png',
                         fit: BoxFit.contain,
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
-                      children: const [
+                      children: [
                         Text(
                           'Nhac Burguer',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
                           '• Loja aberta',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.green,
                           ),
@@ -60,21 +61,21 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                IconContainer(
-                  icon: Icons.notifications_none_rounded
+                const IconContainer(
+                  icon: Icons.notifications_none_rounded,
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            SizedBox(height: 24.h),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.r),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'RESUMO DE HOJE',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey,
                     ),
@@ -82,7 +83,7 @@ class HomePage extends StatelessWidget {
                   Text(
                     'Ver mais >',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
                     ),
@@ -90,55 +91,55 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 4.h),
             Row(
               children: [
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.all(16.r),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: ContainerNhac(
+                    child: const ContainerNhac(
                       informacao: '34',
                       fontSize: 20,
                       complemento: 'Pedidos',
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 8.w),
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.all(16.r),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: ContainerNhac(
+                    child: const ContainerNhac(
                       informacao: '5',
                       fontSize: 20,
                       complemento: 'Em preparo',
                       corTitulo: Colors.orange,
                     ),
-                  ), 
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Row(
               children: [
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.all(16.r),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: ContainerNhac(
+                    child: const ContainerNhac(
                       informacao: '4',
                       fontSize: 20,
                       complemento: 'A caminho',
@@ -146,16 +147,16 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 8.w),
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.all(16.r),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: ContainerNhac(
+                    child: const ContainerNhac(
                       informacao: '25',
                       fontSize: 20,
                       complemento: 'Concluídos',
@@ -164,13 +165,13 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(20.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,31 +179,31 @@ class HomePage extends StatelessWidget {
                   Text(
                     'FATURAMENTO',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: 4.h),
                   Text(
                     'R\$ 1.284,90',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: 4.h),
                   Text(
                     '↑ +12,5% em relação a ontem',
                     style: TextStyle(
                       color: Colors.green,
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 12.h),
                   SizedBox(
-                    height: 60,
+                    height: 60.h,
                     child: LineChart(
                       LineChartData(
                         gridData: FlGridData(show: false),
@@ -211,7 +212,7 @@ class HomePage extends StatelessWidget {
                         lineTouchData: LineTouchData(enabled: false),
                         lineBarsData: [
                           LineChartBarData(
-                            spots: [
+                            spots: const [
                               FlSpot(0, 1.0),
                               FlSpot(1, 1.2),
                               FlSpot(2, 1.1),
@@ -234,51 +235,51 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               width: double.infinity,
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.all(20.r),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'AVALIAÇÃO DA LOJA',
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         '4,8',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             '★★★★★',
                             style: TextStyle(
                               color: Colors.orangeAccent,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             '127 avaliações',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -289,16 +290,16 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.r),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'ÚLTIMOS PEDIDOS',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey,
                     ),
@@ -306,7 +307,7 @@ class HomePage extends StatelessWidget {
                   Text(
                     'Ver todos >',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.redAccent,
                     ),
@@ -316,10 +317,10 @@ class HomePage extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: Column(
                 children: [

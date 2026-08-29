@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/navbar.dart';
 import 'package:nhac_lojas/components/scroll_top_button.dart';
@@ -78,21 +79,16 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      // Fornece o _scrollController de forma explícita para todas as telas
-      // internas (não usa mais o PrimaryScrollController nativo do Flutter,
-      // que não estava conectando de forma confiável neste projeto).
       body: ScrollShellController(
         controller: _scrollController,
         child: NotificationListener<ScrollNotification>(
           onNotification: (notification) {
             if (notification.metrics.axis == Axis.vertical) {
-              // Garante que o botão fique oculto caso a tela não precise de scroll
               if (notification.metrics.maxScrollExtent < 150) {
                 if (_isScrolledDown) setState(() => _isScrolledDown = false);
                 return false;
               }
 
-              // Alterna a visibilidade com base na distância percorrida
               if (notification.metrics.pixels > 150 && !_isScrolledDown) {
                 setState(() => _isScrolledDown = true);
               } else if (notification.metrics.pixels <= 150 && _isScrolledDown) {
@@ -109,15 +105,12 @@ class _MainShellState extends State<MainShell> {
                 onTap: _scrollToTop,
               ),
               Positioned(
-                right: 24,
-                bottom: 20,
+                right: 24.w,
+                bottom: 20.h,
                 child: FloatingNavBar(
                   items: _items,
                   selectedIndex: _selectedIndex,
                   onItemTap: _onNavTap,
-                  // Quando desce a tela, encolhe pra um círculo com o
-                  // ícone da aba atual, deslizando pra direita (mesma
-                  // margem direita de sempre) — igual o Nhac normal.
                   isCollapsed: _isScrolledDown,
                   onCollapsedTap: _scrollToTop,
                 ),

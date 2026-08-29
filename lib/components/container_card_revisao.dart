@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContainerCardRevisao extends StatelessWidget {
   final String title;
@@ -14,15 +15,12 @@ class ContainerCardRevisao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Esse componente tem o próprio visual embutido (fundo branco, cantos
-    // arredondados, padding) — não depende mais de nenhum outro componente
-    // de "card" por baixo.
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -33,25 +31,25 @@ class ContainerCardRevisao extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 16,
+                style: TextStyle(
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               GestureDetector(
                 onTap: onEdit,
-                child: const Text(
+                child: Text(
                   'Editar',
                   style: TextStyle(
                     color: Colors.redAccent,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           child,
         ],
       ),

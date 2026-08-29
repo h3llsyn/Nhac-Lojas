@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/item_forma_pagamento.dart';
-import 'package:nhac_lojas/components/item_horario_funcionamento.dart';
 import 'package:nhac_lojas/components/register_steps.dart';
 
 class FormasPagamentoPage extends StatefulWidget {
@@ -20,72 +20,72 @@ class _FormasPagamentoPageState extends State<FormasPagamentoPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: const [
-                    BackArrow(),
-                    SizedBox(width: 12),
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
                     Text(
                       'Cadastrar loja',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                RegisterSteps(passoAtual: PassoCadastrar.pagamento),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 24.h),
+                const RegisterSteps(passoAtual: PassoCadastrar.pagamento),
+                SizedBox(height: 18.h),
+                Text(
                   'Formas de pagamento',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
-                const Text(
+                SizedBox(height: 8.h),
+                Text(
                   'Selecione as formas de pagamento que sua loja aceita.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
                 ),
-                const SizedBox(height: 18),
-                ItemFormaPagamento(
+                SizedBox(height: 18.h),
+                const ItemFormaPagamento(
                   icon: Icons.money_outlined,
-                  metodo: 'Dinheiro'
+                  metodo: 'Dinheiro',
                 ),
-                Divider(),
-                ItemFormaPagamento(
+                const Divider(),
+                const ItemFormaPagamento(
                   icon: Icons.credit_card,
-                  metodo: 'Cartão de crédito'
+                  metodo: 'Cartão de crédito',
                 ),
-                Divider(),
-                ItemFormaPagamento(
+                const Divider(),
+                const ItemFormaPagamento(
                   icon: Icons.credit_card,
-                  metodo: 'Cartão de débito'
+                  metodo: 'Cartão de débito',
                 ),
-                Divider(),
-                ItemFormaPagamento(
+                const Divider(),
+                const ItemFormaPagamento(
                   icon: Icons.bolt_outlined,
-                  metodo: 'Pix'
+                  metodo: 'Pix',
                 ),
-                Divider(),
-                ItemFormaPagamento(
+                const Divider(),
+                const ItemFormaPagamento(
                   icon: Icons.money_outlined,
                   metodo: 'Vale refeição',
                   ativoInicial: false,
                 ),
-                Divider(),
-                ItemFormaPagamento(
+                const Divider(),
+                const ItemFormaPagamento(
                   icon: Icons.money_outlined,
                   metodo: 'Vale alimentação',
                   ativoInicial: false,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Continuar',
                   onTap: () => context.push('/revisar-dados'),

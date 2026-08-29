@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -11,68 +12,70 @@ class RecuperarSenha extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  BackArrow(),
-                  const SizedBox(width: 12),
-                  const Text(
-                    'Recuperar senha',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
+                    Text(
+                      'Recuperar senha',
+                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 48.h),
+                Container(
+                  width: 160.w,
+                  height: 160.w,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 213, 213),
+                    shape: BoxShape.circle,
                   ),
-                ],
-              ),
-              const SizedBox(height: 64),
-              Container(
-                width: 180,
-                height: 180,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 255, 213, 213),
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: const Icon(
-                    Icons.lock_outline_rounded,
-                    color: Colors.redAccent,
-                    size: 56,
+                  child: Center(
+                    child: Icon(
+                      Icons.lock_outline_rounded,
+                      color: Colors.redAccent,
+                      size: 56.sp,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 24),
-              Text(
-                'Esqueceu sua senha?',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Digite seu e-mail ou telefone que\nenviaremos um link para redefini-lá.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                SizedBox(height: 24.h),
+                Text(
+                  'Esqueceu sua senha?',
+                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                 ),
-              ),
-              const SizedBox(height: 24),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'E-mail ou telefone',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                SizedBox(height: 4.h),
+                Text(
+                  'Digite seu e-mail ou telefone que\nenviaremos um link para redefini-lá.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              NhacInputField(hintText: 'Email'),
-              Spacer(),
-              ButtonNhac(
-                texto: 'Enviar link',
-                onTap: () => context.push('/link-recuperacao'),
-              ),
-            ],
+                SizedBox(height: 24.h),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'E-mail ou telefone',
+                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                const NhacInputField(hintText: 'Email'),
+                SizedBox(height: 32.h),
+                ButtonNhac(
+                  texto: 'Enviar link',
+                  onTap: () => context.push('/link-recuperacao'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

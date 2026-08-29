@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -29,72 +30,72 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    BackArrow(),
-                    const SizedBox(width: 12),
-                    const Text(
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
+                    Text(
                       'Cadastrar loja',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                RegisterSteps(passoAtual: PassoCadastrar.dados),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 24.h),
+                const RegisterSteps(passoAtual: PassoCadastrar.dados),
+                SizedBox(height: 18.h),
+                Text(
                   'Dados básicos',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
-                const Text(
+                SizedBox(height: 8.h),
+                Text(
                   'Vamos começar com algumas informações sobre sua loja.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 Row(
                   children: [
                     Stack(
                       children: [
                         Container(
-                          width: 76,
-                          height: 76,
+                          width: 76.w,
+                          height: 76.w,
                           decoration: const BoxDecoration(
                             color: Color.fromARGB(255, 255, 213, 213),
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.camera_alt_outlined,
-                            size: 24,
+                            size: 24.sp,
                             color: Colors.redAccent,
                           ),
                         ),
                         Positioned(
-                          right: 2,
-                          bottom: 2,
+                          right: 2.w,
+                          bottom: 2.h,
                           child: Container(
-                            padding: const EdgeInsets.all(2),
+                            padding: EdgeInsets.all(2.r),
                             decoration: const BoxDecoration(
                               color: Color.fromARGB(255, 255, 231, 229),
                               shape: BoxShape.circle,
                             ),
                             child: Container(
-                              padding: const EdgeInsets.all(6),
+                              padding: EdgeInsets.all(6.r),
                               decoration: const BoxDecoration(
                                 color: Colors.redAccent,
                                 shape: BoxShape.circle,
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.add,
-                                size: 8,
+                                size: 8.sp,
                                 color: Colors.white,
                               ),
                             ),
@@ -102,14 +103,14 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
                         ),
                       ],
                     ),
-                    const SizedBox(width: 12),
-                    const Column(
+                    SizedBox(width: 12.w),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Foto de perfil',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -117,7 +118,7 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
                           'Logo ou foto da fachada da loja',
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -125,38 +126,38 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 18.h),
+                Text(
                   'Nome da loja',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 const NhacInputField(hintText: 'Ex: Nhac Burguer'),
-                const SizedBox(height: 16),
-                const Text(
+                SizedBox(height: 16.h),
+                Text(
                   'Descrição da loja',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 const NhacInputField(hintText: 'Conte um pouco sobre a sua loja...'),
-                const Align(
+                Align(
                   alignment: Alignment.centerRight,
                   child: Text(
                     '0/150',
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    style: TextStyle(color: Colors.grey, fontSize: 12.sp),
                   ),
                 ),
-                const SizedBox(height: 16),
-                const Text(
+                SizedBox(height: 16.h),
+                Text(
                   'Tipo de estabelecimento',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 NhacInputField(
                   controller: tipoEstabelecimentoController,
                   hintText: 'Selecione',
                   readOnly: true,
-                  suffixIcon: const Icon(Icons.keyboard_arrow_down_rounded),
+                  suffixIcon: Icon(Icons.keyboard_arrow_down_rounded, size: 24.sp),
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
@@ -219,17 +220,17 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
                     );
                   },
                 ),
-                const SizedBox(height: 16),
-                const Text(
+                SizedBox(height: 16.h),
+                Text(
                   'Culinária / Categoria',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 NhacInputField(
                   controller: tipoCulinariaController,
                   hintText: 'Selecione',
                   readOnly: true,
-                  suffixIcon: const Icon(Icons.keyboard_arrow_down_rounded),
+                  suffixIcon: Icon(Icons.keyboard_arrow_down_rounded, size: 24.sp),
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
@@ -271,7 +272,7 @@ class _DadosBasicosState extends State<DadosBasicosPage> {
                     );
                   },
                 ),
-                SizedBox(height: 24,),
+                SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Continuar',
                   onTap: () => context.push('/endereco-loja'),

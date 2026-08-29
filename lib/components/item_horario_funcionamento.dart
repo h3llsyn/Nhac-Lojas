@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemHorarioFuncionamento extends StatefulWidget {
   final String diaSemana;
@@ -29,19 +30,19 @@ class _ItemHorarioFuncionamentoState extends State<ItemHorarioFuncionamento> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: EdgeInsets.symmetric(vertical: 4.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Dia na esquerda
           SizedBox(
-            width: 50,
+            width: 50.w,
             child: Text(
               widget.diaSemana,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Color(0xFF3D1308),
+                fontSize: 16.sp,
+                color: const Color(0xFF3D1308),
               ),
             ),
           ),
@@ -50,7 +51,7 @@ class _ItemHorarioFuncionamentoState extends State<ItemHorarioFuncionamento> {
           Text(
             widget.horario,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
               color: ativo ? const Color(0xFF3D1308) : Colors.grey,
             ),

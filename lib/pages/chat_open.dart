@@ -14,14 +14,14 @@ class ChatOpen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+          padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
           child: Column(
             children: [
               Row(
-                children: const [
-                  BackArrow(),
-                  SizedBox(width: 16),
-                  Expanded(
+                children: [
+                  const BackArrow(),
+                  SizedBox(width: 16.w),
+                  const Expanded(
                     child: ContainerNhac(
                       letrasIcon: 'MS',
                       informacao: 'Maria Silva',
@@ -29,31 +29,31 @@ class ChatOpen extends StatelessWidget {
                       corComplemento: Colors.green,
                     ),
                   ),
-                  IconContainer(
-                    icon: Icons.more_horiz
+                  const IconContainer(
+                    icon: Icons.more_horiz,
                   ),
                 ],
               ),    
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      const Text(
+                      Text(
                         'Hoje',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           color: Colors.grey,
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
                       Container(
                         width: double.infinity,
-                                                padding: const EdgeInsets.all(16),
+                        padding: EdgeInsets.all(16.r),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                         ),
                         child: const ContainerNhac(
                           icon: Icons.receipt,
@@ -65,7 +65,7 @@ class ChatOpen extends StatelessWidget {
                           complemento: 'Em preparo',
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
                       const BallonChat(
                         texto: 'Olá! Vi que meu pedido #1250 está em preparo',
                         horario: '12:32',
@@ -92,26 +92,26 @@ class ChatOpen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: const [
-                    FilterTag(
+                  children: [
+                    const FilterTag(
                       filtro: 'Combinado',
                     ),
-                    SizedBox(width: 8),
-                    FilterTag(
+                    SizedBox(width: 8.w),
+                    const FilterTag(
                       filtro: 'Pedido a caminho',
                     ),
-                    SizedBox(width: 8),
-                    FilterTag(
+                    SizedBox(width: 8.w),
+                    const FilterTag(
                       filtro: 'Vou verificar',
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 12,),
+              SizedBox(height: 12.h),
               IntrinsicHeight(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,

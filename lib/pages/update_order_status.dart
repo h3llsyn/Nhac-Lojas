@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -12,66 +13,68 @@ class UpdateOrderStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: const [
-                  BackArrow(),
-                  SizedBox(width: 16),
-                  Text(
-                    'Atualizar status',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 16.w),
+                    Text(
+                      'Atualizar status',
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  ],
+                ),
+                SizedBox(height: 24.h),
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(16.r),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
-                ],
-              ),
-              SizedBox(height: 24),
-              Container(
-                width: double.infinity,
-                                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  child: const ContainerNhac(
+                    icon: Icons.receipt,
+                    corIcone: Colors.redAccent,
+                    informacao: 'Maria Silva',
+                    codigo: 1250,
+                    quantidadeItens: 2,
+                    preco: 49.90,
+                    situacao: 'Em preparo',
+                    exibirCirculoSituacao: false,
+                  ),
                 ),
-                child: ContainerNhac(
-                  icon: Icons.receipt,
-                  corIcone: Colors.redAccent,
-                  informacao: 'Maria Silva',
-                  codigo: 1250,
-                  quantidadeItens: 2,
-                  preco: 49.90,
-                  situacao: 'Em preparo',
-                  exibirCirculoSituacao: false,
+                SizedBox(height: 16.h),
+                Text(
+                  'ANDAMENTO DO PEDIDO',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'ANDAMENTO DO PEDIDO',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
+                SizedBox(height: 12.h),
+                const OrderStatus(
+                  statusAtual: StatusPedido.emPreparo,
+                  horarios: {
+                    StatusPedido.recebido: '12:30',
+                    StatusPedido.emPreparo: '12:32',
+                  },
                 ),
-              ),
-              const SizedBox(height: 12),
-              OrderStatus(
-                statusAtual: StatusPedido.emPreparo,
-                horarios: const {
-                  StatusPedido.recebido: '12:30',
-                  StatusPedido.emPreparo: '12:32',
-                },
-              ),
-              Spacer(),
-              ButtonNhac(
-                texto: 'Salvar status',
-                onTap: () => context.pop('/order-details'),
-              ),
-            ],
+                SizedBox(height: 48.h),
+                ButtonNhac(
+                  texto: 'Salvar status',
+                  onTap: () => context.pop('/order-details'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

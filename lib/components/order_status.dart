@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Enum com todos os status em ordem sequencial
 enum StatusPedido {
@@ -67,14 +68,14 @@ class OrderStatus extends StatelessWidget {
             children: [
               // Coluna com o ícone e a linha vertical
               SizedBox(
-                width: 36,
+                width: 36.w,
                 child: Column(
                   children: [
                     _buildStatusIcon(isCompleted: isCompleted, isCurrent: isCurrent),
                     if (!isLast)
                       Expanded(
                         child: Container(
-                          width: 2,
+                          width: 2.w,
                           color: isCompleted
                               ? const Color(0xFF2EA970)
                               : const Color(0xFFF3E5D8),
@@ -83,11 +84,11 @@ class OrderStatus extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12.w),
               // Textos e Horários
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 24.0),
+                  padding: EdgeInsets.only(bottom: 24.h),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,17 +101,17 @@ class OrderStatus extends StatelessWidget {
                               etapa.titulo,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 color: isCompleted || isCurrent
                                     ? const Color(0xFF5D201C)
                                     : const Color(0xFFC7B19E),
                               ),
                             ),
-                            const SizedBox(height: 2),
+                            SizedBox(height: 2.h),
                             Text(
                               etapa.subtitulo,
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 13.sp,
                                 color: isCompleted || isCurrent
                                     ? const Color(0xFF8D7B75)
                                     : const Color(0xFFC7B19E),
@@ -123,7 +124,7 @@ class OrderStatus extends StatelessWidget {
                         Text(
                           horario,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             color: Colors.grey[400],
                             fontWeight: FontWeight.w500,
                           ),
@@ -142,34 +143,34 @@ class OrderStatus extends StatelessWidget {
   Widget _buildStatusIcon({required bool isCompleted, required bool isCurrent}) {
     if (isCompleted) {
       return Container(
-        width: 32,
-        height: 32,
+        width: 32.w,
+        height: 32.h,
         decoration: const BoxDecoration(
           color: Color(0xFF2EA970),
           shape: BoxShape.circle,
         ),
-        child: const Icon(Icons.check, size: 18, color: Colors.white),
+        child: Icon(Icons.check, size: 18.sp, color: Colors.white),
       );
     } else if (isCurrent) {
       return Container(
-        width: 32,
-        height: 32,
+        width: 32.w,
+        height: 32.h,
         decoration: BoxDecoration(
           color: const Color(0xFFFF8A80).withOpacity(0.3),
           shape: BoxShape.circle,
         ),
         child: Center(
           child: Container(
-            width: 24,
-            height: 24,
+            width: 24.w,
+            height: 24.h,
             decoration: const BoxDecoration(
               color: Color(0xFFFF5252),
               shape: BoxShape.circle,
             ),
             child: Center(
               child: Container(
-                width: 6,
-                height: 6,
+                width: 6.w,
+                height: 6.h,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
@@ -181,19 +182,19 @@ class OrderStatus extends StatelessWidget {
       );
     } else {
       return Container(
-        width: 32,
-        height: 32,
+        width: 32.w,
+        height: 32.h,
         decoration: const BoxDecoration(
           color: Color(0xFFFFF3E0),
           shape: BoxShape.circle,
         ),
         child: Center(
           child: Container(
-            width: 6,
-            height: 6,
+            width: 6.w,
+            height: 6.h,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: const Color(0xFFD3C5B7), width: 1.5),
+              border: Border.all(color: const Color(0xFFD3C5B7), width: 1.5.w),
             ),
           ),
         ),

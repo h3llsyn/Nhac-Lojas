@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -15,40 +16,40 @@ class RevisarDadosPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: const [
-                    BackArrow(),
-                    SizedBox(width: 12),
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
                     Text(
                       'Cadastrar loja',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                RegisterSteps(passoAtual: PassoCadastrar.revisar),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 24.h),
+                const RegisterSteps(passoAtual: PassoCadastrar.revisar),
+                SizedBox(height: 18.h),
+                Text(
                   'Revise os dados da loja',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
-                const Text(
+                SizedBox(height: 8.h),
+                Text(
                   'Confirme as informações antes de finalizar seu cadastro.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
 
                 ContainerCardRevisao(
                   title: 'Dados básicos',
@@ -59,26 +60,26 @@ class RevisarDadosPage extends StatelessWidget {
                       Row(
                         children: [
                           Container(
-                            width: 64,
-                            height: 64,
+                            width: 64.w,
+                            height: 64.w,
                             decoration: const BoxDecoration(
                               color: Color.fromARGB(255, 255, 213, 213),
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(
+                            child: Icon(
                               Icons.camera_alt_outlined,
-                              size: 24,
+                              size: 24.sp,
                               color: Colors.redAccent,
                             ),
                           ),
-                          const SizedBox(width: 12),
-                          const Column(
+                          SizedBox(width: 12.w),
+                          Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'Nhac Burguer',
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -86,64 +87,64 @@ class RevisarDadosPage extends StatelessWidget {
                                 'Restaurante · Hamburgueria',
                                 style: TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                 ),
                               ),
                             ],
                           ),
                         ],
                       ),
-                      const SizedBox(height: 12),
-                      const Text(
+                      SizedBox(height: 12.h),
+                      Text(
                         'Os melhores hambúrgueres artesanais da região, feitos na hora com ingredientes frescos.',
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
 
                 ContainerCardRevisao(
                   title: 'Endereço',
                   onEdit: () {},
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Rua das Flores, 123',
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         'Centro · São Paulo - SP',
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         'CEP 01310-100',
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
 
                 ContainerCardRevisao(
                   title: 'Entrega',
                   onEdit: () {},
-                  child: const Column(
+                  child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -152,19 +153,19 @@ class RevisarDadosPage extends StatelessWidget {
                             'Tipo',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             'Entrega própria',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -172,19 +173,19 @@ class RevisarDadosPage extends StatelessWidget {
                             'Raio de entrega',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             '5 km',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -192,13 +193,13 @@ class RevisarDadosPage extends StatelessWidget {
                             'Taxa',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             'R\$ 4,00',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -207,14 +208,14 @@ class RevisarDadosPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
 
                 ContainerCardRevisao(
                   title: 'Pagamento',
                   onEdit: () {},
                   child: Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
+                    spacing: 8.w,
+                    runSpacing: 8.h,
                     children: const [
                       FilterTag(
                         filtro: 'Dinheiro',
@@ -239,12 +240,12 @@ class RevisarDadosPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
 
                 ContainerCardRevisao(
                   title: 'Horários',
                   onEdit: () {},
-                  child: const Column(
+                  child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -253,19 +254,19 @@ class RevisarDadosPage extends StatelessWidget {
                             'Seg a Sex',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             '08:00 - 18:00',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -273,19 +274,19 @@ class RevisarDadosPage extends StatelessWidget {
                             'Sábado',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             '10:00 - 22:00',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -293,13 +294,13 @@ class RevisarDadosPage extends StatelessWidget {
                             'Domingo',
                             style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                             ),
                           ),
                           Text(
                             'Fechado',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -308,7 +309,7 @@ class RevisarDadosPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
 
                 ButtonNhac(
                   texto: 'Finalizar cadastro',

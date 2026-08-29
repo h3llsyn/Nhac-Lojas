@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemFormaPagamento extends StatefulWidget {
   final IconData icon;
@@ -28,22 +29,22 @@ class _ItemFormaPagamentoState extends State<ItemFormaPagamento> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      padding: EdgeInsets.symmetric(vertical: 4.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 48.w,
+            height: 48.h,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 255, 242, 230),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
             ),
-            child: Icon(widget.icon, size: 20),
+            child: Icon(widget.icon, size: 20.sp),
           ),
           Text(
             widget.metodo,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
           ),
           Transform.scale(
             scale: 0.85,

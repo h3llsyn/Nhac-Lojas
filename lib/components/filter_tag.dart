@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterTag extends StatelessWidget {
   final String filtro;
@@ -24,21 +25,19 @@ class FilterTag extends StatelessWidget {
   Widget build(BuildContext context) {
     final primaryAppColor = Theme.of(context).colorScheme.primary;
 
-    // 1. COR DE FUNDO CORRIGIDA: Se estiver selecionado, usa a cor de seleção. Se não, usa o backgroundColor ou branco.
     final effectiveBgColor = isSelected
         ? (selectedBackgroundColor ?? primaryAppColor)
         : (backgroundColor ?? Colors.white);
 
-    // 2. COR DE TEXTO CORRIGIDA: Se estiver selecionado, usa o texto de seleção. Se não, usa o textColor ou a cor primária do app.
     final effectiveTextColor = isSelected
         ? (selectedTextColor ?? Colors.white)
         : (textColor ?? primaryAppColor);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: effectiveBgColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -46,7 +45,7 @@ class FilterTag extends StatelessWidget {
           Text(
             filtro,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.bold,
               color: effectiveTextColor,
             ),
@@ -55,7 +54,7 @@ class FilterTag extends StatelessWidget {
             Text(
               ' · $quantidade',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
                 color: effectiveTextColor,
               ),

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
@@ -22,34 +23,34 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
+          padding: EdgeInsets.fromLTRB(20.w, 46.h, 20.w, 110.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  BackArrow(),
-                  const SizedBox(width: 12),
+                  const BackArrow(),
+                  SizedBox(width: 12.w),
                   Text(
-                  'Informações da loja',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold
+                    'Informações da loja',
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
                 ],
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 32.h),
               Center(
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 64,
-                      backgroundColor: Color.fromARGB(255, 255, 242, 230), // Opcional: cor de fundo caso a imagem tenha transparência
+                      radius: 64.r,
+                      backgroundColor: const Color.fromARGB(255, 255, 242, 230),
                       child: ClipOval(
                         child: SizedBox(
-                          width: 84, // Defina aqui o tamanho exato que a imagem deve ter dentro do círculo
-                          height: 84,
+                          width: 84.w,
+                          height: 84.w,
                           child: fotoPerfil != null
                               ? Image.file(
                                   fotoPerfil!,
@@ -57,42 +58,33 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                                 )
                               : Image.asset(
                                   'assets/images/nhac-logo.png',
-                                  fit: BoxFit.contain, // Ajusta o logo do Nhac perfeitamente sem distorcer
+                                  fit: BoxFit.contain,
                                 ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                     Text(
                       'Nhac Burguer',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       'Cozinha · Hamburgueria',
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                      style: TextStyle(color: Colors.grey, fontSize: 12.sp),
                     ),
-                    // SizedBox(height: 4),
-                    // Text(
-                    //   'Alterar foto',
-                    //   style: TextStyle(
-                    //     color: Colors.redAccent,
-                    //     fontSize: 12,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
-              SizedBox(height: 16,),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16.r),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Column(
                   children: [
@@ -103,37 +95,37 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                       exibirSeta: true,
                       onTap: () => context.push('/editar-info-loja'),
                     ),
-                    SizedBox(height: 8),
-                    Divider(),
-                    SizedBox(height: 8),
-                    ContainerNhac(
+                    SizedBox(height: 8.h),
+                    const Divider(),
+                    SizedBox(height: 8.h),
+                    const ContainerNhac(
                       icon: Icons.motorcycle_outlined,
                       informacao: 'Taxas de entrega',
                       fontSize: 14,
                       exibirSeta: true,
                     ),
-                    SizedBox(height: 8),
-                    Divider(),
-                    SizedBox(height: 8),
-                    ContainerNhac(
+                    SizedBox(height: 8.h),
+                    const Divider(),
+                    SizedBox(height: 8.h),
+                    const ContainerNhac(
                       icon: Icons.credit_card_outlined,
                       informacao: 'Formas de pagamento',
                       fontSize: 14,
                       exibirSeta: true,
                     ),
-                    SizedBox(height: 8,),
-                    Divider(),
-                    SizedBox(height: 8,),
-                    ContainerNhac(
+                    SizedBox(height: 8.h),
+                    const Divider(),
+                    SizedBox(height: 8.h),
+                    const ContainerNhac(
                       icon: Icons.location_on_outlined,
                       informacao: 'Endereço da loja',
                       fontSize: 14,
                       exibirSeta: true,
                     ),
-                    SizedBox(height: 8,),
-                    Divider(),
-                    SizedBox(height: 8,),
-                    ContainerNhac(
+                    SizedBox(height: 8.h),
+                    const Divider(),
+                    SizedBox(height: 8.h),
+                    const ContainerNhac(
                       icon: Icons.settings_outlined,
                       informacao: 'Configurações da conta',
                       fontSize: 14,
@@ -142,15 +134,15 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                   ],
                 ),
               ),
-              SizedBox(height: 16,),
+              SizedBox(height: 16.h),
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16.r),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     ContainerNhac(
                       icon: Icons.logout_outlined,
@@ -159,8 +151,8 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                       exibirSeta: true,
                     ),
                   ],
-                )
-              )
+                ),
+              ),
             ],
           ),
         ),

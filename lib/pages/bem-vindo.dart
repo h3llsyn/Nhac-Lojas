@@ -26,79 +26,79 @@ class BemVindo extends StatelessWidget {
                     'Lojas',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      fontSize: 16.sp,
                       color: const Color(0xFFFE645C),
                     ),
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 366.h,
-                    child: Center(
-                      child: Image.asset(
-                        'assets/images/lanche-bem-vindo.png',
-                        fit: BoxFit.contain,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Container(
+                        constraints: BoxConstraints(maxHeight: 366.h),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/lanche-bem-vindo.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  Text(
-                    'Bem-vindo ao Nhac Lojas!',
-                    style: TextStyle(
-                      fontSize: 28.sp,
-                      color: const Color(0xFF5D201C),
-                      fontWeight: FontWeight.w600,
+                    SizedBox(height: 16.h),
+                    Text(
+                      'Bem-vindo ao Nhac Lojas!',
+                      style: TextStyle(
+                        fontSize: 28.sp,
+                        color: const Color(0xFF5D201C),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 12.h),
-                  Text(
-                    'Faça login para acessar sua loja\nou cadastre uma nova',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: const Color(0x995D201C),
-                      fontWeight: FontWeight.w600,
+                    SizedBox(height: 12.h),
+                    Text(
+                      'Faça login para acessar sua loja\nou cadastre uma nova',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: const Color(0x995D201C),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 46.h),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 49.h,
-                    child: ButtonNhac(
+                    SizedBox(height: 32.h),
+                    ButtonNhac(
                       texto: 'Cadastrar minha loja',
                       onTap: () => context.push('/criar-conta'),
                     ),
-                  ),
-                  SizedBox(height: 16.h),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 49.h,
-                    child: ButtonNhac(
+                    SizedBox(height: 16.h),
+                    ButtonNhac(
                       texto: 'Já tenho uma conta · Entrar',
                       isSecundario: true,
                       onTap: () => context.push('/login'),
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Precisa de ajuda? ',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Text(
-                        'Fale conosco',
-                        style: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold
+                    SizedBox(height: 8.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Precisa de ajuda? ',
+                          style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          'Fale conosco',
+                          style: TextStyle(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13.sp,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

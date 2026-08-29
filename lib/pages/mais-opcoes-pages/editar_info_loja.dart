@@ -27,146 +27,156 @@ class _EditarInfoLojaState extends State<EditarInfoLoja> {
   );
 
   @override
+  void dispose() {
+    nomeLojaController.dispose();
+    descricaoLojaController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 46, 20,32),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 32.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const BackArrow(),
-                const SizedBox(width: 12),
-                const Text(
-                  'Editar informações',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 24),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 34,
-                  backgroundColor: Color.fromARGB(
-                    255,
-                    255,
-                    242,
-                    230,
-                  ), // Opcional: cor de fundo caso a imagem tenha transparência
-                  child: ClipOval(
-                    child: SizedBox(
-                      width: 46,
-                      height: 46,
-                      child: fotoPerfil != null
-                          ? Image.file(fotoPerfil!, fit: BoxFit.cover)
-                          : Image.asset(
-                              'assets/images/nhac-logo.png',
-                              fit: BoxFit
-                                  .contain, // Ajusta o logo do Nhac perfeitamente sem distorcer
-                            ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
+                Row(
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
                     Text(
-                      'Foto ou logo da loja',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                      'Editar informações',
+                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 24.h),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 34.r,
+                      backgroundColor: const Color.fromARGB(
+                        255,
+                        255,
+                        242,
+                        230,
+                      ),
+                      child: ClipOval(
+                        child: SizedBox(
+                          width: 46.w,
+                          height: 46.w,
+                          child: fotoPerfil != null
+                              ? Image.file(fotoPerfil!, fit: BoxFit.cover)
+                              : Image.asset(
+                                  'assets/images/nhac-logo.png',
+                                  fit: BoxFit.contain,
+                                ),
+                        ),
                       ),
                     ),
-                    Text(
-                      'Alterar foto',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.redAccent,
+                    SizedBox(width: 12.w),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Foto ou logo da loja',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'Alterar foto',
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 24.h),
+                Text(
+                  'Nome da loja',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4.h),
+                NhacInputField(controller: nomeLojaController),
+                SizedBox(height: 16.h),
+                Text(
+                  'Categoria',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4.h),
+                Wrap(
+                  spacing: 8.w,
+                  runSpacing: 8.h,
+                  children: const [
+                    FilterTag(
+                      filtro: 'Hamburgueria',
+                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                      isSelected: true,
+                      selectedBackgroundColor: Colors.redAccent,
+                      selectedTextColor: Colors.white,
+                    ),
+                    FilterTag(
+                      filtro: 'Pizzaria',
+                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    ),
+                    FilterTag(
+                      filtro: 'Japonesa',
+                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    ),
+                    FilterTag(
+                      filtro: 'Doces',
+                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    ),
+                    FilterTag(
+                      filtro: 'Marmitas',
+                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    ),
+                    FilterTag(
+                      filtro: 'Bebidas',
+                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'Descrição',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4.h),
+                NhacInputField(controller: descricaoLojaController, maxLines: 3),
+                SizedBox(height: 32.h),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ButtonNhac(
+                        texto: 'Cancelar',
+                        onTap: () => context.pop('/informacao-loja'),
+                        isSecundario: true,
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
+                    Expanded(
+                      child: ButtonNhac(
+                        texto: 'Salvar',
+                        onTap: () => context.pop('/informacao-loja'),
                       ),
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 24),
-            Text(
-              'Nome da loja',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 4),
-            NhacInputField(controller: nomeLojaController),
-            const SizedBox(height: 16),
-            Text(
-              'Categoria',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 4),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: const [
-                FilterTag(
-                  filtro: 'Hamburgueria',
-                  backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                  isSelected: true,
-                  selectedBackgroundColor: Colors.redAccent,
-                  selectedTextColor: Colors.white,
-                ),
-                FilterTag(
-                  filtro: 'Pizzaria',
-                  backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                ),
-                FilterTag(
-                  filtro: 'Japonesa',
-                  backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                ),
-                FilterTag(
-                  filtro: 'Doces',
-                  backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                ),
-                FilterTag(
-                  filtro: 'Marmitas',
-                  backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                ),
-                FilterTag(
-                  filtro: 'Bebidas',
-                  backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Categoria',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 4),
-            NhacInputField(controller: descricaoLojaController, maxLines: 3,),
-            Spacer(),
-            Row(
-              children: [
-                Expanded(
-                  child: ButtonNhac(
-                    texto: 'Cancelar',
-                    onTap: () => context.pop('/informacao-loja'),
-                    isSecundario: true,
-                  ),
-                ),
-                SizedBox(width: 8,),
-                Expanded(
-                  child: ButtonNhac(
-                    texto: 'Salvar',
-                    onTap: () => context.pop('/informacao-loja'),
-                  ),
-                ),
-              ],
-            ),
-          ],
+          ),
         ),
       ),
     );

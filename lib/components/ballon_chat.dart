@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum StatusLeitura { enviada, lida }
 
@@ -27,25 +28,23 @@ class BallonChat extends StatelessWidget {
     final corHorario = Colors.grey;
 
     final borderRadius = ehMinhaMensagem
-        ? const BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-            bottomLeft: Radius.circular(16),
-            bottomRight: Radius.circular(2), // Canto "chat" da direita
+        ? BorderRadius.only(
+            topLeft: Radius.circular(16.r),
+            topRight: Radius.circular(16.r),
+            bottomLeft: Radius.circular(16.r),
+            bottomRight: Radius.circular(2.r),
           )
-        : const BorderRadius.only(
-            topLeft: Radius.circular(16), // Canto "chat" da esquerda
-            topRight: Radius.circular(16),
-            bottomLeft: Radius.circular(2),
-            bottomRight: Radius.circular(16),
+        : BorderRadius.only(
+            topLeft: Radius.circular(16.r),
+            topRight: Radius.circular(16.r),
+            bottomLeft: Radius.circular(2.r),
+            bottomRight: Radius.circular(16.r),
           );
 
     return Align(
-      // Alinha à direita se for loja, à esquerda se for cliente
       alignment: ehMinhaMensagem ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-        // Limitamos a largura máxima para o balão não ocupar a tela toda
+        margin: EdgeInsets.symmetric(vertical: 6.h, horizontal: 12.w),
         constraints: BoxConstraints(
           maxWidth: MediaQuery.of(context).size.width * 0.75,
         ),
@@ -56,15 +55,15 @@ class BallonChat extends StatelessWidget {
           children: [
             // --- O BALÃO DE MENSAGEM ---
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
               decoration: BoxDecoration(
                 color: corFundo,
                 borderRadius: borderRadius,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.04),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
+                    blurRadius: 4.r,
+                    offset: Offset(0, 2.h),
                   ),
                 ],
               ),
@@ -72,38 +71,36 @@ class BallonChat extends StatelessWidget {
                 texto,
                 style: TextStyle(
                   color: corTexto,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   height: 1.3,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
 
-            const SizedBox(height: 4),
+            SizedBox(height: 4.h),
 
             // --- HORÁRIO E CHECK DE LEITURA ---
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: EdgeInsets.symmetric(horizontal: 4.w),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     horario,
                     style: TextStyle(
-                      fontSize: 11,
+                      fontSize: 11.sp,
                       color: corHorario,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  
-                  // Exibe o check apenas para as mensagens enviadas pela Loja
                   if (ehMinhaMensagem && status != null) ...[
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4.w),
                     Icon(
                       status == StatusLeitura.lida
                           ? Icons.done_all_rounded
                           : Icons.check_rounded,
-                      size: 14,
+                      size: 14.sp,
                       color: status == StatusLeitura.lida
                           ? Colors.redAccent
                           : Colors.grey,

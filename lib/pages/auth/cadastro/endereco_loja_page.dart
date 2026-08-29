@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -14,57 +15,58 @@ class EnderecoLojaPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: const [
-                    BackArrow(),
-                    SizedBox(width: 12),
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
                     Text(
                       'Cadastrar loja',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                RegisterSteps(passoAtual: PassoCadastrar.endereco),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 24.h),
+                const RegisterSteps(passoAtual: PassoCadastrar.endereco),
+                SizedBox(height: 18.h),
+                Text(
                   'Endereço da loja',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 8),
-                const Text(
+                SizedBox(height: 8.h),
+                Text(
                   'Informe onde sua loja está localizada.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
                 ),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 18.h),
+                Text(
                   'CEP',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
-                const NhacInputField(
+                SizedBox(height: 4.h),
+                NhacInputField(
                   hintText: '00000-000',
                   suffixIcon: Icon(
                     Icons.search_rounded,
                     color: Colors.redAccent,
+                    size: 24.sp,
                   ),
                 ),
-                const SizedBox(height: 16),
-                const Text(
+                SizedBox(height: 16.h),
+                Text(
                   'Rua',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 const NhacInputField(hintText: 'Nome da rua'),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -72,41 +74,41 @@ class EnderecoLojaPage extends StatelessWidget {
                       flex: 1,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'Número',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 4),
-                          NhacInputField(hintText: '123'),
+                          SizedBox(height: 4.h),
+                          const NhacInputField(hintText: '123'),
                         ],
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12.w),
                     Expanded(
                       flex: 2,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'Complemento',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 4),
-                          NhacInputField(hintText: 'Opcional'),
+                          SizedBox(height: 4.h),
+                          const NhacInputField(hintText: 'Opcional'),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
-                const Text(
+                SizedBox(height: 16.h),
+                Text(
                   'Bairro',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 const NhacInputField(hintText: 'Nome do bairro'),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -114,34 +116,34 @@ class EnderecoLojaPage extends StatelessWidget {
                       flex: 2,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'Cidade',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 4),
-                          NhacInputField(hintText: 'Nome da cidade'),
+                          SizedBox(height: 4.h),
+                          const NhacInputField(hintText: 'Nome da cidade'),
                         ],
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12.w),
                     Expanded(
                       flex: 1,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'UF',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 4),
-                          NhacInputField(hintText: 'UF'),
+                          SizedBox(height: 4.h),
+                          const NhacInputField(hintText: 'UF'),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Continuar',
                   onTap: () => context.push('/dados-entrega'),

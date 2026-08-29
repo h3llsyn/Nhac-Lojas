@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
@@ -13,7 +14,7 @@ class ChatPage extends StatelessWidget {
     return SingleChildScrollView(
       controller: ScrollShellController.of(context),
       child: Padding( 
-        padding: const EdgeInsets.fromLTRB(20, 46, 20, 110),
+        padding: EdgeInsets.fromLTRB(20.w, 46.h, 20.w, 110.h),
         child: Column(
           children: [
             Row(
@@ -21,45 +22,45 @@ class ChatPage extends StatelessWidget {
                 Text(
                   'Chats',
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Spacer(),
-                IconContainer(
+                const Spacer(),
+                const IconContainer(
                   icon: Icons.search_rounded,
                 ),
-                SizedBox(width: 8,),
-                IconContainer(
-                  icon: Icons.more_horiz
+                SizedBox(width: 8.w),
+                const IconContainer(
+                  icon: Icons.more_horiz,
                 ),
               ],
             ),
-            SizedBox(height: 24,),
+            SizedBox(height: 24.h),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  FilterTag(
+                  const FilterTag(
                     filtro: 'Todas',
                     quantidade: 4,
-                    isSelected: true
+                    isSelected: true,
                   ),
-                  SizedBox(width: 8,),
-                  FilterTag(
+                  SizedBox(width: 8.w),
+                  const FilterTag(
                     filtro: 'Pendentes',
                     quantidade: 2,
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 24,),
+            SizedBox(height: 24.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 letrasIcon: 'MS',
@@ -72,13 +73,13 @@ class ChatPage extends StatelessWidget {
                 onTap: () => context.push('/chat-open'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 letrasIcon: 'JP',
@@ -90,13 +91,13 @@ class ChatPage extends StatelessWidget {
                 onTap: () => context.push('/chat-open'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 letrasIcon: 'AC',
@@ -109,13 +110,13 @@ class ChatPage extends StatelessWidget {
                 onTap: () => context.push('/chat-open'),
               ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h),
             Container(
               width: double.infinity,
-                            padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ContainerNhac(
                 letrasIcon: 'LM',

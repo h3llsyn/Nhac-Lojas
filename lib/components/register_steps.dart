@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum PassoCadastrar { dados, endereco, entrega, horarios, pagamento, revisar }
 
@@ -38,7 +39,7 @@ class RegisterSteps extends StatelessWidget {
                   // Linha conectora da esquerda
                   Expanded(
                     child: Container(
-                      height: 2,
+                      height: 2.h,
                       color: isFirst
                           ? Colors.transparent
                           : (index <= indexAtual
@@ -46,16 +47,16 @@ class RegisterSteps extends StatelessWidget {
                               : const Color(0xFFE0E0E0)),
                     ),
                   ),
-                  // Círculo/Ícone central (passando a prop icon aqui)
+                  // Círculo/Ícone central
                   _buildStatusIcon(
                     isCompleted: isCompleted,
                     isCurrent: isCurrent,
-                    icon: etapa.icon, // <--- PASSEI O ÍCONE AQUI
+                    icon: etapa.icon,
                   ),
                   // Linha conectora da direita
                   Expanded(
                     child: Container(
-                      height: 2,
+                      height: 2.h,
                       color: isLast
                           ? Colors.transparent
                           : (isCompleted
@@ -65,7 +66,7 @@ class RegisterSteps extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 6),
+              SizedBox(height: 6.h),
               // Texto da etapa abaixo da bolinha
               Text(
                 etapa.titulo,
@@ -74,7 +75,7 @@ class RegisterSteps extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontWeight: isCurrent ? FontWeight.bold : FontWeight.w500,
-                  fontSize: 11,
+                  fontSize: 11.sp,
                   color: isCurrent || isCompleted
                       ? const Color(0xFFFF6961)
                       : const Color(0xFF9E9E9E),
@@ -90,38 +91,38 @@ class RegisterSteps extends StatelessWidget {
   Widget _buildStatusIcon({
     required bool isCompleted,
     required bool isCurrent,
-    required IconData icon, // <--- NOVO PARÂMETRO
+    required IconData icon,
   }) {
     if (isCompleted) {
       return Container(
-        width: 28,
-        height: 28,
+        width: 28.w,
+        height: 28.h,
         decoration: const BoxDecoration(
           color: Colors.redAccent,
           shape: BoxShape.circle,
         ),
-        child: const Icon(Icons.check, size: 16, color: Colors.white),
+        child: Icon(Icons.check, size: 16.sp, color: Colors.white),
       );
     } else if (isCurrent) {
       return Container(
-        width: 36,
-        height: 36,
+        width: 36.w,
+        height: 36.h,
         decoration: const BoxDecoration(
           color: Colors.redAccent,
           shape: BoxShape.circle,
         ),
-        child: Icon(icon, size: 18, color: Colors.white),
+        child: Icon(icon, size: 18.sp, color: Colors.white),
       );
     } else {
       return Container(
-        width: 28,
-        height: 28,
+        width: 28.w,
+        height: 28.h,
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
-          border: Border.all(color: const Color(0xFFE0E0E0), width: 1.5),
+          border: Border.all(color: const Color(0xFFE0E0E0), width: 1.5.w),
         ),
-        child: Icon(icon, size: 14, color: const Color(0xFF9E9E9E)),
+        child: Icon(icon, size: 14.sp, color: const Color(0xFF9E9E9E)),
       );
     }
   }

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/confirmar_email_page.dart';
 import 'package:nhac_lojas/pages/auth/cadastro/criar_conta_page.dart';

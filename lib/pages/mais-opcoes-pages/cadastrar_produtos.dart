@@ -5,7 +5,6 @@ import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
-import 'package:nhac_lojas/components/icon_container.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 
 class CadastrarProdutos extends StatefulWidget {
@@ -16,7 +15,6 @@ class CadastrarProdutos extends StatefulWidget {
 }
 
 class _CadastrarProdutosState extends State<CadastrarProdutos> {
-  // Variável de estado para controlar o switch do produto disponível
   bool produtoDisponivel = true;
 
   @override
@@ -25,28 +23,28 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    BackArrow(),
-                    SizedBox(width: 16),
+                    const BackArrow(),
+                    SizedBox(width: 16.w),
                     Text(
                       'Novo produto',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 Container(
                   width: double.infinity,
-                  height: 156,
+                  height: 156.h,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.redAccent)
+                    borderRadius: BorderRadius.circular(12.r),
+                    border: Border.all(color: Colors.redAccent),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -54,55 +52,56 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                       Icon(
                         Icons.camera_alt_outlined,
                         color: Colors.redAccent,
-                        size: 26,
+                        size: 26.sp,
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         'Adicionar foto do produto',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.redAccent
+                          color: Colors.redAccent,
+                          fontSize: 14.sp,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         'PNG ou JPG, até 5MB',
                         style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey
+                          fontSize: 12.sp,
+                          color: Colors.grey,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Text(
                   'Nome do produto',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
-                NhacInputField(
+                SizedBox(height: 4.h),
+                const NhacInputField(
                   hintText: 'Ex: X-Burguer',
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Text(
                   'Descrição',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 4),
-                NhacInputField(
+                SizedBox(height: 4.h),
+                const NhacInputField(
                   hintText: 'Descreva os ingredientes e detalhes',
                   maxLines: 3,
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Text(
                   'Categoria',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 4),
+                SizedBox(height: 4.h),
                 Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
+                  spacing: 8.w,
+                  runSpacing: 8.h,
                   children: const [
                     FilterTag(
                       filtro: 'Lanches',
@@ -120,7 +119,7 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Row(
                   children: [
                     Expanded(
@@ -130,18 +129,18 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                           Text(
                             'Preço',
                             style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(height: 4),
-                          NhacInputField(
+                          SizedBox(height: 4.h),
+                          const NhacInputField(
                             hintText: 'R\$ 0,00',
                           ),
                         ],
-                      ) 
+                      ),
                     ),
-                    SizedBox(width: 8),
+                    SizedBox(width: 8.w),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,26 +148,26 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                           Text(
                             'Desconto (opcional)',
                             style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(height: 4),
-                          NhacInputField(
+                          SizedBox(height: 4.h),
+                          const NhacInputField(
                             hintText: '0%',
                           ),
                         ],
-                      ) 
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16.r),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: ContainerNhac(
                     informacao: 'Disponível',
@@ -182,40 +181,11 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                     },
                   ),
                 ),
-                SizedBox(height: 24),
-                // Row(
-                //   children: [
-                //     Expanded(
-                //       flex: 1,
-                //       child: Container(
-                //         height: 49.h,
-                //         decoration: BoxDecoration(
-                //           borderRadius: BorderRadius.circular(32),
-                //           border: Border.all(
-                //             color: Colors.redAccent.withOpacity(0.4), // Bordinha vermelha suave
-                //             width: 1.2,
-                //           ),
-                //         ),
-                //         child: Center(
-                //           child: Icon(
-                //             Icons.delete_outline_rounded,
-                //             color: Colors.redAccent,
-                //             size: 24,
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //     SizedBox(width: 12),
-                    // Expanded(
-                    //   flex: 4,
-                    //   child: 
-                      ButtonNhac(
-                        texto: 'Salvar produto',
-                        onTap: () => context.go('/cardapio-cheio'),
-                      ),
-                    //),
-                  //],
-                //),
+                SizedBox(height: 24.h),
+                ButtonNhac(
+                  texto: 'Salvar produto',
+                  onTap: () => context.go('/cardapio-vazio'),
+                ),
               ],
             ),
           ),

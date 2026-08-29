@@ -9,10 +9,6 @@ class IconContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: const EdgeInsets.symmetric(
-      //   vertical: 10,
-      //   horizontal: 12,
-      // ),
       width: 40.w,
       height: 40.h,
       decoration: BoxDecoration(
@@ -21,8 +17,8 @@ class IconContainer extends StatelessWidget {
       ),
       child: Icon(
         icon,
-        color: Color(0xFF5D201C),
-        //size: 24,
+        color: const Color(0xFF5D201C),
+        size: 20.sp,
       ),
     );
   }

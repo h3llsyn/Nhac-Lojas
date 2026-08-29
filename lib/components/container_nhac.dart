@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum StatusMensagem {
   naoLida,
@@ -69,8 +70,6 @@ class ContainerNhac extends StatelessWidget {
     this.selecionado = false,
     this.exibirRadio = false,
     this.exibirSeta = false,
-    
-    // Valores padrão do Switch
     this.exibirSwitch = false,
     this.ativoInicial = false,
     this.onSwitchChanged,
@@ -127,7 +126,6 @@ class ContainerNhac extends StatelessWidget {
       subTituloExibicao = complemento;
     }
 
-    // Define as cores do Radio / Borda / Switch
     final Color corDestaque = Colors.redAccent;
 
     Widget content = Row(
@@ -136,37 +134,37 @@ class ContainerNhac extends StatelessWidget {
         if (situacao != null && exibirCirculoSituacao) ...[
           Icon(
             Icons.circle,
-            size: 14,
+            size: 14.sp,
             color: activeCorCirculo,
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12.w),
         ],
 
         if (icon != null || letrasIcon != null) ...[
           Container(
-            width: 48,
-            height: 48,
+            width: 48.w,
+            height: 48.h,
             decoration: BoxDecoration(
               color: corFundoIcone,
               shape: formatoIcone,
               borderRadius: formatoIcone == BoxShape.rectangle
-                  ? BorderRadius.circular(16)
+                  ? BorderRadius.circular(16.r)
                   : null,
             ),
             child: Center(
               child: icon != null
-                  ? Icon(icon, color: corIcone ?? corDestaque)
+                  ? Icon(icon, color: corIcone ?? corDestaque, size: 24.sp)
                   : Text(
                       letrasIcon!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: corIcone ?? const Color.fromARGB(255, 93, 32, 28),
                       ),
                     ),
             ),
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12.w),
         ],
 
         Expanded(
@@ -181,18 +179,18 @@ class ContainerNhac extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: fontSize ?? 16,
+                    fontSize: (fontSize ?? 16).sp,
                     color: corTitulo ?? const Color.fromARGB(255, 93, 32, 28),
                   ),
                 ),
               if (subTituloExibicao != null) ...[
-                const SizedBox(height: 2),
+                SizedBox(height: 2.h),
                 Text(
                   subTituloExibicao,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: fontSizeComplemento ?? 13,
+                    fontSize: (fontSizeComplemento ?? 13).sp,
                     fontWeight: FontWeight.w400,
                     color: corComplemento ?? Colors.grey[600],
                   ),
@@ -214,10 +212,10 @@ class ContainerNhac extends StatelessWidget {
               if (horario != null)
                 Text(
                   horario!,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.w500,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                   ),
                 ),
               if (preco != null &&
@@ -227,26 +225,26 @@ class ContainerNhac extends StatelessWidget {
                   'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: fontSizePreco ?? 14,
+                    fontSize: (fontSizePreco ?? 14).sp,
                   ),
                 ),
-              if (horario != null || preco != null) const SizedBox(height: 4),
+              if (horario != null || preco != null) SizedBox(height: 4.h),
 
               if (situacao != null)
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 4,
-                    horizontal: 10,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 4.h,
+                    horizontal: 10.w,
                   ),
                   decoration: BoxDecoration(
                     color: activeCorSituacaoFundo,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Text(
                     situacao!,
                     style: TextStyle(
                       color: activeCorSituacao,
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -258,21 +256,19 @@ class ContainerNhac extends StatelessWidget {
 
         // --- RADIO SELEÇÃO ---
         if (exibirRadio) ...[
-          const SizedBox(width: 12),
+          SizedBox(width: 12.w),
           Icon(
             selecionado
                 ? Icons.radio_button_checked_rounded
                 : Icons.radio_button_off_rounded,
             color: selecionado ? corDestaque : Colors.grey[300],
-            size: 24,
+            size: 24.sp,
           ),
         ],
 
-        // --- SWITCH (NOVO) ---
-        // --- SWITCH ---
         // --- SWITCH ---
         if (exibirSwitch) ...[
-          const SizedBox(width: 8),
+          SizedBox(width: 8.w),
           Transform.scale(
             scale: 0.85,
             child: Switch(
@@ -287,11 +283,11 @@ class ContainerNhac extends StatelessWidget {
           ),
         ],
         if (exibirSeta) ...[
-          const SizedBox(width: 8),
-          const Icon(
+          SizedBox(width: 8.w),
+          Icon(
             Icons.arrow_forward_ios_outlined,
             color: Colors.grey,
-            size: 12,
+            size: 12.sp,
           ),
         ],
       ],
@@ -311,28 +307,28 @@ class ContainerNhac extends StatelessWidget {
     switch (statusMensagem!) {
       case StatusMensagem.naoLida:
         return Container(
-          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
           decoration: const BoxDecoration(
             color: Colors.redAccent,
             shape: BoxShape.circle,
           ),
           child: Text(
             '${quantidadeMensagens ?? 0}',
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 10,
+              fontSize: 10.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
         );
       case StatusMensagem.enviada:
-        return const Icon(
+        return Icon(
           Icons.done_all_rounded,
           color: Colors.redAccent,
-          size: 18,
+          size: 18.sp,
         );
       case StatusMensagem.visualizada:
-        return const SizedBox(height: 18);
+        return SizedBox(height: 18.h);
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -14,97 +15,97 @@ class HorarioFuncionamentoPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+            padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: const [
-                    BackArrow(),
-                    SizedBox(width: 12),
+                  children: [
+                    const BackArrow(),
+                    SizedBox(width: 12.w),
                     Text(
                       'Cadastrar loja',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
-                RegisterSteps(passoAtual: PassoCadastrar.horarios),
-                const SizedBox(height: 18),
-                const Text(
+                SizedBox(height: 24.h),
+                const RegisterSteps(passoAtual: PassoCadastrar.horarios),
+                SizedBox(height: 18.h),
+                Text(
                   'Horário de funcionamento',
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8),
-                const Text(
+                SizedBox(height: 8.h),
+                Text(
                   'Defina os dias e horários em que sua loja recebe pedidos.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
                 ),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
                     'Copiar p/ todos os dias',
                     style: TextStyle(
                       color: Colors.redAccent,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Seg',
                   horario: '08:00 - 18:00',
                   ativoInicial: true,
                 ),
-                Divider(),
+                const Divider(),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Ter',
                   horario: '08:00 - 18:00',
                   ativoInicial: true,
                 ),
-                Divider(),
+                const Divider(),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Qua',
                   horario: '08:00 - 18:00',
                   ativoInicial: true,
                 ),
-                Divider(),
+                const Divider(),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Qui',
                   horario: '08:00 - 18:00',
                   ativoInicial: true,
                 ),
-                Divider(),
+                const Divider(),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Sex',
                   horario: '08:00 - 22:00',
                   ativoInicial: true,
                 ),
-                Divider(),
+                const Divider(),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Sáb',
                   horario: '10:00 - 22:00',
                   ativoInicial: true,
                 ),
-                Divider(),
+                const Divider(),
                 const ItemHorarioFuncionamento(
                   diaSemana: 'Dom',
                   horario: 'Fechado',
                   ativoInicial: false,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Continuar',
                   onTap: () => context.push('/forma-pagamento'),
