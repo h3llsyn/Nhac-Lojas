@@ -128,23 +128,18 @@ class _EditarInfoLojaState extends State<EditarInfoLoja> {
                     ),
                     FilterTag(
                       filtro: 'Pizzaria',
-                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
                     ),
                     FilterTag(
                       filtro: 'Japonesa',
-                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
                     ),
                     FilterTag(
                       filtro: 'Doces',
-                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
                     ),
                     FilterTag(
                       filtro: 'Marmitas',
-                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
                     ),
                     FilterTag(
                       filtro: 'Bebidas',
-                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
                     ),
                   ],
                 ),

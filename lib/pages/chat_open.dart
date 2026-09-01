@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/ballon_chat.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
@@ -27,6 +28,7 @@ class ChatOpen extends StatelessWidget {
                       informacao: 'Maria Silva',
                       complemento: 'Online',
                       corComplemento: Colors.green,
+                      formatoIcone: BoxShape.circle,
                     ),
                   ),
                   const IconContainer(
@@ -55,7 +57,7 @@ class ChatOpen extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20.r),
                         ),
-                        child: const ContainerNhac(
+                        child: ContainerNhac(
                           icon: Icons.receipt,
                           corIcone: Colors.redAccent,
                           informacao: 'Pedido',
@@ -63,6 +65,7 @@ class ChatOpen extends StatelessWidget {
                           quantidadeItens: 2,
                           preco: 49.90,
                           complemento: 'Em preparo',
+                          onTap: () => context.push('/order-details'),
                         ),
                       ),
                       SizedBox(height: 16.h),
@@ -118,10 +121,6 @@ class ChatOpen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 12.h,
-                        ),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(50.r),
@@ -134,11 +133,24 @@ class ChatOpen extends StatelessWidget {
                           ],
                         ),
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Digite uma mensagem...',
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Digite uma mensagem...',
+                            hintStyle: TextStyle(
+                              color: Colors.grey.shade400,
+                              fontSize: 16.sp,
+                            ),
+                            border: InputBorder.none, 
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16.w,
+                              vertical: 12.h,
+                            ),
+                          ),
                           style: TextStyle(
-                            color: Colors.grey.shade400,
                             fontSize: 16.sp,
+                            color: const Color(0xFF5D201C), // Cor do texto digitado
                           ),
                         ),
                       ),

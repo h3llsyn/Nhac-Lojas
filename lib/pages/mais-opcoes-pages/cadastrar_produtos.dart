@@ -184,7 +184,7 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                 SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Salvar produto',
-                  onTap: () => context.go('/cardapio-vazio'),
+                  onTap: () => context.push('/cardapio-cheio'),
                 ),
               ],
             ),

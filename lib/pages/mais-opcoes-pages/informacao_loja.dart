@@ -142,13 +142,14 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20.r),
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerNhac(
                       icon: Icons.logout_outlined,
                       informacao: 'Sair da conta',
                       fontSize: 14,
                       exibirSeta: true,
+                      onTap: () => context.go('/bem-vindo'),
                     ),
                   ],
                 ),

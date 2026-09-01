@@ -27,54 +27,32 @@ class CardapioCheioPage extends StatelessWidget {
               ),
               SizedBox(height: 24),
               IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 12.h,
+                child: Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 12.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50.r),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF5D201C).withValues(alpha: 0.05),
+                          blurRadius: 10.r,
+                          offset: const Offset(0.0, 4.0),
                         ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(50.r),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xFF5D201C).withValues(alpha: 0.05),
-                              blurRadius: 10.r,
-                              offset: const Offset(0.0, 4.0),
-                            ),
-                          ],
-                        ),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Digite uma mensagem...',
-                          style: TextStyle(
-                            color: Colors.grey.shade400,
-                            fontSize: 16.sp,
-                          ),
-                        ),
+                      ],
+                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Buscar produto...',
+                      style: TextStyle(
+                        color: Colors.grey.shade400,
+                        fontSize: 16.sp,
                       ),
                     ),
-                    SizedBox(width: 8.w),
-                    AspectRatio(
-                      aspectRatio: 1,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.redAccent,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Icon(
-                            Icons.send_rounded,
-                            color: Colors.white,
-                            size: 20.sp,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               SizedBox(height: 24,),
