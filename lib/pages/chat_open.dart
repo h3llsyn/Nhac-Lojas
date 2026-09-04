@@ -6,6 +6,7 @@ import 'package:nhac_lojas/components/ballon_chat.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
+import 'package:nhac_lojas/components/search_container.dart';
 
 class ChatOpen extends StatelessWidget {
   const ChatOpen({super.key});
@@ -120,39 +121,8 @@ class ChatOpen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(50.r),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xFF5D201C).withValues(alpha: 0.05),
-                              blurRadius: 10.r,
-                              offset: const Offset(0.0, 4.0),
-                            ),
-                          ],
-                        ),
-                        alignment: Alignment.centerLeft,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Digite uma mensagem...',
-                            hintStyle: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 16.sp,
-                            ),
-                            border: InputBorder.none, 
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 16.w,
-                              vertical: 12.h,
-                            ),
-                          ),
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            color: const Color(0xFF5D201C), // Cor do texto digitado
-                          ),
-                        ),
+                      child: SearchContainer(
+                        label: 'Digite uma mensagem...'
                       ),
                     ),
                     SizedBox(width: 8.w),
