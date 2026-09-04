@@ -98,12 +98,11 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     SizedBox(height: 8.h),
                     const Divider(),
                     SizedBox(height: 8.h),
-                    ContainerNhac(
+                    const ContainerNhac(
                       icon: Icons.motorcycle_outlined,
                       informacao: 'Taxas de entrega',
                       fontSize: 14,
                       exibirSeta: true,
-                      onTap: () => context.push('/taxa-entrega'),
                     ),
                     SizedBox(height: 8.h),
                     const Divider(),

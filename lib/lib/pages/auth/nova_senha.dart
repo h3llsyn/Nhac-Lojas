@@ -19,13 +19,7 @@ class _NovaSenhaState extends State<NovaSenha> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvoked: (didPop) {
-        if (didPop) return;
-        context.go('/login');
-      },
-      child: Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -122,7 +116,6 @@ class _NovaSenhaState extends State<NovaSenha> {
             ),
           ),
         ),
-      ),
       ),
     );
   }

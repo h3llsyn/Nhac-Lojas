@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 
-class ConfirmarEmailPage extends StatelessWidget {
-  const ConfirmarEmailPage({super.key});
+class LojaCadastradaPage extends StatelessWidget {
+  const LojaCadastradaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class ConfirmarEmailPage extends StatelessWidget {
                   minHeight: constraints.maxHeight, // Garante altura mínima da tela
                 ),
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 20.h), // Ajustado o padding superior se quiser centralizado
+                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center, // Centraliza verticalmente
                     crossAxisAlignment: CrossAxisAlignment.center, // Centraliza horizontalmente
@@ -33,7 +33,7 @@ class ConfirmarEmailPage extends StatelessWidget {
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
-                              Icons.mail_outline_rounded,
+                              Icons.store_outlined,
                               size: 60.sp,
                               color: Colors.redAccent,
                             ),
@@ -65,68 +65,30 @@ class ConfirmarEmailPage extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Confirme seu e-mail!',
+                        'Loja cadastrada com sucesso!',
+                        textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 4.h),
-                      Text.rich(
-                        TextSpan(
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          children: [
-                            const TextSpan(text: 'Enviamos um link de confirmação para\n'),
-                            TextSpan(
-                              text: 'seu@email.com',
-                              style: TextStyle(
-                                color: const Color.fromARGB(255, 93, 32, 28),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                            const TextSpan(
-                              text: '. Clique no link para\nativar sua conta e começar a vender',
-                            ),
-                          ],
-                        ),
+                      Text(
+                        'Agora é só preparar os pedidos e\nfazer seu negócio crescer.',
                         textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: 24.h),
-                      Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.all(16.r),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.r),
-                        ),
-                        child: Text.rich(
-                          TextSpan(
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            children: [
-                              const TextSpan(text: 'Não recebeu o e-mail? Verifique sua caixa de spam ou '),
-                              TextSpan(
-                                text: 'reenvie o email.',
-                                style: TextStyle(
-                                  color: Colors.redAccent,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14.sp,
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(height: 48.h),
                       ButtonNhac(
-                        texto: 'Já confirmei, continuar',
-                        onTap: () => context.push('/dados-basicos'),
+                        texto: 'Cadastrar produtos agora',
+                        onTap: () => context.push('/cadastrar-produtos'),
+                      ),
+                      SizedBox(height: 16.h),
+                      ButtonNhac(
+                        texto: 'Ir para a home',
+                        onTap: () => context.go('/home'),
+                        isSecundario: true,
                       ),
                     ],
                   ),

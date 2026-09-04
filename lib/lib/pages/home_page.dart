@@ -77,6 +77,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
                   ),
                   Text(
@@ -180,6 +181,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
                   ),
                   SizedBox(height: 4.h),
@@ -247,6 +249,7 @@ class HomePage extends StatelessWidget {
                   Text(
                     'AVALIAÇÃO DA LOJA',
                     style: TextStyle(
+                      color: Colors.grey,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                     ),
@@ -298,6 +301,7 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
                   ),
                   Text(

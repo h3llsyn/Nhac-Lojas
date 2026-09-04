@@ -23,13 +23,7 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvoked: (didPop) {
-        if (didPop) return;
-        context.go('/mais');
-      },
-      child: Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Padding(
@@ -187,7 +181,6 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
             ],
           ),
         ),
-      ),
       ),
     );
   }

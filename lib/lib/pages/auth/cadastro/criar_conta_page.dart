@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 
-class NovaSenha extends StatefulWidget {
-  const NovaSenha({super.key});
+class CriarContaPage extends StatefulWidget {
+  const CriarContaPage({super.key});
 
   @override
-  State<NovaSenha> createState() => _NovaSenhaState();
+  State<CriarContaPage> createState() => _CriarContaPageState();
 }
 
-class _NovaSenhaState extends State<NovaSenha> {
+class _CriarContaPageState extends State<CriarContaPage> {
   bool _senhaVisivel = false;
   bool _confirmarSenhaVisivel = false;
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvoked: (didPop) {
-        if (didPop) return;
-        context.go('/login');
-      },
-      child: Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -35,29 +29,57 @@ class _NovaSenhaState extends State<NovaSenha> {
               children: [
                 Row(
                   children: [
-                    const BackArrow(targetRoute: '/login'),
+                    const BackArrow(),
                     SizedBox(width: 12.w),
                     Text(
-                      'Nova senha',
+                      'Criar conta',
                       style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                SizedBox(height: 32.h),
+                SizedBox(height: 24.h),
                 Text(
-                  'Crie uma nova senha',
+                  'Crie seu acesso',
                   style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  'Sua nova senha precisa ser diferente\nda anterior.',
+                  'Esse e-mail e senha serão usados para você entrar na sua conta depois.',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
                   ),
                 ),
-                SizedBox(height: 24.h),
+                SizedBox(height: 18.h),
+                Text(
+                  'Nome completo',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4.h),
+                const NhacInputField(
+                  hintText: 'Nome',
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'E-mail',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4.h),
+                const NhacInputField(
+                  hintText: 'E-mail',
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'Telefone',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 4.h),
+                const NhacInputField(
+                  hintText: '(00) 00000-0000',
+                  keyboardType: TextInputType.number,
+                ),
+                SizedBox(height: 16.h),
                 Text(
                   'Nova senha',
                   style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
@@ -113,16 +135,15 @@ class _NovaSenhaState extends State<NovaSenha> {
                     },
                   ),
                 ),
-                SizedBox(height: 48.h),
+                SizedBox(height: 32.h),
                 ButtonNhac(
-                  texto: 'Salvar nova senha',
-                  onTap: () => context.go('/login'),
+                  texto: 'Continuar',
+                  onTap: () => context.push('/confirmar-email'),
                 ),
               ],
             ),
           ),
         ),
-      ),
       ),
     );
   }

@@ -60,6 +60,7 @@ class OrderDetailsPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
+                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 12.h),
@@ -100,6 +101,7 @@ class OrderDetailsPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
+                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 12.h),
@@ -164,6 +166,7 @@ class OrderDetailsPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,
+                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 14.h),

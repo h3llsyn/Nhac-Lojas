@@ -47,6 +47,7 @@ class ChatOpen extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12.sp,
+                          color: Colors.grey,
                         ),
                       ),
                       SizedBox(height: 16.h),
