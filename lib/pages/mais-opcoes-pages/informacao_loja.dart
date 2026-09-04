@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
+import 'package:nhac_lojas/lib/components/button_nhac.dart';
 
 class InformacaoLoja extends StatefulWidget {
   const InformacaoLoja({super.key});
@@ -17,6 +18,62 @@ class InformacaoLoja extends StatefulWidget {
 class _InformacaoLojaState extends State<InformacaoLoja> {
   final ImagePicker picker = ImagePicker();
   File? fotoPerfil;
+
+  void _mostrarModalSair(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      showDragHandle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+      ),
+      builder: (modalContext) {
+        return SafeArea(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.r, 0, 20.r, 20.r),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 36.r,
+                  backgroundColor: const Color.fromARGB(255, 255, 242, 230),
+                  child: Icon(
+                    Icons.logout_outlined,
+                    color: Colors.redAccent,
+                    size: 32.sp,
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'Sair da conta?',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  textAlign: TextAlign.center,
+                  'Você precisará entrar novamente com seu e-mail e\nsenha para acessar o painel da loja.',
+                  style: TextStyle(color: Colors.grey, fontSize: 14.sp),
+                ),
+                SizedBox(height: 24.h),
+                ButtonNhac(
+                  texto: 'Sair da conta',
+                  onTap: () => context.go('/bem-vindo'),
+                ),
+                SizedBox(height: 12.h,),
+                ButtonNhac(
+                  texto: 'Cancelar',
+                  isSecundario: true,
+                  onTap: () => Navigator.pop(modalContext),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +103,8 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                   children: [
                     CircleAvatar(
                       radius: 64.r,
-                      backgroundColor: const Color.fromARGB(255, 255, 242, 230),
+                      backgroundColor:
+                          const Color.fromARGB(255, 255, 242, 230),
                       child: ClipOval(
                         child: SizedBox(
                           width: 84.w,
@@ -153,7 +211,7 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                       informacao: 'Sair da conta',
                       fontSize: 14,
                       exibirSeta: true,
-                      onTap: () => context.go('/bem-vindo'),
+                      onTap: () => _mostrarModalSair(context),
                     ),
                   ],
                 ),
