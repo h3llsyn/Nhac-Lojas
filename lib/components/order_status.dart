@@ -156,7 +156,7 @@ class OrderStatus extends StatelessWidget {
         width: 32.w,
         height: 32.h,
         decoration: BoxDecoration(
-          color: const Color(0xFFFF8A80).withOpacity(0.3),
+          color: const Color(0xFFFF8A80).withValues(alpha: 0.3),
           shape: BoxShape.circle,
         ),
         child: Center(

@@ -119,11 +119,11 @@ class ContainerNhac extends StatelessWidget {
 
       subTituloExibicao = [
         textoItens,
-        if (precoFormatado != null) precoFormatado,
+        ?precoFormatado,
         if (complemento != null) complemento,
       ].join(' · ');
-    } else if (subTituloExibicao == null) {
-      subTituloExibicao = complemento;
+    } else {
+      subTituloExibicao ??= complemento;
     }
 
     final Color corDestaque = Colors.redAccent;
@@ -273,7 +273,7 @@ class ContainerNhac extends StatelessWidget {
             scale: 0.85,
             child: Switch(
               value: ativoInicial,
-              activeColor: Colors.white,
+              activeThumbColor: Colors.white,
               activeTrackColor: const Color(0xFFFF6961),
               inactiveThumbColor: Colors.white,
               inactiveTrackColor: Colors.grey.shade300,

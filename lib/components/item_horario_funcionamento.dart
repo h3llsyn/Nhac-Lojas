@@ -62,7 +62,7 @@ class _ItemHorarioFuncionamentoState extends State<ItemHorarioFuncionamento> {
             scale: 0.85,
             child: Switch(
               value: ativo,
-              activeColor: Colors.white,
+              activeThumbColor: Colors.white,
               activeTrackColor: const Color(0xFFFF6961),
               inactiveThumbColor: Colors.white,
               inactiveTrackColor: Colors.grey.shade300,

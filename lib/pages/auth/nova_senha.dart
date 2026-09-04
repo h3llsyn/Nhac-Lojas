@@ -21,6 +21,7 @@ class _NovaSenhaState extends State<NovaSenha> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
+      // ignore: deprecated_member_use
       onPopInvoked: (didPop) {
         if (didPop) return;
         context.go('/login');

@@ -50,7 +50,7 @@ class _ItemFormaPagamentoState extends State<ItemFormaPagamento> {
             scale: 0.85,
             child: Switch(
               value: ativo,
-              activeColor: Colors.white,
+              activeThumbColor: Colors.white,
               activeTrackColor: const Color(0xFFFF6961),
               inactiveThumbColor: Colors.white,
               inactiveTrackColor: Colors.grey.shade300,

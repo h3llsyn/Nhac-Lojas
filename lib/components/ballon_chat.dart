@@ -61,7 +61,7 @@ class BallonChat extends StatelessWidget {
                 borderRadius: borderRadius,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 4.r,
                     offset: Offset(0, 2.h),
                   ),
