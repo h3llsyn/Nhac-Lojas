@@ -98,7 +98,7 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const HorarioFuncionamentoPage(),
     ),
     GoRoute(
-      path: '/forma-pagamento',
+      path: '/forma-pagamento-cadastro',
       builder: (context, state) => const FormasPagamentoPage(),
     ),
     GoRoute(

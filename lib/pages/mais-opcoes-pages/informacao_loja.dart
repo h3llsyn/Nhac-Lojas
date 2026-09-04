@@ -108,11 +108,12 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     SizedBox(height: 8.h),
                     const Divider(),
                     SizedBox(height: 8.h),
-                    const ContainerNhac(
+                    ContainerNhac(
                       icon: Icons.credit_card_outlined,
                       informacao: 'Formas de pagamento',
                       fontSize: 14,
                       exibirSeta: true,
+                      onTap: () => context.push('/formas-pagamento-edicao'),
                     ),
                     SizedBox(height: 8.h),
                     const Divider(),

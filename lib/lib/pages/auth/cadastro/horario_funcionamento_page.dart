@@ -108,7 +108,7 @@ class HorarioFuncionamentoPage extends StatelessWidget {
                 SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Continuar',
-                  onTap: () => context.push('/forma-pagamento'),
+                  onTap: () => context.push('/forma-pagamento-cadastro'),
                 ),
               ],
             ),

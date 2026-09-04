@@ -44,7 +44,6 @@ class _TaxaEntregaPageState extends State<TaxaEntregaPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Cabeçalho
               Row(
                 children: [
                   const BackArrow(),
@@ -59,14 +58,12 @@ class _TaxaEntregaPageState extends State<TaxaEntregaPage> {
                 ],
               ),
               SizedBox(height: 20.h),
-
-              // Conteúdo Rolável
               Expanded(
                 child: ListView(
                   physics: const BouncingScrollPhysics(),
                   children: [
                     Text(
-                      'Modelo de cobrança',
+                      'MODELO DE COBRANÇA',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,

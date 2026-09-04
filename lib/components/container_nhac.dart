@@ -35,6 +35,8 @@ class ContainerNhac extends StatelessWidget {
   final bool precoEmDestaque;
   final bool selecionado;
   final bool exibirRadio;
+  final bool exibirCheck;
+  final ValueChanged<bool>? onCheckChanged; // <--- NOVO
   final bool exibirSeta;
   final bool exibirSwitch;
   final bool ativoInicial;
@@ -69,6 +71,8 @@ class ContainerNhac extends StatelessWidget {
     this.precoEmDestaque = false,
     this.selecionado = false,
     this.exibirRadio = false,
+    this.exibirCheck = false,
+    this.onCheckChanged, // <--- NOVO
     this.exibirSeta = false,
     this.exibirSwitch = false,
     this.ativoInicial = false,
@@ -131,6 +135,37 @@ class ContainerNhac extends StatelessWidget {
     Widget content = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        // --- CHECKBOX NO LADO ESQUERDO ---
+        if (exibirCheck) ...[
+          GestureDetector(
+            onTap: () {
+              if (onCheckChanged != null) {
+                onCheckChanged!(!selecionado);
+              }
+            },
+            child: Container(
+              width: 26.r,
+              height: 26.r,
+              decoration: BoxDecoration(
+                color: selecionado ? const Color(0xFFFF6961) : Colors.transparent,
+                borderRadius: BorderRadius.circular(8.r),
+                border: Border.all(
+                  color: selecionado ? Colors.transparent : Colors.grey.shade300,
+                  width: 2,
+                ),
+              ),
+              child: selecionado
+                  ? Icon(
+                      Icons.check_rounded,
+                      color: Colors.white,
+                      size: 18.sp,
+                    )
+                  : null,
+            ),
+          ),
+          SizedBox(width: 12.w),
+        ],
+
         if (situacao != null && exibirCirculoSituacao) ...[
           Icon(
             Icons.circle,
@@ -293,9 +328,14 @@ class ContainerNhac extends StatelessWidget {
       ],
     );
 
-    if (onTap != null) {
+    final VoidCallback? handleTap = onTap ??
+        (onCheckChanged != null
+            ? () => onCheckChanged!(!selecionado)
+            : null);
+
+    if (handleTap != null) {
       return InkWell(
-        onTap: onTap,
+        onTap: handleTap,
         child: content,
       );
     }
