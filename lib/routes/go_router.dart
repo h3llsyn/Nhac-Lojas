@@ -17,6 +17,7 @@ import 'package:nhac_lojas/pages/mais-opcoes-pages/cadastrar_produtos.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_cheio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_vazio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/editar_info_loja.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/endereco_edicao.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/formas_pagamento_edicao_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/informacao_loja.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
@@ -134,6 +135,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/formas-pagamento-edicao',
       builder: (context, state) => FormasPagamentoEdicaoPage(),
+    ),
+    GoRoute(
+      path: '/endereco-edicao',
+      builder: (context, state) => EnderecoEdicao(),
     ),
     GoRoute(
       path: '/cardapio-vazio',

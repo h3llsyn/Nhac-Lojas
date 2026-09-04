@@ -118,11 +118,12 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     SizedBox(height: 8.h),
                     const Divider(),
                     SizedBox(height: 8.h),
-                    const ContainerNhac(
+                    ContainerNhac(
                       icon: Icons.location_on_outlined,
                       informacao: 'Endereço da loja',
                       fontSize: 14,
                       exibirSeta: true,
+                      onTap: () => context.push('/endereco-edicao'),
                     ),
                     SizedBox(height: 8.h),
                     const Divider(),
