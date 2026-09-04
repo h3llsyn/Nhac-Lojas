@@ -128,11 +128,12 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     SizedBox(height: 8.h),
                     const Divider(),
                     SizedBox(height: 8.h),
-                    const ContainerNhac(
+                    ContainerNhac(
                       icon: Icons.settings_outlined,
                       informacao: 'Configurações da conta',
                       fontSize: 14,
                       exibirSeta: true,
+                      onTap: () => context.push('/configuracoes-conta'),
                     ),
                   ],
                 ),

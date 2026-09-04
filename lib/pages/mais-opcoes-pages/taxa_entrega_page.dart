@@ -63,7 +63,7 @@ class _TaxaEntregaPageState extends State<TaxaEntregaPage> {
                   physics: const BouncingScrollPhysics(),
                   children: [
                     Text(
-                      'MODELO DE COBRANÇA',
+                      'Modelo de cobrança',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
