@@ -165,6 +165,11 @@ class _TaxaEntregaPageState extends State<TaxaEntregaPage> {
                             freteGratis = valor;
                           });
                         },
+                        onTap: ()=>{
+                          setState(() {
+                            freteGratis = !freteGratis;
+                          })
+                        },
                       ),
                     ),
 

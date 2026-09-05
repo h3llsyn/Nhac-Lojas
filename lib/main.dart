@@ -39,6 +39,9 @@ class MainApp extends StatelessWidget {
               titleLarge: TextStyle(color: primaryColor),
               titleMedium: TextStyle(color: primaryColor),
             ),
+            bottomSheetTheme: BottomSheetThemeData(
+              dragHandleColor: Colors.grey
+            ),
           ),
         );
       },

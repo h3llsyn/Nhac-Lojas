@@ -132,6 +132,11 @@ class _ConfiguracoesContaState extends State<ConfiguracoesConta> {
                                   novosPedidos = valor;
                                 });
                               },
+                              onTap: ()=> {
+                                setState((){
+                                  novosPedidos = !novosPedidos;
+                                })
+                              },
                             ),
                           ),
                           Divider(),
@@ -149,6 +154,11 @@ class _ConfiguracoesContaState extends State<ConfiguracoesConta> {
                                 setState(() {
                                   mensagensClientes = valor;
                                 });
+                              },
+                              onTap: ()=>{
+                                setState(() {
+                                  mensagensClientes = !mensagensClientes;
+                                })
                               },
                             ),
                           ),
@@ -168,6 +178,11 @@ class _ConfiguracoesContaState extends State<ConfiguracoesConta> {
                                   avaliacoes = valor;
                                 });
                               },
+                              onTap: ()=>{
+                                setState(() {
+                                  avaliacoes = !avaliacoes;
+                                })
+                              },
                             ),
                           ),
                           Divider(),
@@ -185,6 +200,11 @@ class _ConfiguracoesContaState extends State<ConfiguracoesConta> {
                                 setState(() {
                                   novidadesPromocoes = valor;
                                 });
+                              },
+                              onTap: ()=>{
+                                setState(() {
+                                  novidadesPromocoes = !novidadesPromocoes;
+                                })
                               },
                             ),
                           ),
