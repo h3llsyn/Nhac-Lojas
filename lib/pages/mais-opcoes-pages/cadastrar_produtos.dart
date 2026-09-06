@@ -8,7 +8,8 @@ import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/nhac_input_field.dart';
 
 class CadastrarProdutos extends StatefulWidget {
-  const CadastrarProdutos({super.key});
+  final bool isEdicao;
+  const CadastrarProdutos({this.isEdicao = false, super.key});
 
   @override
   State<CadastrarProdutos> createState() => _CadastrarProdutosState();
@@ -16,6 +17,76 @@ class CadastrarProdutos extends StatefulWidget {
 
 class _CadastrarProdutosState extends State<CadastrarProdutos> {
   bool produtoDisponivel = true;
+  final TextEditingController nomeController = TextEditingController(
+    text: 'X-Burguer'
+  );
+  final TextEditingController descricaoController = TextEditingController(
+    text: 'Uma descrição muito boa uau'
+  );
+  final TextEditingController precoController = TextEditingController(
+    text: 'R\$ 29,90'
+  );
+  final TextEditingController descontoController = TextEditingController(
+    text: '5%'
+  );
+  final String fotoProdutoUrl = 'https://www.delicioso.com.br/wp-content/uploads/migration/bob-esponja-hamburguer-siri-08.17-1400x800.jpg';
+
+
+  void _mostrarModalDeletar(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      showDragHandle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+      ),
+      builder: (modalContext) {
+        return SafeArea(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20.r, 0, 20.r, 20.r),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 36.r,
+                  backgroundColor: const Color.fromARGB(255, 255, 242, 230),
+                  child: Icon(
+                    Icons.delete_outline_rounded,
+                    color: Colors.redAccent,
+                    size: 32.sp,
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'Excluir produto?',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  textAlign: TextAlign.center,
+                  'Essa ação não pode ser desfeita. O produto será\nremovido definitivamente do seu cardápio.',
+                  style: TextStyle(color: Colors.grey, fontSize: 14.sp),
+                ),
+                SizedBox(height: 24.h),
+                ButtonNhac(
+                  texto: 'Excluir produto',
+                  onTap: () => context.go('/cardapio-cheio'),
+                ),
+                SizedBox(height: 12.h,),
+                ButtonNhac(
+                  texto: 'Cancelar',
+                  isSecundario: true,
+                  onTap: () => Navigator.pop(modalContext),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,55 +103,96 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                     const BackArrow(),
                     SizedBox(width: 16.w),
                     Text(
-                      'Novo produto',
+                      widget.isEdicao ? 'Editar produto' : 'Novo produto',
                       style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 SizedBox(height: 24.h),
-                Container(
-                  width: double.infinity,
-                  height: 156.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.r),
-                    border: Border.all(color: Colors.redAccent),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                widget.isEdicao
+                ? Stack(
                     children: [
-                      Icon(
-                        Icons.camera_alt_outlined,
-                        color: Colors.redAccent,
-                        size: 26.sp,
-                      ),
-                      SizedBox(height: 4.h),
-                      Text(
-                        'Adicionar foto do produto',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.redAccent,
-                          fontSize: 14.sp,
+                      Container(
+                        width: double.infinity,
+                        height: 156.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12.r),
+                          border: Border.all(color: Colors.redAccent),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12.r),
+                          child: Image.network(
+                            fotoProdutoUrl,
+                            width: double.infinity,
+                            height: 156.h,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                      SizedBox(height: 4.h),
-                      Text(
-                        'PNG ou JPG, até 5MB',
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          color: Colors.grey,
+                      Positioned(
+                        right: 10,
+                        bottom: 10,
+                        child: Container(
+                          padding: EdgeInsets.all(8.r),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.redAccent)
+                          ),
+                          child: Icon(
+                            Icons.camera_alt_outlined,
+                            color: Colors.redAccent,
+                            size: 18.sp,
+                          ),
                         ),
                       ),
                     ],
+                  )
+                : Container(
+                    width: double.infinity,
+                    height: 156.h,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12.r),
+                      border: Border.all(color: Colors.redAccent),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.camera_alt_outlined,
+                          color: Colors.redAccent,
+                          size: 26.sp,
+                        ),
+                        SizedBox(height: 4.h),
+                        Text(
+                          'Adicionar foto do produto',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.redAccent,
+                            fontSize: 14.sp,
+                          ),
+                        ),
+                        SizedBox(height: 4.h),
+                        Text(
+                          'PNG ou JPG, até 5MB',
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
                 SizedBox(height: 16.h),
                 Text(
                   'Nome do produto',
                   style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4.h),
-                const NhacInputField(
+                NhacInputField(
+                  controller: widget.isEdicao ? nomeController : null,
                   hintText: 'Ex: X-Burguer',
                 ),
                 SizedBox(height: 16.h),
@@ -89,7 +201,8 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                   style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4.h),
-                const NhacInputField(
+                NhacInputField(
+                  controller: widget.isEdicao ? descricaoController: null,
                   hintText: 'Descreva os ingredientes e detalhes',
                   maxLines: 3,
                 ),
@@ -134,7 +247,8 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                             ),
                           ),
                           SizedBox(height: 4.h),
-                          const NhacInputField(
+                          NhacInputField(
+                            controller: widget.isEdicao ? precoController : null,
                             hintText: 'R\$ 0,00',
                           ),
                         ],
@@ -153,7 +267,8 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                             ),
                           ),
                           SizedBox(height: 4.h),
-                          const NhacInputField(
+                          NhacInputField(
+                            controller: widget.isEdicao ? descontoController : null,
                             hintText: '0%',
                           ),
                         ],
@@ -182,10 +297,47 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                ButtonNhac(
-                  texto: 'Salvar produto',
-                  onTap: () => context.push('/cardapio-cheio'),
-                ),
+                if (widget.isEdicao)
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: GestureDetector(
+                          onTap: () => _mostrarModalDeletar(context),
+                          child: Container(
+                            height: 49.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32),
+                              border: Border.all(
+                                color: Colors.redAccent.withValues(alpha: 0.4),
+                                width: 1.2,
+                              ),
+                            ),
+                            child: const Center(
+                              child: Icon(
+                                Icons.delete_outline_rounded,
+                                color: Colors.redAccent,
+                                size: 24,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 12.w),
+                      Expanded(
+                        flex: 4,
+                        child: ButtonNhac(
+                          texto: 'Salvar produto',
+                          onTap: () => context.pop('/cardapio-cheio'),
+                        ),
+                      ),
+                    ],
+                  )
+                else
+                  ButtonNhac(
+                    texto: 'Salvar produto',
+                    onTap: () => context.push('/cardapio-cheio'),
+                  ),
               ],
             ),
           ),

@@ -106,6 +106,9 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
                                 xBurguerDisponivel = valor;
                               });
                             },
+                            onTap: ()=>{
+                              context.push('/cadastrar-produtos', extra: true),
+                            },
                             exibirSeta: true,
                           ),
                           SizedBox(height: 8.h),
@@ -121,6 +124,9 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
                               setState(() {
                                 xBaconDisponivel = valor;
                               });
+                            },
+                            onTap: ()=>{
+                              context.push('/cadastrar-produtos', extra: true),
                             },
                             exibirSeta: true,
                           ),
@@ -138,6 +144,9 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
                                 xSaladaDisponivel = valor;
                               });
                             },
+                            onTap: ()=>{
+                              context.push('/cadastrar-produtos', extra: true),
+                            },
                             exibirSeta: true,
                           ),
                           SizedBox(height: 8.h),
@@ -153,6 +162,9 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
                               setState(() {
                                 batataDisponivel = valor;
                               });
+                            },
+                            onTap: ()=>{
+                              context.push('/cadastrar-produtos', extra: true),
                             },
                             exibirSeta: true,
                           ),
@@ -170,6 +182,9 @@ class _CardapioCheioPageState extends State<CardapioCheioPage> {
                               setState(() {
                                 cocaDisponivel = valor;
                               });
+                            },
+                            onTap: ()=>{
+                              context.push('/cadastrar-produtos', extra: true),
                             },
                             exibirSeta: true,
                           ),

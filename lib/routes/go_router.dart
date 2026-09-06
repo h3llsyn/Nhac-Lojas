@@ -151,7 +151,9 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/cadastrar-produtos',
-      builder: (context, state) => const CadastrarProdutos(),
+      builder: (context, state) => CadastrarProdutos(
+        isEdicao: state.extra == true,
+      ),
     ),
     GoRoute(
       path: '/cardapio-cheio',

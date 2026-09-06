@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
+import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
-import 'package:nhac_lojas/lib/components/button_nhac.dart';
 
 class InformacaoLoja extends StatefulWidget {
   const InformacaoLoja({super.key});
