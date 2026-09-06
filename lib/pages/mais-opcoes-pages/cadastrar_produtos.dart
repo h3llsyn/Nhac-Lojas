@@ -32,7 +32,7 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
   final String fotoProdutoUrl = 'https://www.delicioso.com.br/wp-content/uploads/migration/bob-esponja-hamburguer-siri-08.17-1400x800.jpg';
 
 
-  void _mostrarModalDeletar(BuildContext context) {
+void _mostrarModalDeletar(BuildContext context) {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
@@ -72,9 +72,22 @@ class _CadastrarProdutosState extends State<CadastrarProdutos> {
                 SizedBox(height: 24.h),
                 ButtonNhac(
                   texto: 'Excluir produto',
-                  onTap: () => context.go('/cardapio-cheio'),
+                  onTap: () {
+                    Navigator.pop(modalContext);
+                    context.go('/cardapio-cheio');
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          '${nomeController.text} foi excluído do cardápio!',
+                        ),
+                        duration: const Duration(seconds: 2),
+                        backgroundColor: Colors.redAccent,
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                  },
                 ),
-                SizedBox(height: 12.h,),
+                SizedBox(height: 12.h),
                 ButtonNhac(
                   texto: 'Cancelar',
                   isSecundario: true,
