@@ -27,7 +27,7 @@ class OrderPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const IconContainer(
+                IconContainer(
                   icon: Icons.notifications_none_rounded,
                 ),
               ],

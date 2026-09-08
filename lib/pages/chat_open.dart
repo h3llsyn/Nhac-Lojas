@@ -32,7 +32,7 @@ class ChatOpen extends StatelessWidget {
                       formatoIcone: BoxShape.circle,
                     ),
                   ),
-                  const IconContainer(
+                  IconContainer(
                     icon: Icons.more_horiz,
                   ),
                 ],

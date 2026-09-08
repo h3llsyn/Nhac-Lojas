@@ -18,6 +18,7 @@ import 'package:nhac_lojas/pages/mais-opcoes-pages/cadastrar_produtos.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_cheio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_vazio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/configuracoes_conta.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/cupom_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/editar_info_loja.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/endereco_edicao.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/financeiro_page.dart';
@@ -178,6 +179,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/horarios',
       builder: (context, state) => const HorarioEdicaoPage(),
+    ),
+    GoRoute(
+      path: '/cupom',
+      builder: (context, state) => const CupomPage(),
     ),
     GoRoute(
       path: '/editar-info-loja',

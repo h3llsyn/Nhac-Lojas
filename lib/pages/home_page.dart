@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const IconContainer(
+                IconContainer(
                   icon: Icons.notifications_none_rounded,
                 ),
               ],

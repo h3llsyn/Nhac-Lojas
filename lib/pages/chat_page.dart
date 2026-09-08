@@ -27,11 +27,11 @@ class ChatPage extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                const IconContainer(
+                IconContainer(
                   icon: Icons.search_rounded,
                 ),
                 SizedBox(width: 8.w),
-                const IconContainer(
+                IconContainer(
                   icon: Icons.more_horiz,
                 ),
               ],

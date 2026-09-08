@@ -30,7 +30,7 @@ class OrderDetailsPage extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  const IconContainer(
+                  IconContainer(
                     icon: Icons.print_rounded,
                   ),
                 ],
