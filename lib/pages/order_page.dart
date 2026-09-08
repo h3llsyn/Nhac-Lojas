@@ -37,30 +37,9 @@ class OrderPage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  const FilterTag(
-                    filtro: 'Todos',
-                    quantidade: 5,
-                    isSelected: true,
-                  ),
-                  SizedBox(width: 8.w),
-                  const FilterTag(
-                    filtro: 'Confirmar',
-                    quantidade: 1,
-                  ),
-                  SizedBox(width: 8.w),
-                  const FilterTag(
-                    filtro: 'Em preparo',
-                    quantidade: 1,
-                  ),
-                  SizedBox(width: 8.w),
-                  const FilterTag(
-                    filtro: 'A caminho',
-                    quantidade: 1,
-                  ),
-                  SizedBox(width: 8.w),
-                  const FilterTag(
-                    filtro: 'Entregue',
-                    quantidade: 2,
+                  const ListaFilterTags(
+                    filtros: ['Todos', 'Confirmar', 'Em preparo', 'A caminho', 'Entregue'],
+                    quantidades: [5, 1, 1, 1, 2],
                   ),
                 ],
               ),

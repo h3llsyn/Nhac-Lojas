@@ -118,28 +118,9 @@ class _EditarInfoLojaState extends State<EditarInfoLoja> {
                 Wrap(
                   spacing: 8.w,
                   runSpacing: 8.h,
-                  children: const [
-                    FilterTag(
-                      filtro: 'Hamburgueria',
-                      backgroundColor: Color.fromARGB(255, 240, 240, 240),
-                      isSelected: true,
-                      selectedBackgroundColor: Colors.redAccent,
-                      selectedTextColor: Colors.white,
-                    ),
-                    FilterTag(
-                      filtro: 'Pizzaria',
-                    ),
-                    FilterTag(
-                      filtro: 'Japonesa',
-                    ),
-                    FilterTag(
-                      filtro: 'Doces',
-                    ),
-                    FilterTag(
-                      filtro: 'Marmitas',
-                    ),
-                    FilterTag(
-                      filtro: 'Bebidas',
+                  children: [
+                    ListaFilterTags(
+                      filtros: ['Hamburgueria', 'Pizzaria', 'Japonesa', 'Doces', 'Marmitas', 'Bebidas'],
                     ),
                   ],
                 ),

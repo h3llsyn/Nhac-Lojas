@@ -41,15 +41,9 @@ class ChatPage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  const FilterTag(
-                    filtro: 'Todas',
-                    quantidade: 4,
-                    isSelected: true,
-                  ),
-                  SizedBox(width: 8.w),
-                  const FilterTag(
-                    filtro: 'Pendentes',
-                    quantidade: 2,
+                  const ListaFilterTags(
+                    filtros: ['Todas', 'Pendentes'],
+                    quantidades: [4, 2],
                   ),
                 ],
               ),

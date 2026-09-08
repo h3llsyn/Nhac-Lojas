@@ -100,16 +100,8 @@ class ChatOpen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    const FilterTag(
-                      filtro: 'Combinado',
-                    ),
-                    SizedBox(width: 8.w),
-                    const FilterTag(
-                      filtro: 'Pedido a caminho',
-                    ),
-                    SizedBox(width: 8.w),
-                    const FilterTag(
-                      filtro: 'Vou verificar',
+                    const ListaFilterTags(
+                      filtros: ['Combinado', 'Pedido a caminho', 'Vou verificar'],
                     ),
                   ],
                 ),

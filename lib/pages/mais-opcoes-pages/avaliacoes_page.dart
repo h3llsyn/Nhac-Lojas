@@ -50,20 +50,9 @@ class AvaliacoesPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    const FilterTag(
-                      filtro: 'Todas',
-                      quantidade: 127,
-                      isSelected: true,
-                    ),
-                    SizedBox(width: 8.w),
-                    const FilterTag(
-                      filtro: 'Não respondidas',
-                      quantidade: 5,
-                    ),
-                    SizedBox(width: 8.w),
-                    const FilterTag(
-                      filtro: 'Respondidas',
-                      quantidade: 122,
+                    const ListaFilterTags(
+                      filtros: ['Todas', 'Não respondidas', 'Respondidas'],
+                      quantidades: [127, 5, 122],
                     ),
                   ],
                 ),

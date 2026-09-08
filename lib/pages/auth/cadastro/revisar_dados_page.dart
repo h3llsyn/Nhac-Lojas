@@ -217,25 +217,8 @@ class RevisarDadosPage extends StatelessWidget {
                     spacing: 8.w,
                     runSpacing: 8.h,
                     children: const [
-                      FilterTag(
-                        filtro: 'Dinheiro',
-                        backgroundColor: Color.fromARGB(255, 255, 231, 229),
-                        textColor: Colors.redAccent,
-                      ),
-                      FilterTag(
-                        filtro: 'Crédito',
-                        backgroundColor: Color.fromARGB(255, 255, 231, 229),
-                        textColor: Colors.redAccent,
-                      ),
-                      FilterTag(
-                        filtro: 'Débito',
-                        backgroundColor: Color.fromARGB(255, 255, 231, 229),
-                        textColor: Colors.redAccent,
-                      ),
-                      FilterTag(
-                        filtro: 'Pix',
-                        backgroundColor: Color.fromARGB(255, 255, 231, 229),
-                        textColor: Colors.redAccent,
+                      ListaFilterTags(
+                        filtros: ['Dinheiro', 'Crédito', 'Débito', 'Pix']
                       ),
                     ],
                   ),

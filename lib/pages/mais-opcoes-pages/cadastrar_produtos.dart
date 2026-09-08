@@ -228,20 +228,9 @@ void _mostrarModalDeletar(BuildContext context) {
                 Wrap(
                   spacing: 8.w,
                   runSpacing: 8.h,
-                  children: const [
-                    FilterTag(
-                      filtro: 'Lanches',
-                      isSelected: true,
-                      selectedBackgroundColor: Colors.redAccent,
-                    ),
-                    FilterTag(
-                      filtro: 'Bebidas',
-                    ),
-                    FilterTag(
-                      filtro: 'Sobremesas',
-                    ),
-                    FilterTag(
-                      filtro: 'Acompanhamentos',
+                  children: [
+                    ListaFilterTags(
+                      filtros: ['Lanches', 'Bebidas', 'Sobremesas', 'Acompanhantes']
                     ),
                   ],
                 ),
