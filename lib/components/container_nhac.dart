@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-enum StatusMensagem {
-  naoLida,
-  enviada,
-  visualizada,
-}
+enum StatusMensagem { naoLida, enviada, visualizada }
 
 class ContainerNhac extends StatelessWidget {
   final IconData? icon;
@@ -153,6 +149,16 @@ class ContainerNhac extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          if (preco != null) ...[
+            SizedBox(height: 4.h),
+            Text(
+              'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: (fontSizePreco ?? 14).sp,
+              ),
+            ),
+          ],
           if (icon != null || letrasIcon != null) ...[
             Container(
               width: 48.w,
@@ -172,7 +178,8 @@ class ContainerNhac extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
-                          color: corIcone ?? const Color.fromARGB(255, 93, 32, 28),
+                          color:
+                              corIcone ?? const Color.fromARGB(255, 93, 32, 28),
                         ),
                       ),
               ),
@@ -222,10 +229,14 @@ class ContainerNhac extends StatelessWidget {
                 width: 26.r,
                 height: 26.r,
                 decoration: BoxDecoration(
-                  color: selecionado ? const Color(0xFFFF6961) : Colors.transparent,
+                  color: selecionado
+                      ? const Color(0xFFFF6961)
+                      : Colors.transparent,
                   borderRadius: BorderRadius.circular(8.r),
                   border: Border.all(
-                    color: selecionado ? Colors.transparent : Colors.grey.shade300,
+                    color: selecionado
+                        ? Colors.transparent
+                        : Colors.grey.shade300,
                     width: 2,
                   ),
                 ),
@@ -242,11 +253,7 @@ class ContainerNhac extends StatelessWidget {
           ],
 
           if (situacao != null && exibirCirculoSituacao) ...[
-            Icon(
-              Icons.circle,
-              size: 14.sp,
-              color: activeCorCirculo,
-            ),
+            Icon(Icons.circle, size: 14.sp, color: activeCorCirculo),
             SizedBox(width: 12.w),
           ],
 
@@ -269,7 +276,8 @@ class ContainerNhac extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
-                          color: corIcone ?? const Color.fromARGB(255, 93, 32, 28),
+                          color:
+                              corIcone ?? const Color.fromARGB(255, 93, 32, 28),
                         ),
                       ),
               ),
@@ -348,14 +356,18 @@ class ContainerNhac extends StatelessWidget {
                   ),
 
                 // Exibe o preço se houver, ou apenas o complemento sozinho na direita se configurado
-                if ((preco != null && situacao == null && (precoEmDestaque || quantidadeItens == null)) ||
+                if ((preco != null &&
+                        situacao == null &&
+                        (precoEmDestaque || quantidadeItens == null)) ||
                     (complementoAoLadoPreco && complemento != null))
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      if (preco != null && situacao == null && (precoEmDestaque || quantidadeItens == null))
+                      if (preco != null &&
+                          situacao == null &&
+                          (precoEmDestaque || quantidadeItens == null))
                         Text(
                           'R\$ ${preco!.toStringAsFixed(2).replaceAll('.', ',')}',
                           style: TextStyle(
@@ -370,7 +382,8 @@ class ContainerNhac extends StatelessWidget {
                           complemento!,
                           style: TextStyle(
                             fontSize: (fontSizeComplemento ?? 13).sp,
-                            fontWeight: fontWeightComplemento ?? FontWeight.w400,
+                            fontWeight:
+                                fontWeightComplemento ?? FontWeight.w400,
                             color: corComplemento ?? Colors.grey[600],
                           ),
                         ),
@@ -378,7 +391,9 @@ class ContainerNhac extends StatelessWidget {
                     ],
                   ),
 
-                if (horario != null || preco != null || (complementoAoLadoPreco && complemento != null)) 
+                if (horario != null ||
+                    preco != null ||
+                    (complementoAoLadoPreco && complemento != null))
                   SizedBox(height: 4.h),
 
                 if (situacao != null)
@@ -443,16 +458,12 @@ class ContainerNhac extends StatelessWidget {
       );
     }
 
-    final VoidCallback? handleTap = onTap ??
-        (onCheckChanged != null
-            ? () => onCheckChanged!(!selecionado)
-            : null);
+    final VoidCallback? handleTap =
+        onTap ??
+        (onCheckChanged != null ? () => onCheckChanged!(!selecionado) : null);
 
     if (handleTap != null) {
-      return InkWell(
-        onTap: handleTap,
-        child: content,
-      );
+      return InkWell(onTap: handleTap, child: content);
     }
 
     return content;

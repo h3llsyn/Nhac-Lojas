@@ -80,7 +80,7 @@ class FinanceiroPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 8,),
+                  SizedBox(width: 8.w,),
                   Expanded(
                     child: Container(
                       width: double.infinity,

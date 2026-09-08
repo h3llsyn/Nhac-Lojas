@@ -68,6 +68,7 @@ class MorePage extends StatelessWidget {
                 informacao: 'Relatórios',
                 complemento: 'ÁAAAAAAAAAAAAAAAAAAA',
                 exibirSeta: true,
+                onTap: () => context.push('/relatorio'),
               ),
             ),
             const Divider(),

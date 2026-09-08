@@ -28,6 +28,7 @@ import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
 import 'package:nhac_lojas/pages/home_page.dart';
 import 'package:nhac_lojas/pages/main_shell.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/relatorio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/taxa_entrega_page.dart';
 import 'package:nhac_lojas/pages/more_page.dart';
 import 'package:nhac_lojas/pages/order_details_page.dart';
@@ -165,6 +166,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/financeiro',
       builder: (context, state) => const FinanceiroPage(),
+    ),
+    GoRoute(
+      path: '/relatorio',
+      builder: (context, state) => const RelatorioPage(),
     ),
     GoRoute(
       path: '/avaliacoes',
