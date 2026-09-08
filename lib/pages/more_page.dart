@@ -53,7 +53,7 @@ class MorePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
               child: ContainerNhac(
-                icon: Icons.trending_up,
+                icon: Icons.bar_chart_rounded,
                 informacao: 'Financeiro',
                 complemento: 'Saldo, repasses e taxas',
                 exibirSeta: true,
@@ -64,7 +64,17 @@ class MorePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
               child: ContainerNhac(
-                icon: Icons.star_outline,
+                icon: Icons.trending_up_rounded,
+                informacao: 'Relatórios',
+                complemento: 'ÁAAAAAAAAAAAAAAAAAAA',
+                exibirSeta: true,
+              ),
+            ),
+            const Divider(),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
+              child: ContainerNhac(
+                icon: Icons.star_outline_rounded,
                 informacao: 'Avaliações',
                 complemento: 'Veja o que os clientes dizem',
                 exibirSeta: true,

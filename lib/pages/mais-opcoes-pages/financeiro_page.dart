@@ -118,7 +118,7 @@ class FinanceiroPage extends StatelessWidget {
                         children: [
                           ContainerNhac(
                             informacao: 'Taxas',
-                            icon: Icons.bar_chart_outlined,
+                            icon: Icons.bar_chart_rounded,
                             layoutVertical: true,
                           ),
                         ],
