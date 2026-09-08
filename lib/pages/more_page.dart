@@ -74,11 +74,12 @@ class MorePage extends StatelessWidget {
             const Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
-              child: const ContainerNhac(
+              child: ContainerNhac(
                 icon: Icons.access_time,
-                informacao: 'Horário e funcionamento',
+                informacao: 'Horário de funcionamento',
                 complemento: 'Configure seus horários',
                 exibirSeta: true,
+                onTap: () => context.push('/horarios'),
               ),
             ),
             const Divider(),

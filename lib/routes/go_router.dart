@@ -22,6 +22,7 @@ import 'package:nhac_lojas/pages/mais-opcoes-pages/editar_info_loja.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/endereco_edicao.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/financeiro_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/formas_pagamento_edicao_page.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/horario_edicao_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/informacao_loja.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
@@ -168,6 +169,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/avaliacoes',
       builder: (context, state) => const AvaliacoesPage(),
+    ),
+    GoRoute(
+      path: '/horarios',
+      builder: (context, state) => const HorarioEdicaoPage(),
     ),
     GoRoute(
       path: '/editar-info-loja',
