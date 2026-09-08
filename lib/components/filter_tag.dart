@@ -6,6 +6,7 @@ class ListaFilterTags extends StatefulWidget {
   final List<int?>? quantidades;
   final List<IconData?>? icones;
   final ValueChanged<String>? onSelected;
+  final int? initialIndex;
   final Color? borderColor;
   final Color? textColor;
   final Color? selectedBorderColor;
@@ -17,6 +18,7 @@ class ListaFilterTags extends StatefulWidget {
     this.quantidades,
     this.icones,
     this.onSelected,
+    this.initialIndex, // Por padrão é null, então nenhum vem selecionado de início
     this.borderColor,
     this.textColor,
     this.selectedBorderColor,
@@ -30,7 +32,13 @@ class ListaFilterTags extends StatefulWidget {
 }
 
 class _ListaFilterTagsState extends State<ListaFilterTags> {
-  int _indiceSelecionado = 0;
+  late int? _indiceSelecionado;
+
+  @override
+  void initState() {
+    super.initState();
+    _indiceSelecionado = widget.initialIndex;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,35 +63,33 @@ class _ListaFilterTagsState extends State<ListaFilterTags> {
           
           final bool isSelected = _indiceSelecionado == index;
 
-          // Cores baseadas no estilo da imagem (com borda fina)
-          final effectiveBorderColor = isSelected
-              ? (widget.selectedBorderColor ?? Colors.black)
-              : (widget.borderColor ?? Colors.black);
-
+          // Fundo rosa clarinho quando selecionado, branco quando não selecionado
           final effectiveBgColor = isSelected
               ? (widget.selectedBackgroundColor ?? corTema.withValues(alpha: 0.1))
-              : Colors.white;
+              : Color.fromARGB(255, 255, 231, 229);
+
+          final effectiveBorderColor = isSelected
+              ? (widget.selectedBorderColor ?? widget.borderColor ?? Colors.black)
+              : (widget.borderColor ?? Colors.black);
 
           final effectiveColor = isSelected
-              ? (widget.selectedTextColor ?? Colors.black)
+              ? (widget.selectedTextColor ?? widget.textColor ?? Colors.black)
               : (widget.textColor ?? Colors.black);
 
           return GestureDetector(
             onTap: () {
               setState(() {
-                _indiceSelecionado = index;
+                _indiceSelecionado = isSelected ? null : index;
               });
               if (widget.onSelected != null) {
-                widget.onSelected!(filtroAtual);
+                widget.onSelected!(_indiceSelecionado != null ? filtroAtual : '');
               }
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               decoration: BoxDecoration(
                 color: effectiveBgColor,
-                // Raio moderado igual ao da imagem
                 borderRadius: BorderRadius.circular(12.r),
-                // Borda fina contornando o componente
                 border: Border.all(
                   color: effectiveBorderColor,
                   width: 1.2.w,

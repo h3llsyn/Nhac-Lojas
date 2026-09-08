@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
+import 'package:nhac_lojas/components/filter_tag.dart';
 import 'package:nhac_lojas/components/icon_container.dart';
 
 class RelatorioPage extends StatelessWidget {
@@ -29,36 +30,9 @@ class RelatorioPage extends StatelessWidget {
                     ),
                   ),
                   Spacer(),
-                  Container(
-                    padding: EdgeInsets.all(8.r),
-                    constraints: BoxConstraints(
-                      minWidth: 40.w,
-                      minHeight: 40.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.6),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Hoje',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xFF5D201C),
-                          ),
-                        ),
-                        SizedBox(width: 6.w),
-                        Icon(
-                          Icons.keyboard_arrow_down_rounded, 
-                          color: const Color(0xFF5D201C), 
-                          size: 20.sp,
-                        ),
-                      ],
-                    ),
+                  ListaFilterTags(
+                    filtros: ['Hoje'],
+                    icones: [Icons.keyboard_arrow_down_rounded],
                   ),
                 ],
               ),
