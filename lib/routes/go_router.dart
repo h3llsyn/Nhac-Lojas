@@ -13,6 +13,7 @@ import 'package:nhac_lojas/pages/auth/link_recuperacao_senha.dart';
 import 'package:nhac_lojas/pages/auth/nova_senha.dart';
 import 'package:nhac_lojas/pages/auth/recuperar_senha.dart';
 import 'package:nhac_lojas/pages/bem_vindo.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/avaliacoes_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cadastrar_produtos.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_cheio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_vazio_page.dart';
@@ -163,6 +164,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/financeiro',
       builder: (context, state) => const FinanceiroPage(),
+    ),
+    GoRoute(
+      path: '/avaliacoes',
+      builder: (context, state) => const AvaliacoesPage(),
     ),
     GoRoute(
       path: '/editar-info-loja',

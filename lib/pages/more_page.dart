@@ -63,11 +63,12 @@ class MorePage extends StatelessWidget {
             const Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
-              child: const ContainerNhac(
+              child: ContainerNhac(
                 icon: Icons.star_outline,
                 informacao: 'Avaliações',
                 complemento: 'Veja o que os clientes dizem',
                 exibirSeta: true,
+                onTap: () => context.push('/avaliacoes'),
               ),
             ),
             const Divider(),
