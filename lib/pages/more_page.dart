@@ -66,7 +66,7 @@ class MorePage extends StatelessWidget {
               child: ContainerNhac(
                 icon: Icons.trending_up_rounded,
                 informacao: 'Relatórios',
-                complemento: 'ÁAAAAAAAAAAAAAAAAAAA',
+                complemento: 'Faturamento, vendas e métricas',
                 exibirSeta: true,
                 onTap: () => context.push('/relatorio'),
               ),
