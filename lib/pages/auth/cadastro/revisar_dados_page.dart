@@ -165,46 +165,6 @@ class RevisarDadosPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 4.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Raio de entrega',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          Text(
-                            '5 km',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 4.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Taxa',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          Text(
-                            'R\$ 4,00',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
