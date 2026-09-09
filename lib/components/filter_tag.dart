@@ -12,18 +12,20 @@ class ListaFilterTags extends StatefulWidget {
   final Color? selectedBorderColor;
   final Color? selectedTextColor;
   final Color? selectedBackgroundColor;
+  final Color? iconColor;
 
   const ListaFilterTags({
     required this.filtros,
     this.quantidades,
     this.icones,
     this.onSelected,
-    this.initialIndex, // Por padrão é null, então nenhum vem selecionado de início
+    this.initialIndex,
     this.borderColor,
     this.textColor,
     this.selectedBorderColor,
     this.selectedTextColor,
     this.selectedBackgroundColor,
+    this.iconColor,
     super.key,
   });
 
@@ -63,10 +65,9 @@ class _ListaFilterTagsState extends State<ListaFilterTags> {
           
           final bool isSelected = _indiceSelecionado == index;
 
-          // Fundo rosa clarinho quando selecionado, branco quando não selecionado
           final effectiveBgColor = isSelected
               ? (widget.selectedBackgroundColor ?? corTema.withValues(alpha: 0.1))
-              : Color.fromARGB(255, 255, 231, 229);
+              : const Color.fromARGB(255, 255, 231, 229);
 
           final effectiveBorderColor = isSelected
               ? (widget.selectedBorderColor ?? widget.borderColor ?? Colors.black)
@@ -75,6 +76,9 @@ class _ListaFilterTagsState extends State<ListaFilterTags> {
           final effectiveColor = isSelected
               ? (widget.selectedTextColor ?? widget.textColor ?? Colors.black)
               : (widget.textColor ?? Colors.black);
+
+          // Cor fixa dos ícones para Red Accent
+          //final Color iconColor = Colors.redAccent;
 
           return GestureDetector(
             onTap: () {
@@ -101,7 +105,7 @@ class _ListaFilterTagsState extends State<ListaFilterTags> {
                   if (iconeAtual != null) ...[
                     Icon(
                       iconeAtual,
-                      color: effectiveColor,
+                      color: widget.iconColor ?? Colors.redAccent, // Ícone atualizado para redAccent
                       size: 18.r,
                     ),
                     SizedBox(width: 8.w),
@@ -114,15 +118,15 @@ class _ListaFilterTagsState extends State<ListaFilterTags> {
                       color: effectiveColor,
                     ),
                   ),
-                  if (qtdAtual != null)
-                    Text(
-                      ' · $qtdAtual',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: effectiveColor,
+                    if (qtdAtual != null)
+                      Text(
+                        ' · $qtdAtual',
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: effectiveColor,
+                        ),
                       ),
-                    ),
                 ],
               ),
             ),

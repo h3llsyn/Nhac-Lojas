@@ -102,6 +102,7 @@ class ChatOpen extends StatelessWidget {
                   children: [
                     const ListaFilterTags(
                       filtros: ['Combinado', 'Pedido a caminho', 'Vou verificar'],
+                      icones: [Icons.chat_bubble_rounded, Icons.chat_bubble_rounded, Icons.chat_bubble_rounded],
                     ),
                   ],
                 ),

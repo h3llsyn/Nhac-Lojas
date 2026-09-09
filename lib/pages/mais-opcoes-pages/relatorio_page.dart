@@ -33,6 +33,7 @@ class RelatorioPage extends StatelessWidget {
                   ListaFilterTags(
                     filtros: ['Hoje'],
                     icones: [Icons.keyboard_arrow_down_rounded],
+                    iconColor: Colors.black,
                   ),
                 ],
               ),
