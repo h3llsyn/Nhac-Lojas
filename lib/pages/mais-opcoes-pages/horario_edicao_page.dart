@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -142,7 +143,14 @@ class _HorarioEdicaoPageState extends State<HorarioEdicaoPage> {
               SizedBox(height: 24.h,),
               ButtonNhac(
                 texto: 'Salvar alterações',
-                onTap: () => context.pop(),
+                onTap: () {
+                  context.pop();
+                  showAppNotification(
+                    context,
+                    type: NotificationType.success,
+                    message: 'Informações alteradas!',
+                  );
+                }
               ),
             ],
           ),

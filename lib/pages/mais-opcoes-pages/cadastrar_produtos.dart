@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
@@ -75,15 +76,11 @@ void _mostrarModalDeletar(BuildContext context) {
                   onTap: () {
                     Navigator.pop(modalContext);
                     context.go('/cardapio-cheio');
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          '${nomeController.text} foi excluído do cardápio!',
-                        ),
-                        duration: const Duration(seconds: 2),
-                        backgroundColor: Colors.redAccent,
-                        behavior: SnackBarBehavior.floating,
-                      ),
+                    showAppNotification(
+                      context,
+                      type: NotificationType.success,
+                      imageUrl: fotoProdutoUrl,
+                      message: '${nomeController.text} excluído!',
                     );
                   },
                 ),
@@ -330,7 +327,15 @@ void _mostrarModalDeletar(BuildContext context) {
                         flex: 4,
                         child: ButtonNhac(
                           texto: 'Salvar produto',
-                          onTap: () => context.pop('/cardapio-cheio'),
+                          onTap: () {
+                            context.pop('/cardapio-cheio');
+                            showAppNotification(
+                              context,
+                              type: NotificationType.success,
+                              imageUrl: fotoProdutoUrl,
+                              message: '${nomeController.text} editado!',
+                            );
+                          },
                         ),
                       ),
                     ],
@@ -338,7 +343,15 @@ void _mostrarModalDeletar(BuildContext context) {
                 else
                   ButtonNhac(
                     texto: 'Salvar produto',
-                    onTap: () => context.push('/cardapio-cheio'),
+                    onTap: () {
+                      context.push('/cardapio-cheio');
+                        showAppNotification(
+                        context,
+                        type: NotificationType.success,
+                        imageUrl: fotoProdutoUrl,
+                        message: '${nomeController.text} criado!',
+                      );
+                    },
                   ),
               ],
             ),

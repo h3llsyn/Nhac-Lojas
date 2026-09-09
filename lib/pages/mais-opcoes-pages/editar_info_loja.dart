@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/filter_tag.dart';
@@ -145,7 +146,14 @@ class _EditarInfoLojaState extends State<EditarInfoLoja> {
                     Expanded(
                       child: ButtonNhac(
                         texto: 'Salvar',
-                        onTap: () => context.pop(),
+                        onTap: () {
+                          context.pop();
+                          showAppNotification(
+                            context,
+                            type: NotificationType.success,
+                            message: 'Informações alteradas!',
+                          );
+                        }
                       ),
                     ),
                   ],

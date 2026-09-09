@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
@@ -71,7 +72,14 @@ class UpdateOrderStatus extends StatelessWidget {
                 SizedBox(height: 48.h),
                 ButtonNhac(
                   texto: 'Salvar status',
-                  onTap: () => context.pop(),
+                  onTap: () {
+                    context.pop();
+                    showAppNotification(
+                      context,
+                      type: NotificationType.success,
+                      message: 'Status atualizado!',
+                    );
+                  },
                 ),
               ],
             ),
