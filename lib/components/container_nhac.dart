@@ -20,6 +20,7 @@ class ContainerNhac extends StatelessWidget {
   final double? fontSize;
   final double? fontSizeComplemento;
   final FontWeight? fontWeightComplemento;
+  final int? maxLinesComplemento; // Novo parâmetro para controlar o maxLines do complemento
   final double? fontSizePreco;
   final StatusMensagem? statusMensagem;
   final int? quantidadeMensagens;
@@ -44,6 +45,7 @@ class ContainerNhac extends StatelessWidget {
   final Widget? widget;
   final bool layoutVertical;
   final bool complementoAoLadoPreco;
+  final bool exibirTagEmCima;
 
   const ContainerNhac({
     super.key,
@@ -63,6 +65,7 @@ class ContainerNhac extends StatelessWidget {
     this.fontSize,
     this.fontSizeComplemento,
     this.fontWeightComplemento,
+    this.maxLinesComplemento = 1, // Padrão é 1 linha
     this.fontSizePreco,
     this.statusMensagem,
     this.quantidadeMensagens,
@@ -87,6 +90,7 @@ class ContainerNhac extends StatelessWidget {
     this.widget,
     this.layoutVertical = false,
     this.complementoAoLadoPreco = false,
+    this.exibirTagEmCima = false,
   });
 
   @override
@@ -95,7 +99,7 @@ class ContainerNhac extends StatelessWidget {
     Color activeCorSituacao = corSituacao ?? Colors.transparent;
     Color activeCorSituacaoFundo = corSituacaoFundo ?? Colors.transparent;
 
-    if (situacao != null && corSituacao == null) {
+if (situacao != null && corSituacao == null) {
       switch (situacao) {
         case 'Em preparo':
           activeCorCirculo = Colors.blue;
@@ -116,6 +120,11 @@ class ContainerNhac extends StatelessWidget {
           activeCorCirculo = Colors.orange;
           activeCorSituacao = Colors.orange;
           activeCorSituacaoFundo = const Color.fromARGB(50, 255, 153, 0);
+          break;
+        default:
+          activeCorCirculo = const Color(0xFF5D201C);
+          activeCorSituacao = corSituacao ?? const Color(0xFF5D201C);
+          activeCorSituacaoFundo = corSituacaoFundo ?? const Color.fromARGB(255, 255, 231, 229);
           break;
       }
     }
@@ -202,7 +211,7 @@ class ContainerNhac extends StatelessWidget {
             SizedBox(height: 4.h),
             Text(
               subTituloExibicao,
-              maxLines: 1,
+              maxLines: maxLinesComplemento,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -252,7 +261,7 @@ class ContainerNhac extends StatelessWidget {
             SizedBox(width: 12.w),
           ],
 
-          if (situacao != null && exibirCirculoSituacao) ...[
+          if (situacao != null && exibirCirculoSituacao && !exibirTagEmCima) ...[
             Icon(Icons.circle, size: 14.sp, color: activeCorCirculo),
             SizedBox(width: 12.w),
           ],
@@ -290,6 +299,28 @@ class ContainerNhac extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
+                if (situacao != null && exibirTagEmCima) ...[
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 8.h,
+                      horizontal: 16.w,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 255, 242, 230),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: Text(
+                      situacao!,
+                      style: TextStyle(
+                        color: activeCorSituacao,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 6.h),
+                ],
+
                 if (tituloExibicao.isNotEmpty)
                   Text(
                     tituloExibicao,
@@ -305,7 +336,7 @@ class ContainerNhac extends StatelessWidget {
                   SizedBox(height: 2.h),
                   Text(
                     subTituloExibicao,
-                    maxLines: 1,
+                    maxLines: maxLinesComplemento,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: (fontSizeComplemento ?? 13).sp,
@@ -338,7 +369,7 @@ class ContainerNhac extends StatelessWidget {
 
           if (horario != null ||
               (preco != null && (precoEmDestaque || quantidadeItens == null)) ||
-              situacao != null ||
+              (situacao != null && !exibirTagEmCima) ||
               statusMensagem != null ||
               (complementoAoLadoPreco && complemento != null))
             Column(
@@ -355,7 +386,6 @@ class ContainerNhac extends StatelessWidget {
                     ),
                   ),
 
-                // Exibe o preço se houver, ou apenas o complemento sozinho na direita se configurado
                 if ((preco != null &&
                         situacao == null &&
                         (precoEmDestaque || quantidadeItens == null)) ||
@@ -380,6 +410,8 @@ class ContainerNhac extends StatelessWidget {
                         if (preco != null) SizedBox(width: 4.w),
                         Text(
                           complemento!,
+                          maxLines: maxLinesComplemento,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: (fontSizeComplemento ?? 13).sp,
                             fontWeight:
@@ -396,7 +428,7 @@ class ContainerNhac extends StatelessWidget {
                     (complementoAoLadoPreco && complemento != null))
                   SizedBox(height: 4.h),
 
-                if (situacao != null)
+                if (situacao != null && !exibirTagEmCima)
                   Container(
                     padding: EdgeInsets.symmetric(
                       vertical: 4.h,
