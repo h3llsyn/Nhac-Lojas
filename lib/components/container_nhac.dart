@@ -46,6 +46,7 @@ class ContainerNhac extends StatelessWidget {
   final bool layoutVertical;
   final bool complementoAoLadoPreco;
   final bool exibirTagEmCima;
+  final bool layoutAvaliacao;
 
   const ContainerNhac({
     super.key,
@@ -91,6 +92,7 @@ class ContainerNhac extends StatelessWidget {
     this.layoutVertical = false,
     this.complementoAoLadoPreco = false,
     this.exibirTagEmCima = false,
+    this.layoutAvaliacao = false,
   });
 
   @override
@@ -225,7 +227,7 @@ if (situacao != null && corSituacao == null) {
       );
     } else {
       content = Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: layoutAvaliacao ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: [
           if (exibirCheck) ...[
             GestureDetector(
