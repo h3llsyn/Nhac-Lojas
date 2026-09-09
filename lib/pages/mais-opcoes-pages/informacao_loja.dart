@@ -157,16 +157,6 @@ class _InformacaoLojaState extends State<InformacaoLoja> {
                     const Divider(),
                     SizedBox(height: 8.h),
                     ContainerNhac(
-                      icon: Icons.motorcycle_outlined,
-                      informacao: 'Taxas de entrega',
-                      fontSize: 14,
-                      exibirSeta: true,
-                      onTap: () => context.push('/taxa-entrega'),
-                    ),
-                    SizedBox(height: 8.h),
-                    const Divider(),
-                    SizedBox(height: 8.h),
-                    ContainerNhac(
                       icon: Icons.credit_card_outlined,
                       informacao: 'Formas de pagamento',
                       fontSize: 14,
