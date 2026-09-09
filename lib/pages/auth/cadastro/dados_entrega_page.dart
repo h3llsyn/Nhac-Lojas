@@ -94,20 +94,6 @@ class _DadosEntregaPageState extends State<DadosEntregaPage> {
                     },
                   ),
                 ),
-                SizedBox(height: 16.h),
-                Text(
-                  'Raio de entrega',
-                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 4.h),
-                const NhacInputField(hintText: '5 km'),
-                SizedBox(height: 16.h),
-                Text(
-                  'Taxa de entrega',
-                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 4.h),
-                const NhacInputField(hintText: 'R\$ 0,00'),
                 SizedBox(height: 32.h),
                 ButtonNhac(
                   texto: 'Continuar',
