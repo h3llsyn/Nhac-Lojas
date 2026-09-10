@@ -24,6 +24,7 @@ import 'package:nhac_lojas/pages/mais-opcoes-pages/editar_info_loja.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/endereco_edicao.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/financeiro_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/formas_pagamento_edicao_page.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/funcionarios_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/horario_edicao_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/informacao_loja.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
@@ -183,6 +184,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/criar-cupom',
       builder: (context, state) => const CriarCupomPage(),
+    ),
+    GoRoute(
+      path: '/funcionarios',
+      builder: (context, state) => const FuncionariosPage(),
     ),
     GoRoute(
       path: '/editar-info-loja',

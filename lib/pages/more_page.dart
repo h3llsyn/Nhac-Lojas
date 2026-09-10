@@ -113,13 +113,7 @@ class MorePage extends StatelessWidget {
                 informacao: 'Funcionários',
                 complemento: 'Gerencie sua equipe',
                 exibirSeta: true,
-                onTap: () {
-                  showAppNotification(
-                    context,
-                    type: NotificationType.info,
-                    message: 'Trabaiano nisso calmaaaa'
-                  );
-                },
+                onTap: () => context.push('/funcionarios')
               ),
             ),
             const Divider(),

@@ -17,7 +17,7 @@ class CupomPage extends StatefulWidget {
 class _CupomPageState extends State<CupomPage> {
   bool cupom1Status = true;
   bool cupom2Status = true;
-  bool cupom3Status = false; // Começa desligado (encerrado)
+  bool cupom3Status = false;
 
   @override
   Widget build(BuildContext context) {
