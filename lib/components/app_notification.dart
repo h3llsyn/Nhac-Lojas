@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 enum NotificationType { success, error, info }
 
@@ -9,7 +8,7 @@ void showAppNotification(
   String? title,
   required String message,
   NotificationType type = NotificationType.info,
-  String? imageUrl,
+  String? assetImagePath,
 }) {
   final overlay = Overlay.of(context);
   late OverlayEntry overlayEntry;
@@ -19,7 +18,7 @@ void showAppNotification(
       title: title,
       message: message,
       type: type,
-      imageUrl: imageUrl,
+      assetImagePath: assetImagePath,
       onDismissed: () {
         overlayEntry.remove();
       },
@@ -33,14 +32,14 @@ class _AppNotificationWidget extends StatefulWidget {
   final String? title;
   final String message;
   final NotificationType type;
-  final String? imageUrl;
+  final String? assetImagePath;
   final VoidCallback onDismissed;
 
   const _AppNotificationWidget({
     required this.message,
     required this.type,
     this.title,
-    this.imageUrl,
+    this.assetImagePath,
     required this.onDismissed,
   });
 
@@ -73,7 +72,6 @@ class _AppNotificationWidgetState extends State<_AppNotificationWidget>
 
     _controller.forward();
 
-    // Auto-dismiss after 3 seconds
     Future.delayed(const Duration(milliseconds: 3000), () {
       if (mounted) {
         _controller.reverse().then((_) {
@@ -152,8 +150,7 @@ class _AppNotificationWidgetState extends State<_AppNotificationWidget>
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Left Icon or Image Thumbnail
-                  if (widget.imageUrl != null && widget.imageUrl!.isNotEmpty)
+                  if (widget.assetImagePath != null && widget.assetImagePath!.isNotEmpty)
                     Container(
                       width: 48.w,
                       height: 48.w,
@@ -169,19 +166,11 @@ class _AppNotificationWidgetState extends State<_AppNotificationWidget>
                         ],
                       ),
                       child: ClipOval(
-                        child: CachedNetworkImage(
-                          imageUrl: widget.imageUrl!,
+                        child: Image.asset(
+                          widget.assetImagePath!,
+                          width: 48.w,
+                          height: 48.w,
                           fit: BoxFit.cover,
-                          placeholder: (context, url) => Icon(
-                            Icons.fastfood_rounded,
-                            color: const Color(0xFFFF6961),
-                            size: 20.r,
-                          ),
-                          errorWidget: (context, url, error) => Icon(
-                            Icons.fastfood_rounded,
-                            color: const Color(0xFFFF6961),
-                            size: 20.r,
-                          ),
                         ),
                       ),
                     )
@@ -204,7 +193,6 @@ class _AppNotificationWidgetState extends State<_AppNotificationWidget>
 
                   SizedBox(width: 16.w),
 
-                  // Notification Text
                   Flexible(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,

@@ -18,22 +18,40 @@ class CadastrarProdutos extends StatefulWidget {
 
 class _CadastrarProdutosState extends State<CadastrarProdutos> {
   bool produtoDisponivel = true;
-  final TextEditingController nomeController = TextEditingController(
-    text: 'X-Burguer'
-  );
-  final TextEditingController descricaoController = TextEditingController(
-    text: 'Uma descrição muito boa uau'
-  );
-  final TextEditingController precoController = TextEditingController(
-    text: 'R\$ 29,90'
-  );
-  final TextEditingController descontoController = TextEditingController(
-    text: '5%'
-  );
-  final String fotoProdutoUrl = 'https://www.delicioso.com.br/wp-content/uploads/migration/bob-esponja-hamburguer-siri-08.17-1400x800.jpg';
+  
+  // Controllers sempre inicializados
+  late final TextEditingController nomeController;
+  late final TextEditingController descricaoController;
+  late final TextEditingController precoController;
+  late final TextEditingController descontoController;
 
+  @override
+  void initState() {
+    super.initState();
+    nomeController = TextEditingController(
+      text: widget.isEdicao ? 'X-Burguer' : '',
+    );
+    descricaoController = TextEditingController(
+      text: widget.isEdicao ? 'Uma descrição muito boa uau' : '',
+    );
+    precoController = TextEditingController(
+      text: widget.isEdicao ? 'R\$ 29,90' : '',
+    );
+    descontoController = TextEditingController(
+      text: widget.isEdicao ? '5%' : '',
+    );
+  }
 
-void _mostrarModalDeletar(BuildContext context) {
+  @override
+  void dispose() {
+    nomeController.dispose();
+    descricaoController.dispose();
+    precoController.dispose();
+    descontoController.dispose();
+    super.dispose();
+  }
+
+  void _mostrarModalDeletar(BuildContext context) {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
@@ -79,8 +97,8 @@ void _mostrarModalDeletar(BuildContext context) {
                     showAppNotification(
                       context,
                       type: NotificationType.success,
-                      imageUrl: fotoProdutoUrl,
-                      message: '${nomeController.text} excluído!',
+                      assetImagePath: 'assets/images/hamburguer-nhac.jpg',
+                      message: '${nomeController.text.isNotEmpty ? nomeController.text : "Produto"} excluído!',
                     );
                   },
                 ),
@@ -132,8 +150,8 @@ void _mostrarModalDeletar(BuildContext context) {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.r),
-                          child: Image.network(
-                            fotoProdutoUrl,
+                          child: Image.asset(
+                            'assets/images/hamburguer-nhac.jpg',
                             width: double.infinity,
                             height: 156.h,
                             fit: BoxFit.cover,
@@ -202,7 +220,7 @@ void _mostrarModalDeletar(BuildContext context) {
                 ),
                 SizedBox(height: 4.h),
                 NhacInputField(
-                  controller: widget.isEdicao ? nomeController : null,
+                  controller: nomeController,
                   hintText: 'Ex: X-Burguer',
                 ),
                 SizedBox(height: 16.h),
@@ -212,7 +230,7 @@ void _mostrarModalDeletar(BuildContext context) {
                 ),
                 SizedBox(height: 4.h),
                 NhacInputField(
-                  controller: widget.isEdicao ? descricaoController: null,
+                  controller: descricaoController,
                   hintText: 'Descreva os ingredientes e detalhes',
                   maxLines: 3,
                 ),
@@ -225,7 +243,7 @@ void _mostrarModalDeletar(BuildContext context) {
                 Wrap(
                   spacing: 8.w,
                   runSpacing: 8.h,
-                  children: [
+                  children: const [
                     ListaFilterTags(
                       filtros: ['Lanches', 'Bebidas', 'Sobremesas', 'Acompanhantes']
                     ),
@@ -247,7 +265,7 @@ void _mostrarModalDeletar(BuildContext context) {
                           ),
                           SizedBox(height: 4.h),
                           NhacInputField(
-                            controller: widget.isEdicao ? precoController : null,
+                            controller: precoController,
                             hintText: 'R\$ 0,00',
                           ),
                         ],
@@ -267,7 +285,7 @@ void _mostrarModalDeletar(BuildContext context) {
                           ),
                           SizedBox(height: 4.h),
                           NhacInputField(
-                            controller: widget.isEdicao ? descontoController : null,
+                            controller: descontoController,
                             hintText: '0%',
                           ),
                         ],
@@ -328,12 +346,12 @@ void _mostrarModalDeletar(BuildContext context) {
                         child: ButtonNhac(
                           texto: 'Salvar produto',
                           onTap: () {
-                            context.pop('/cardapio-cheio');
+                            context.go('/cardapio-cheio');
                             showAppNotification(
                               context,
                               type: NotificationType.success,
-                              imageUrl: fotoProdutoUrl,
-                              message: '${nomeController.text} editado!',
+                              assetImagePath: 'assets/images/hamburguer-nhac.jpg',
+                              message: 'Produto editado!',
                             );
                           },
                         ),
@@ -344,12 +362,12 @@ void _mostrarModalDeletar(BuildContext context) {
                   ButtonNhac(
                     texto: 'Salvar produto',
                     onTap: () {
-                      context.push('/cardapio-cheio');
-                        showAppNotification(
+                      context.go('/cardapio-cheio');
+                      showAppNotification(
                         context,
                         type: NotificationType.success,
-                        imageUrl: fotoProdutoUrl,
-                        message: '${nomeController.text} criado!',
+                        assetImagePath: 'assets/images/hamburguer-nhac.jpg',
+                        message: 'Produto criado!',
                       );
                     },
                   ),

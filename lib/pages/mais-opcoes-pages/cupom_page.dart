@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
@@ -145,13 +146,7 @@ class _CupomPageState extends State<CupomPage> {
               SizedBox(height: 96.h,),
               ButtonNhac(
                 texto: 'Criar cupom',
-                onTap: () {
-                  showAppNotification(
-                    context,
-                    type: NotificationType.info,
-                    message: 'Trabaiano nisso calmaaaa'
-                  );
-                },
+                onTap: () => context.push('/criar-cupom')
               ),
             ],
           ),

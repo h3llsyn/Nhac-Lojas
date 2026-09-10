@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
 import 'package:nhac_lojas/controllers/scroll_shell_controller.dart';
 
@@ -107,41 +108,69 @@ class MorePage extends StatelessWidget {
             const Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
-              child: const ContainerNhac(
+              child: ContainerNhac(
                 icon: Icons.people,
                 informacao: 'Funcionários',
                 complemento: 'Gerencie sua equipe',
                 exibirSeta: true,
+                onTap: () {
+                  showAppNotification(
+                    context,
+                    type: NotificationType.info,
+                    message: 'Trabaiano nisso calmaaaa'
+                  );
+                },
               ),
             ),
             const Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
-              child: const ContainerNhac(
+              child: ContainerNhac(
                 icon: Icons.print_outlined,
                 informacao: 'Impressoras',
                 complemento: 'Gerencie suas impressoras',
                 exibirSeta: true,
+                onTap: () {
+                  showAppNotification(
+                    context,
+                    type: NotificationType.info,
+                    message: 'Trabaiano nisso calmaaaa'
+                  );
+                },
               ),
             ),
             const Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
-              child: const ContainerNhac(
+              child: ContainerNhac(
                 icon: Icons.settings,
                 informacao: 'Configurações',
                 complemento: 'Preferências do aplicativo',
                 exibirSeta: true,
+                onTap: () {
+                  showAppNotification(
+                    context,
+                    type: NotificationType.info,
+                    message: 'Trabaiano nisso calmaaaa'
+                  );
+                },
               ),
             ),
             const Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
-              child: const ContainerNhac(
+              child: ContainerNhac(
                 icon: Icons.headphones_outlined,
                 informacao: 'Suporte',
                 complemento: 'Fale com nosso suporte',
                 exibirSeta: true,
+                onTap: () {
+                  showAppNotification(
+                    context,
+                    type: NotificationType.info,
+                    message: 'Trabaiano nisso calmaaaa'
+                  );
+                },
               ),
             ),
           ],
