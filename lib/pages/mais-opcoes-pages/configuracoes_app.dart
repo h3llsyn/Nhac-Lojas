@@ -38,117 +38,123 @@ class _ConfiguracoesAppState extends State<ConfiguracoesApp> {
                 ],
               ),
               SizedBox(height: 24.h),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'SOM E ALERTAS',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'SOM E ALERTAS',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(height: 8.h),
-                      Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.all(16.r),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.r),
-                        ),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 8.h,
-                                horizontal: 4.w,
-                              ),
-                              child: ContainerNhac(
-                                informacao: 'Som de novo pedido',
-                                complemento: 'Toca com o app em segundo plano',
-                                exibirSwitch: true,
-                                ativoInicial: somPedido,
-                                onSwitchChanged: (valor) {
-                                  setState(() {
-                                    somPedido = valor;
-                                  });
-                                },
-                                onTap: () => {
-                                  setState(() {
-                                    somPedido = !somPedido;
-                                  }),
-                                },
-                              ),
-                            ),
-                            Divider(),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 8.h,
-                                horizontal: 4.w,
-                              ),
-                              child: ContainerNhac(
-                                informacao: 'Vibração',
-                                complemento: 'Vibra ao receber notificações',
-                                exibirSwitch: true,
-                                ativoInicial: vibracao,
-                                onSwitchChanged: (valor) {
-                                  setState(() {
-                                    vibracao = valor;
-                                  });
-                                },
-                                onTap: () => {
-                                  setState(() {
-                                    vibracao = !vibracao;
-                                  }),
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16.r),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.r),
                       ),
-                      SizedBox(height: 16.h),
-                      Text(
-                        'SOBRE',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 8.h,
+                              horizontal: 4.w,
+                            ),
+                            child: ContainerNhac(
+                              informacao: 'Som de novo pedido',
+                              complemento: 'Toca com o app em segundo plano',
+                              exibirSwitch: true,
+                              ativoInicial: somPedido,
+                              onSwitchChanged: (valor) {
+                                setState(() {
+                                  somPedido = valor;
+                                });
+                              },
+                              onTap: () => {
+                                setState(() {
+                                  somPedido = !somPedido;
+                                }),
+                              },
+                            ),
+                          ),
+                          Divider(),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 8.h,
+                              horizontal: 4.w,
+                            ),
+                            child: ContainerNhac(
+                              informacao: 'Vibração',
+                              complemento: 'Vibra ao receber notificações',
+                              exibirSwitch: true,
+                              ativoInicial: vibracao,
+                              onSwitchChanged: (valor) {
+                                setState(() {
+                                  vibracao = valor;
+                                });
+                              },
+                              onTap: () => {
+                                setState(() {
+                                  vibracao = !vibracao;
+                                }),
+                              },
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 8.h),
-                      Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.all(16.r),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.r),
-                        ),
-                        child: Column(
-                          children: [
-                            ContainerNhac(
-                              informacao: 'Termo de uso',
-                              exibirSeta: true,
-                            ),
-                            SizedBox(height: 8.h),
-                            Divider(),
-                            SizedBox(height: 8.h),
-                            ContainerNhac(
-                              informacao: 'Política de privacidade',
-                              exibirSeta: true,
-                            ),
-                            SizedBox(height: 8.h),
-                            Divider(),
-                            SizedBox(height: 8.h),
-                            ContainerNhac(
-                              informacao: 'Fale com o suporte',
-                              exibirSeta: true,
-                            ),
-                          ],
-                        ),
+                    ),
+                    SizedBox(height: 16.h),
+                    Text(
+                      'SOBRE',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16.r),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Column(
+                        children: [
+                          ContainerNhac(
+                            informacao: 'Termo de uso',
+                            exibirSeta: true,
+                          ),
+                          SizedBox(height: 8.h),
+                          Divider(),
+                          SizedBox(height: 8.h),
+                          ContainerNhac(
+                            informacao: 'Política de privacidade',
+                            exibirSeta: true,
+                          ),
+                          SizedBox(height: 8.h),
+                          Divider(),
+                          SizedBox(height: 8.h),
+                          ContainerNhac(
+                            informacao: 'Fale com o suporte',
+                            exibirSeta: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 4.h),
+                    Align(
+                      alignment: AlignmentGeometry.center,
+                      child: Text(
+                        'Nhac Lojas · versão 2.4.1',
+                        style: TextStyle(color: Colors.grey, fontSize: 10),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
