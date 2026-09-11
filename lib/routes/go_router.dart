@@ -28,6 +28,7 @@ import 'package:nhac_lojas/pages/mais-opcoes-pages/formas_pagamento_edicao_page.
 import 'package:nhac_lojas/pages/mais-opcoes-pages/funcionarios_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/horario_edicao_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/impressoras_page.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/informacao_funcionario.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/informacao_loja.dart';
 import 'package:nhac_lojas/pages/chat_open.dart';
 import 'package:nhac_lojas/pages/chat_page.dart';
@@ -190,6 +191,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/funcionarios',
       builder: (context, state) => const FuncionariosPage(),
+    ),
+    GoRoute(
+      path: '/informacao-funcionario',
+      builder: (context, state) => const InformacaoFuncionario(),
     ),
     GoRoute(
       path: '/impressoras',

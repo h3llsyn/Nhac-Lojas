@@ -20,7 +20,7 @@ class ContainerNhac extends StatelessWidget {
   final double? fontSize;
   final double? fontSizeComplemento;
   final FontWeight? fontWeightComplemento;
-  final int? maxLinesComplemento; // Novo parâmetro para controlar o maxLines do complemento
+  final int? maxLinesComplemento;
   final double? fontSizePreco;
   final StatusMensagem? statusMensagem;
   final int? quantidadeMensagens;
@@ -36,6 +36,7 @@ class ContainerNhac extends StatelessWidget {
   final bool exibirRadio;
   final bool exibirCheck;
   final ValueChanged<bool>? onCheckChanged;
+  final bool exibirCheckVerde; // <--- NOVO PARÂMETRO ADICIONADO AQUI
   final bool exibirSeta;
   final bool exibirSwitch;
   final bool ativoInicial;
@@ -66,7 +67,7 @@ class ContainerNhac extends StatelessWidget {
     this.fontSize,
     this.fontSizeComplemento,
     this.fontWeightComplemento,
-    this.maxLinesComplemento = 1, // Padrão é 1 linha
+    this.maxLinesComplemento = 1,
     this.fontSizePreco,
     this.statusMensagem,
     this.quantidadeMensagens,
@@ -82,6 +83,7 @@ class ContainerNhac extends StatelessWidget {
     this.exibirRadio = false,
     this.exibirCheck = false,
     this.onCheckChanged,
+    this.exibirCheckVerde = false, // <--- VALOR PADRÃO É FALSE
     this.exibirSeta = false,
     this.exibirSwitch = false,
     this.ativoInicial = false,
@@ -101,7 +103,7 @@ class ContainerNhac extends StatelessWidget {
     Color activeCorSituacao = corSituacao ?? Colors.transparent;
     Color activeCorSituacaoFundo = corSituacaoFundo ?? Colors.transparent;
 
-if (situacao != null && corSituacao == null) {
+    if (situacao != null && corSituacao == null) {
       switch (situacao) {
         case 'Em preparo':
           activeCorCirculo = Colors.blue;
@@ -189,8 +191,7 @@ if (situacao != null && corSituacao == null) {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
-                          color:
-                              corIcone ?? const Color.fromARGB(255, 93, 32, 28),
+                          color: corIcone ?? const Color.fromARGB(255, 93, 32, 28),
                         ),
                       ),
               ),
@@ -229,6 +230,16 @@ if (situacao != null && corSituacao == null) {
       content = Row(
         crossAxisAlignment: layoutAvaliacao ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: [
+          // --- RENDERIZAÇÃO DO CHECK VERDE LIMPO ---
+          if (exibirCheckVerde) ...[
+            Icon(
+              Icons.check,
+              color: Colors.green,
+              size: 18.sp,
+            ),
+            SizedBox(width: 12.w),
+          ],
+
           if (exibirCheck) ...[
             GestureDetector(
               onTap: () {
@@ -287,8 +298,7 @@ if (situacao != null && corSituacao == null) {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
-                          color:
-                              corIcone ?? const Color.fromARGB(255, 93, 32, 28),
+                          color: corIcone ?? const Color.fromARGB(255, 93, 32, 28),
                         ),
                       ),
               ),
