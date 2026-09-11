@@ -33,8 +33,6 @@ class FuncionariosPage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 24.h),
-              
-              // Conteúdo rolável encapsulado
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

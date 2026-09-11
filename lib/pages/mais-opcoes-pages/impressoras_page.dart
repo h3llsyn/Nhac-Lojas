@@ -171,7 +171,6 @@ class _ImpressorasPageState extends State<ImpressorasPage> {
                   ),
                 ),
               ),
-              
               SizedBox(height: 16.h),
               ButtonNhac(
                 texto: 'Adicionar impressora',

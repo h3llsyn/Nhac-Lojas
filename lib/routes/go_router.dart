@@ -17,6 +17,7 @@ import 'package:nhac_lojas/pages/mais-opcoes-pages/avaliacoes_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cadastrar_produtos.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_cheio_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cardapio_vazio_page.dart';
+import 'package:nhac_lojas/pages/mais-opcoes-pages/configuracoes_app.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/configuracoes_conta.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/criar_cupom_page.dart';
 import 'package:nhac_lojas/pages/mais-opcoes-pages/cupom_page.dart';
@@ -193,6 +194,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/impressoras',
       builder: (context, state) => const ImpressorasPage(),
+    ),
+    GoRoute(
+      path: '/configuracoes-app',
+      builder: (context, state) => const ConfiguracoesApp(),
     ),
     GoRoute(
       path: '/editar-info-loja',

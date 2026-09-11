@@ -135,13 +135,7 @@ class MorePage extends StatelessWidget {
                 informacao: 'Configurações',
                 complemento: 'Preferências do aplicativo',
                 exibirSeta: true,
-                onTap: () {
-                  showAppNotification(
-                    context,
-                    type: NotificationType.info,
-                    message: 'Trabaiano nisso calmaaaa'
-                  );
-                },
+                onTap: () => context.push('/configuracoes-app')
               ),
             ),
             const Divider(),
