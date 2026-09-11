@@ -124,13 +124,7 @@ class MorePage extends StatelessWidget {
                 informacao: 'Impressoras',
                 complemento: 'Gerencie suas impressoras',
                 exibirSeta: true,
-                onTap: () {
-                  showAppNotification(
-                    context,
-                    type: NotificationType.info,
-                    message: 'Trabaiano nisso calmaaaa'
-                  );
-                },
+                onTap: () => context.push('/impressoras')
               ),
             ),
             const Divider(),

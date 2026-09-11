@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nhac_lojas/components/app_notification.dart';
 import 'package:nhac_lojas/components/back_arrow.dart';
 import 'package:nhac_lojas/components/button_nhac.dart';
 import 'package:nhac_lojas/components/container_nhac.dart';
-import 'package:nhac_lojas/components/filter_tag.dart';
 
-class FuncionariosPage extends StatelessWidget {
-  const FuncionariosPage({super.key});
+class ImpressorasPage extends StatefulWidget {
+  const ImpressorasPage({super.key});
+
+  @override
+  State<ImpressorasPage> createState() => _ImpressorasPageState();
+}
+
+class _ImpressorasPageState extends State<ImpressorasPage> {
+  bool imprimirAutomatico = true;
+  bool viaCozinha = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class FuncionariosPage extends StatelessWidget {
                   const BackArrow(),
                   SizedBox(width: 12.w),
                   Text(
-                    'Funcionários',
+                    'Impressoras', // Corrigido de 'Funcionários' para 'Impressoras'
                     style: TextStyle(
                       fontSize: 20.sp,
                       fontWeight: FontWeight.bold,
@@ -40,11 +46,11 @@ class FuncionariosPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ListaFilterTags(
-                        filtros: ['Todos', 'Ativos', 'Pendentes'],
-                        quantidades: [4, 3, 1],
+                      Text(
+                        'SUAS IMPRESSORAS',
+                        style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 8.h),
                       Container(
                         width: double.infinity,
                         padding: EdgeInsets.all(16.r),
@@ -60,42 +66,11 @@ class FuncionariosPage extends StatelessWidget {
                                 horizontal: 4.w,
                               ),
                               child: ContainerNhac(
-                                letrasIcon: 'CA',
-                                informacao: 'Carlos Andrade',
-                                complemento: 'Proprietário', // Corrigido pequeno typo de 'Prorietário'
-                                situacao: 'Ativo',
-                                corSituacao: Colors.green,
-                                corSituacaoFundo: const Color.fromARGB(50, 76, 175, 79),
-                                corCirculo: Colors.green,
-                              ),
-                            ),
-                            Divider(),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 8.h,
-                                horizontal: 4.w,
-                              ),
-                              child: ContainerNhac(
-                                letrasIcon: 'MC',
-                                informacao: 'Maria Costa',
-                                complemento: 'Gerente',
-                                situacao: 'Ativo',
-                                corSituacao: Colors.green,
-                                corSituacaoFundo: const Color.fromARGB(50, 76, 175, 79),
-                                corCirculo: Colors.green,
-                              ),
-                            ),
-                            Divider(),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 8.h,
-                                horizontal: 4.w,
-                              ),
-                              child: ContainerNhac(
-                                letrasIcon: 'RN',
-                                informacao: 'Rafael Nunes',
-                                complemento: 'Atendente',
-                                situacao: 'Ativo',
+                                icon: Icons.print_outlined,
+                                corIcone: Color.fromARGB(255, 93, 32, 28),
+                                informacao: 'Balcão · Elgin i9',
+                                complemento: 'Bluetooth',
+                                situacao: 'Conectada',
                                 corSituacao: Colors.green,
                                 corSituacaoFundo: const Color.fromARGB(50, 76, 175, 79),
                                 corCirculo: Colors.green,
@@ -110,13 +85,19 @@ class FuncionariosPage extends StatelessWidget {
                                   horizontal: 4.w,
                                 ),
                                 child: ContainerNhac(
-                                  letrasIcon: 'LF',
-                                  informacao: 'Leonardo Ferreira',
-                                  complemento: 'Convite enviado',
-                                  situacao: 'Pendente',
-                                  corSituacao: Colors.orange,
-                                  corSituacaoFundo: const Color.fromARGB(50, 255, 153, 0),
-                                  corCirculo: Colors.orange,
+                                  icon: Icons.print_outlined,
+                                  corIcone: Color.fromARGB(255, 93, 32, 28),
+                                  informacao: 'Cozinha · Epson TM-T20',
+                                  complemento: 'Wi-Fi',
+                                  situacao: 'Offline',
+                                  corSituacao: Colors.grey,
+                                  corSituacaoFundo: const Color.fromARGB(
+                                    50,
+                                    158,
+                                    158,
+                                    158,
+                                  ),
+                                  corCirculo: Colors.grey,
                                 ),
                               ),
                             ),
@@ -125,11 +106,8 @@ class FuncionariosPage extends StatelessWidget {
                       ),
                       SizedBox(height: 16.h),
                       Text(
-                        'PERMISSÕES',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        'IMPRESSÃO AUTOMÁTICA',
+                        style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8.h),
                       Container(
@@ -141,16 +119,50 @@ class FuncionariosPage extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            ContainerNhac(
-                              informacao: 'Gerente',
-                              complemento: 'Acessa pedidos cardápio, financeiro e relatórios', // Corrigido 'financeito'
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 8.h,
+                                horizontal: 4.w,
+                              ),
+                              child: ContainerNhac(
+                                informacao: 'Imprimir ao aceitar pedido',
+                                complemento: 'Manda direto pra impressora do balcão',
+                                exibirSwitch: true,
+                                ativoInicial: imprimirAutomatico,
+                                onSwitchChanged: (valor) {
+                                  setState(() {
+                                    imprimirAutomatico = valor;
+                                  });
+                                },
+                                onTap: () => {
+                                  setState(() {
+                                    imprimirAutomatico = !imprimirAutomatico;
+                                  }),
+                                },
+                              ),
                             ),
-                            SizedBox(height: 4.h),
                             Divider(),
-                            SizedBox(height: 4.h),
-                            ContainerNhac(
-                              informacao: 'Atendente',
-                              complemento: 'Acessa apenas pedidos e mensagens',
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 8.h,
+                                horizontal: 4.w,
+                              ),
+                              child: ContainerNhac(
+                                informacao: 'Via da cozinha',
+                                complemento: 'Segunda via com os itens, sem valores',
+                                exibirSwitch: true,
+                                ativoInicial: viaCozinha,
+                                onSwitchChanged: (valor) {
+                                  setState(() {
+                                    viaCozinha = valor;
+                                  });
+                                },
+                                onTap: () => {
+                                  setState(() {
+                                    viaCozinha = !viaCozinha;
+                                  }),
+                                },
+                              ),
                             ),
                           ],
                         ),
@@ -161,10 +173,8 @@ class FuncionariosPage extends StatelessWidget {
               ),
               
               SizedBox(height: 16.h),
-              
-              // Botão fixo na parte inferior
               ButtonNhac(
-                texto: 'Convidar funcionário',
+                texto: 'Adicionar impressora',
                 onTap: () {
                   showAppNotification(
                     context,
